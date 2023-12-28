@@ -1,9 +1,6 @@
-import { config } from 'dotenv';
-config();
-
 import { PotoClient as Client } from '@potoland/core';
-import { Ratelimit } from '../utils/constants';
 import mongoose from 'mongoose';
+import { Ratelimit } from '../utils/constants';
 
 export async function main() {
   const client = new Client();
@@ -13,9 +10,7 @@ export async function main() {
     defaultLang: 'en-US',
   });
 
-  await client.start({
-    token: process.env.BT,
-  });
+  await client.start();
 
   await mongoose.connect(process.env.MONGO_URI!);
 }
