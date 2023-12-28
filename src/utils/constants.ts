@@ -1,5 +1,6 @@
 import { ApplicationCommandOptionType } from '@biscuitland/common';
 import { createOption, OKFunction, StopFunction } from '@potoland/core';
+import { Image } from 'imagescript';
 
 export enum LeagueRegion {
   BRAZIL = 'br',
@@ -82,6 +83,43 @@ export const searchOptions = {
     value(value: string, ok: OKFunction<string>) {
       ok(value);
     },
+  }),
+};
+
+export const HextechColors = {
+  BLUE1: 0xcdfafaff,
+  BLUE2: 0x0ac8b9ff,
+  BLUE3: 0x0397abff,
+  BLUE4: 0x005a82ff,
+  BLUE5: 0x0a323cff,
+  BLUE6: 0x091428ff,
+  BLUE7: 0x0a1428ff,
+  GOLD1: 0xf0e6d2ff,
+  GOLD2: 0xc8aa6eff,
+  GOLD3: 0xc8aa6eff,
+  GOLD4: 0xc89b3cff,
+  GOLD5: 0x785a28ff,
+  GOLD6: 0x463714ff,
+  GOLD7: 0x32281eff,
+  GREY1: 0xa09b8cff,
+  GREY2: 0x3c3c41ff,
+  GREY3: 0x1e2328ff,
+  GREY4: 0x1e282dff,
+  BLACK: 0x010a13ff,
+} as const;
+
+export const gardients = {
+  DarkBlue: Image.gradient({
+    0: HextechColors.BLUE6,
+    1: HextechColors.BLUE7,
+  }),
+  Gold: Image.gradient({
+    0: HextechColors.GOLD5,
+    1: HextechColors.GOLD4,
+  }),
+  Blue: Image.gradient({
+    0: HextechColors.BLUE4,
+    1: HextechColors.BLUE2,
   }),
 };
 

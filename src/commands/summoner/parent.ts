@@ -7,4 +7,4 @@ import DeferReply from '../../middlewares/deferReply';
 })
 @Middlewares([DeferReply])
 @AutoLoad()
-export default class SummonerCommand extends Command { }
+export default class SummonerCommand extends Command {}

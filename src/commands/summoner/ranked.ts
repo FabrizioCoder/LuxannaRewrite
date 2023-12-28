@@ -3,6 +3,7 @@ import { CommandContext, Declare, Options, SubCommand } from '@potoland/core';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { EmbedColors, searchOptions } from '../../utils/constants';
 import {
+  calculateWinrate,
   capitalizeString,
   getEmote,
   makeIconURL,
@@ -16,6 +17,20 @@ import {
 @Options(searchOptions)
 export default class RankedCommand extends SubCommand {
   async run(ctx: CommandContext<'client', typeof searchOptions>) {
+    function formatRanked(league: {
+      tier: string;
+      rank: string;
+      lp: number;
+      wins: number;
+      losses: number;
+    }) {
+      return `${getEmote(capitalizeString(league.tier))} ${capitalizeString(
+        league.tier
+      )} ${league.rank} **${league.lp}** LP\n**${league.wins}**W **${
+        league.losses
+      }**L **${calculateWinrate(league.wins, league.losses)}%** WR`;
+    }
+
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,
@@ -40,8 +55,21 @@ export default class RankedCommand extends SubCommand {
       });
 
     const SummonerRankeds = await summoner.getLeague();
+    // const img = await makeRankedProfile(SummonerRankeds);
+
+    // return ctx.editOrReply(
+    //   {
+    //     content: 'Ranked profile',
+    //   },
+    //   [
+    //     {
+    //       data: img,
+    //       name: 'ranked.png',
+    //     },
+    //   ]
+    // );
     const soloQ = await SummonerRankeds.getSoloQueue();
-    const flexQ = await SummonerRankeds.getFlexQueue();
+    const flex = await SummonerRankeds.getFlexQueue();
 
     const RankedEmbed = new MessageEmbed()
       .setColor(EmbedColors.BLUE)
@@ -53,32 +81,38 @@ export default class RankedCommand extends SubCommand {
       .addFields([
         soloQ
           ? {
-            name: 'Solo/Duo',
-            value: `${getEmote(
-              capitalizeString(soloQ.tier!)
-            )} ${capitalizeString(soloQ.tier!)} ${soloQ.rank} ${soloQ.leaguePoints
-              } LP`,
-            inline: true,
-          }
+              name: 'Solo/Duo',
+              value: formatRanked({
+                tier: soloQ.tier!,
+                rank: soloQ.rank!,
+                lp: soloQ.leaguePoints,
+                wins: soloQ.wins,
+                losses: soloQ.losses,
+              }),
+              inline: true,
+            }
           : {
-            name: 'Solo/Duo',
-            value: `${getEmote('Unranked')} *Unranked*`,
-            inline: true,
-          },
-        flexQ
+              name: 'Solo/Duo',
+              value: `${getEmote('Unranked')} *Unranked*`,
+              inline: true,
+            },
+        flex
           ? {
-            name: 'Flex',
-            value: `${getEmote(
-              capitalizeString(flexQ.tier!)
-            )} ${capitalizeString(flexQ.tier!)} ${flexQ.rank} ${flexQ.leaguePoints
-              } LP`,
-            inline: true,
-          }
+              name: 'Flex',
+              value: formatRanked({
+                tier: flex.tier!,
+                rank: flex.rank!,
+                lp: flex.leaguePoints,
+                wins: flex.wins,
+                losses: flex.losses,
+              }),
+              inline: true,
+            }
           : {
-            name: 'Flex',
-            value: `${getEmote('Unranked')} *Unranked*`,
-            inline: true,
-          },
+              name: 'Flex',
+              value: `${getEmote('Unranked')} *Unranked*`,
+              inline: true,
+            },
       ]);
 
     return ctx.editOrReply({

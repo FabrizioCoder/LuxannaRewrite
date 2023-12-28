@@ -2,7 +2,6 @@ import { ApplicationCommandOptionType } from '@biscuitland/common';
 import {
   CommandContext,
   Declare,
-  Middlewares,
   OKFunction,
   Options,
   StopFunction,
@@ -11,7 +10,6 @@ import {
 } from '@potoland/core';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { userModel } from '../../app/models/user';
-import DeferEphemeral from '../../middlewares/deferEphemeral';
 import { RegionChoices } from '../../utils/constants';
 import { ApplyCooldown } from '../../utils/functions';
 
@@ -54,7 +52,6 @@ const options = {
   type: 'user',
 })
 @Options(options)
-@Middlewares([DeferEphemeral])
 export default class LinkCommand extends SubCommand {
   async run(ctx: CommandContext<'client', typeof options>) {
     const [gameName, tagLine] = ctx.options['riot-id'].split('#');
