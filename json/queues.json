@@ -1,0 +1,1106 @@
+{
+  "0": {
+    "name": "Custom",
+    "shortName": "Custom",
+    "description": "Custom",
+    "detailedDescription": ""
+  },
+  "1": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": "Normal (Blind Pick)"
+  },
+  "2": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": "Normal (Blind Pick)"
+  },
+  "8": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": "Normal (Blind Pick)"
+  },
+  "9": {
+    "name": "Ranked Flex",
+    "shortName": "Ranked Flex",
+    "description": "Ranked Flex",
+    "detailedDescription": ""
+  },
+  "14": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Draft Pick",
+    "detailedDescription": "Normal (Draft Pick)"
+  },
+  "31": {
+    "name": "Intro",
+    "shortName": "Intro",
+    "description": "Intro",
+    "detailedDescription": ""
+  },
+  "32": {
+    "name": "Beginner",
+    "shortName": "Beginner",
+    "description": "Beginner",
+    "detailedDescription": ""
+  },
+  "33": {
+    "name": "Intermediate",
+    "shortName": "Intermediate",
+    "description": "Intermediate",
+    "detailedDescription": ""
+  },
+  "34": {
+    "name": "Intro",
+    "shortName": "Intro",
+    "description": "Intro",
+    "detailedDescription": ""
+  },
+  "35": {
+    "name": "Beginner",
+    "shortName": "Beginner",
+    "description": "Beginner",
+    "detailedDescription": ""
+  },
+  "36": {
+    "name": "Intermediate",
+    "shortName": "Intermediate",
+    "description": "Intermediate",
+    "detailedDescription": ""
+  },
+  "41": {
+    "name": "Team",
+    "shortName": "Team",
+    "description": "Team",
+    "detailedDescription": ""
+  },
+  "42": {
+    "name": "Team",
+    "shortName": "Team",
+    "description": "Team",
+    "detailedDescription": ""
+  },
+  "52": {
+    "name": "Beginner",
+    "shortName": "Beginner",
+    "description": "Beginner",
+    "detailedDescription": ""
+  },
+  "62": {
+    "name": "ARAM",
+    "shortName": "ARAM",
+    "description": "ARAM",
+    "detailedDescription": ""
+  },
+  "63": {
+    "name": "ARAM",
+    "shortName": "ARAM",
+    "description": "ARAM",
+    "detailedDescription": ""
+  },
+  "64": {
+    "name": "ARAM",
+    "shortName": "ARAM",
+    "description": "ARAM",
+    "detailedDescription": ""
+  },
+  "65": {
+    "name": "ARAM",
+    "shortName": "ARAM",
+    "description": "ARAM",
+    "detailedDescription": ""
+  },
+  "90": {
+    "name": "The Teemoing",
+    "shortName": "The Teemoing",
+    "description": "The Teemoing",
+    "detailedDescription": ""
+  },
+  "91": {
+    "name": "The Teemoing",
+    "shortName": "The Teemoing",
+    "description": "The Teemoing",
+    "detailedDescription": ""
+  },
+  "92": {
+    "name": "Level 100 Gauntlet",
+    "shortName": "Level 100 Gauntlet",
+    "description": "Level 100 Gauntlet",
+    "detailedDescription": ""
+  },
+  "96": {
+    "name": "Ascension",
+    "shortName": "Ascension",
+    "description": "Ascension",
+    "detailedDescription": ""
+  },
+  "97": {
+    "name": "Ascension",
+    "shortName": "Ascension",
+    "description": "Ascension",
+    "detailedDescription": ""
+  },
+  "100": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": "Normal (Blind Pick)"
+  },
+  "300": {
+    "name": "Legend of the Poro King",
+    "shortName": "Poro King",
+    "description": "Poro King",
+    "detailedDescription": ""
+  },
+  "301": {
+    "name": "Legend of the Poro King",
+    "shortName": "Poro King",
+    "description": "Poro King",
+    "detailedDescription": ""
+  },
+  "314": {
+    "name": "Nexus Siege",
+    "shortName": "Nexus Siege",
+    "description": "Nexus Siege",
+    "detailedDescription": ""
+  },
+  "315": {
+    "name": "Nexus Siege",
+    "shortName": "Nexus Siege",
+    "description": "Nexus Siege",
+    "detailedDescription": ""
+  },
+  "316": {
+    "name": "Definitely Not Dominion",
+    "shortName": "Definitely Not Dominion",
+    "description": "Definitely Not Dominion",
+    "detailedDescription": ""
+  },
+  "317": {
+    "name": "Definitely Not Dominion",
+    "shortName": "Definitely Not Dominion",
+    "description": "Definitely Not Dominion",
+    "detailedDescription": ""
+  },
+  "318": {
+    "name": "AR Ultra Rapid Fire",
+    "shortName": "ARURF",
+    "description": "AR Ultra Rapid Fire",
+    "detailedDescription": ""
+  },
+  "319": {
+    "name": "AR Ultra Rapid Fire",
+    "shortName": "ARURF",
+    "description": "AR Ultra Rapid Fire",
+    "detailedDescription": ""
+  },
+  "320": {
+    "name": "Blood Moon",
+    "shortName": "Blood Moon",
+    "description": "Blood Moon",
+    "detailedDescription": ""
+  },
+  "321": {
+    "name": "Blood Moon",
+    "shortName": "Blood Moon",
+    "description": "Blood Moon",
+    "detailedDescription": ""
+  },
+  "324": {
+    "name": "ARSR",
+    "shortName": "ARSR",
+    "description": "ARSR",
+    "detailedDescription": ""
+  },
+  "325": {
+    "name": "ARSR",
+    "shortName": "ARSR",
+    "description": "ARSR",
+    "detailedDescription": ""
+  },
+  "400": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Draft Pick",
+    "detailedDescription": "Normal (Draft Pick)"
+  },
+  "401": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Draft Pick",
+    "detailedDescription": "Normal (Draft Pick)"
+  },
+  "402": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Draft Pick",
+    "detailedDescription": "Normal (Draft Pick)"
+  },
+  "403": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Draft Pick",
+    "detailedDescription": "Normal (Draft Pick)"
+  },
+  "410": {
+    "name": "Ranked",
+    "shortName": "Ranked",
+    "description": "Ranked Draft",
+    "detailedDescription": ""
+  },
+  "411": {
+    "name": "Ranked",
+    "shortName": "Ranked",
+    "description": "Ranked Draft",
+    "detailedDescription": ""
+  },
+  "412": {
+    "name": "Ranked",
+    "shortName": "Ranked",
+    "description": "Ranked Draft",
+    "detailedDescription": ""
+  },
+  "413": {
+    "name": "Ranked",
+    "shortName": "Ranked",
+    "description": "Ranked Draft",
+    "detailedDescription": ""
+  },
+  "420": {
+    "name": "Ranked Solo/Duo",
+    "shortName": "Ranked Solo/Duo",
+    "description": "Ranked Solo/Duo",
+    "detailedDescription": ""
+  },
+  "421": {
+    "name": "Ranked Solo/Duo",
+    "shortName": "Ranked Solo/Duo",
+    "description": "Ranked Solo/Duo",
+    "detailedDescription": ""
+  },
+  "422": {
+    "name": "Ranked Solo/Duo",
+    "shortName": "Ranked Solo/Duo",
+    "description": "Ranked Solo/Duo",
+    "detailedDescription": ""
+  },
+  "430": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": "Normal (Blind Pick)"
+  },
+  "431": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": ""
+  },
+  "432": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": ""
+  },
+  "433": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": "Normal (Blind Pick)"
+  },
+  "440": {
+    "name": "Ranked Flex",
+    "shortName": "Ranked Flex",
+    "description": "Ranked Flex",
+    "detailedDescription": ""
+  },
+  "441": {
+    "name": "Ranked Flex",
+    "shortName": "Ranked Flex",
+    "description": "Ranked Flex",
+    "detailedDescription": ""
+  },
+  "442": {
+    "name": "Ranked Flex",
+    "shortName": "Ranked Flex",
+    "description": "Ranked Flex",
+    "detailedDescription": ""
+  },
+  "450": {
+    "name": "ARAM",
+    "shortName": "ARAM",
+    "description": "ARAM",
+    "detailedDescription": ""
+  },
+  "451": {
+    "name": "3v3",
+    "shortName": "3v3",
+    "description": "3v3",
+    "detailedDescription": ""
+  },
+  "452": {
+    "name": "1v1",
+    "shortName": "1v1",
+    "description": "1v1",
+    "detailedDescription": ""
+  },
+  "460": {
+    "name": "Normal",
+    "shortName": "Normal",
+    "description": "Blind Pick",
+    "detailedDescription": "Normal (Blind Pick)"
+  },
+  "461": {
+    "name": "Twisted Treeline 1v1",
+    "shortName": "Twisted Treeline 1v1",
+    "description": "Twisted Treeline 1v1",
+    "detailedDescription": "Twisted Treeline 1v1"
+  },
+  "470": {
+    "name": "Ranked Flex",
+    "shortName": "Ranked Flex",
+    "description": "Ranked Flex",
+    "detailedDescription": ""
+  },
+  "600": {
+    "name": "Blood Moon",
+    "shortName": "Blood Moon",
+    "description": "Blood Moon",
+    "detailedDescription": ""
+  },
+  "601": {
+    "name": "Blood Moon",
+    "shortName": "Blood Moon",
+    "description": "Blood Moon",
+    "detailedDescription": ""
+  },
+  "610": {
+    "name": "Dark Star: Singularity",
+    "shortName": "Dark Star",
+    "description": "Dark Star: Singularity",
+    "detailedDescription": ""
+  },
+  "611": {
+    "name": "Dark Star: Singularity",
+    "shortName": "Dark Star",
+    "description": "Dark Star: Singularity",
+    "detailedDescription": ""
+  },
+  "700": {
+    "name": "Clash",
+    "shortName": "Clash",
+    "description": "Clash",
+    "detailedDescription": ""
+  },
+  "701": {
+    "name": "Clash",
+    "shortName": "Clash",
+    "description": "Clash",
+    "detailedDescription": ""
+  },
+  "800": {
+    "name": "Intermediate",
+    "shortName": "Intermediate",
+    "description": "Intermediate",
+    "detailedDescription": ""
+  },
+  "801": {
+    "name": "Co-op vs. AI",
+    "shortName": "Co-op vs. AI",
+    "description": "Co-op vs. AI",
+    "detailedDescription": ""
+  },
+  "810": {
+    "name": "Intro",
+    "shortName": "Intro",
+    "description": "Intro",
+    "detailedDescription": ""
+  },
+  "820": {
+    "name": "Beginner",
+    "shortName": "Beginner",
+    "description": "Beginner",
+    "detailedDescription": ""
+  },
+  "830": {
+    "name": "Intro",
+    "shortName": "Intro",
+    "description": "Intro",
+    "detailedDescription": ""
+  },
+  "831": {
+    "name": "Bots Intro 3v3",
+    "shortName": "Bots Intro 3v3",
+    "description": "Bots Intro 3v3",
+    "detailedDescription": "Bots Intro 3v3"
+  },
+  "832": {
+    "name": "Bots Intro 1v1",
+    "shortName": "Bots Intro 1v1",
+    "description": "Bots Intro 1v1",
+    "detailedDescription": "Bots Intro 1v1"
+  },
+  "840": {
+    "name": "Beginner",
+    "shortName": "Beginner",
+    "description": "Beginner",
+    "detailedDescription": ""
+  },
+  "841": {
+    "name": "Bots Easy 3v3",
+    "shortName": "Bots Easy 3v3",
+    "description": "Bots Easy 3v3",
+    "detailedDescription": "Bots Easy 3v3"
+  },
+  "842": {
+    "name": "Bots Easy 1v1",
+    "shortName": "Bots Easy 1v1",
+    "description": "Bots Easy 1v1",
+    "detailedDescription": "Bots Easy 1v1"
+  },
+  "850": {
+    "name": "Intermediate",
+    "shortName": "Intermediate",
+    "description": "Intermediate",
+    "detailedDescription": ""
+  },
+  "851": {
+    "name": "Bots Medium 3v3",
+    "shortName": "Bots Medium 3v3",
+    "description": "Bots Medium 3v3",
+    "detailedDescription": "Bots Medium 3v3"
+  },
+  "852": {
+    "name": "Bots Medium 1v1",
+    "shortName": "Bots Medium 1v1",
+    "description": "Bots Medium 1v1",
+    "detailedDescription": "Bots Medium 1v1"
+  },
+  "860": {
+    "name": "ARAM 5v5 Bots",
+    "shortName": "ARAM 5v5 Bots",
+    "description": "ARAM 5v5 Bots",
+    "detailedDescription": "ARAM 5v5 Bots"
+  },
+  "900": {
+    "name": "AR Ultra Rapid Fire",
+    "shortName": "ARURF",
+    "description": "AR Ultra Rapid Fire",
+    "detailedDescription": ""
+  },
+  "901": {
+    "name": "ARURF 1v1",
+    "shortName": "ARURF 1v1",
+    "description": "ARURF 1v1",
+    "detailedDescription": ""
+  },
+  "902": {
+    "name": "ARURF 2v2",
+    "shortName": "ARURF 2v2",
+    "description": "ARURF 2v2",
+    "detailedDescription": ""
+  },
+  "903": {
+    "name": "ARURF 3v3",
+    "shortName": "ARURF 3v3",
+    "description": "ARURF 3v3",
+    "detailedDescription": ""
+  },
+  "904": {
+    "name": "ARURF 4v4",
+    "shortName": "ARURF 4v4",
+    "description": "ARURF 4v4",
+    "detailedDescription": ""
+  },
+  "910": {
+    "name": "Ascension",
+    "shortName": "Ascension",
+    "description": "Ascension",
+    "detailedDescription": ""
+  },
+  "911": {
+    "name": "Ascension",
+    "shortName": "Ascension",
+    "description": "Ascension",
+    "detailedDescription": ""
+  },
+  "920": {
+    "name": "Legend of the Poro King",
+    "shortName": "Poro King",
+    "description": "Poro King",
+    "detailedDescription": ""
+  },
+  "921": {
+    "name": "Legend of the Poro King",
+    "shortName": "Poro King",
+    "description": "Poro King",
+    "detailedDescription": ""
+  },
+  "930": {
+    "name": "ARAM",
+    "shortName": "ARAM",
+    "description": "ARAM",
+    "detailedDescription": ""
+  },
+  "931": {
+    "name": "ARAM",
+    "shortName": "ARAM",
+    "description": "ARAM",
+    "detailedDescription": ""
+  },
+  "940": {
+    "name": "Nexus Siege",
+    "shortName": "Nexus Siege",
+    "description": "Nexus Siege",
+    "detailedDescription": ""
+  },
+  "941": {
+    "name": "Nexus Siege",
+    "shortName": "Nexus Siege",
+    "description": "Nexus Siege",
+    "detailedDescription": ""
+  },
+  "950": {
+    "name": "Level 100 Gauntlet",
+    "shortName": "Level 100 Gauntlet",
+    "description": "Level 100 Gauntlet",
+    "detailedDescription": ""
+  },
+  "951": {
+    "name": "Level 100 Gauntlet",
+    "shortName": "Level 100 Gauntlet",
+    "description": "Level 100 Gauntlet",
+    "detailedDescription": ""
+  },
+  "960": {
+    "name": "The Teemoing",
+    "shortName": "The Teemoing",
+    "description": "The Teemoing",
+    "detailedDescription": ""
+  },
+  "961": {
+    "name": "The Teemoing",
+    "shortName": "The Teemoing",
+    "description": "The Teemoing",
+    "detailedDescription": ""
+  },
+  "970": {
+    "name": "Hexakill",
+    "shortName": "Hexakill",
+    "description": "Hexakill",
+    "detailedDescription": ""
+  },
+  "971": {
+    "name": "Hexakill 1v1",
+    "shortName": "Hexakill 1v1",
+    "description": "Hexakill 1v1",
+    "detailedDescription": "Hexakill 1v1"
+  },
+  "980": {
+    "name": "Invasion (Normal)",
+    "shortName": "Invasion (Normal)",
+    "description": "Normal",
+    "detailedDescription": "Invasion (Normal)"
+  },
+  "981": {
+    "name": "Invasion (Normal)",
+    "shortName": "Invasion (Normal)",
+    "description": "Normal",
+    "detailedDescription": "Invasion (Normal)"
+  },
+  "982": {
+    "name": "Invasion (Normal)",
+    "shortName": "Invasion (Normal)",
+    "description": "Normal",
+    "detailedDescription": "Invasion (Normal)"
+  },
+  "990": {
+    "name": "Invasion (Onslaught)",
+    "shortName": "Invasion (Onslaught)",
+    "description": "Onslaught",
+    "detailedDescription": "Invasion (Onslaught)"
+  },
+  "1000": {
+    "name": "Overcharge",
+    "shortName": "Overcharge",
+    "description": "Overcharge",
+    "detailedDescription": ""
+  },
+  "1001": {
+    "name": "Overcharge",
+    "shortName": "Overcharge",
+    "description": "Overcharge",
+    "detailedDescription": ""
+  },
+  "1010": {
+    "name": "Snow Battle ARURF",
+    "shortName": "Snow ARURF",
+    "description": "Snow Battle ARURF",
+    "detailedDescription": ""
+  },
+  "1011": {
+    "name": "Snow Battle ARURF",
+    "shortName": "Snow ARURF",
+    "description": "Snow Battle ARURF",
+    "detailedDescription": ""
+  },
+  "1012": {
+    "name": "Snow Battle ARURF",
+    "shortName": "Snow ARURF",
+    "description": "Snow Battle ARURF",
+    "detailedDescription": ""
+  },
+  "1020": {
+    "name": "One For All",
+    "shortName": "One For All",
+    "description": "One For All",
+    "detailedDescription": ""
+  },
+  "1021": {
+    "name": "1v1",
+    "shortName": "1v1",
+    "description": "1v1",
+    "detailedDescription": ""
+  },
+  "1022": {
+    "name": "3v3",
+    "shortName": "3v3",
+    "description": "3v3",
+    "detailedDescription": ""
+  },
+  "1023": {
+    "name": "2v2",
+    "shortName": "2v2",
+    "description": "2v2",
+    "detailedDescription": ""
+  },
+  "1024": {
+    "name": "4v4",
+    "shortName": "4v4",
+    "description": "4v4",
+    "detailedDescription": ""
+  },
+  "1030": {
+    "name": "Odyssey (Intro)",
+    "shortName": "Odyssey (Intro)",
+    "description": "Intro",
+    "detailedDescription": "Odyssey (Intro)"
+  },
+  "1031": {
+    "name": "Odyssey Intro 1v0",
+    "shortName": "Odyssey Intro 1v0",
+    "description": "Odyssey Intro 1v0",
+    "detailedDescription": "Odyssey Intro 1v0"
+  },
+  "1032": {
+    "name": "Odyssey Intro 3v0",
+    "shortName": "Odyssey Intro 3v0",
+    "description": "Odyssey Intro 3v0",
+    "detailedDescription": "Odyssey Intro 3v0"
+  },
+  "1040": {
+    "name": "Odyssey (Cadet)",
+    "shortName": "Odyssey (Cadet)",
+    "description": "Cadet",
+    "detailedDescription": "Odyssey (Cadet)"
+  },
+  "1041": {
+    "name": "Odyssey Easy 1v0",
+    "shortName": "Odyssey Easy 1v0",
+    "description": "Odyssey Easy 1v0",
+    "detailedDescription": "Odyssey Easy 1v0"
+  },
+  "1050": {
+    "name": "Odyssey (Crewmember)",
+    "shortName": "Odyssey (Crewmember)",
+    "description": "Crewmember",
+    "detailedDescription": "Odyssey (Crewmember)"
+  },
+  "1051": {
+    "name": "Odyssey Medium 1v0",
+    "shortName": "Odyssey Medium 1v0",
+    "description": "Odyssey Medium 1v0",
+    "detailedDescription": "Odyssey Medium 1v0"
+  },
+  "1060": {
+    "name": "Odyssey (Captain)",
+    "shortName": "Odyssey (Captain)",
+    "description": "Captain",
+    "detailedDescription": "Odyssey (Captain)"
+  },
+  "1061": {
+    "name": "Odyssey Hard 1v0",
+    "shortName": "Odyssey Hard 1v0",
+    "description": "Odyssey Hard 1v0",
+    "detailedDescription": "Odyssey Hard 1v0"
+  },
+  "1070": {
+    "name": "Odyssey (Onslaught)",
+    "shortName": "Odyssey (Onslaught)",
+    "description": "Onslaught",
+    "detailedDescription": "Odyssey (Onslaught)"
+  },
+  "1071": {
+    "name": "Odyssey Uber 1v0",
+    "shortName": "Odyssey Uber 1v0",
+    "description": "Odyssey Uber 1v0",
+    "detailedDescription": "Odyssey Uber 1v0"
+  },
+  "1090": {
+    "name": "Teamfight Tactics (Normal)",
+    "shortName": "Teamfight Tactics (Normal)",
+    "description": "Normal",
+    "detailedDescription": "Teamfight Tactics (Normal)"
+  },
+  "1091": {
+    "name": "1v0",
+    "shortName": "1v0",
+    "description": "1v0",
+    "detailedDescription": ""
+  },
+  "1092": {
+    "name": "2v0",
+    "shortName": "2v0",
+    "description": "2v0",
+    "detailedDescription": ""
+  },
+  "1093": {
+    "name": "3v0",
+    "shortName": "3v0",
+    "description": "3v0",
+    "detailedDescription": ""
+  },
+  "1094": {
+    "name": "4v0",
+    "shortName": "4v0",
+    "description": "4v0",
+    "detailedDescription": ""
+  },
+  "1100": {
+    "name": "Teamfight Tactics (Ranked)",
+    "shortName": "Teamfight Tactics (Ranked)",
+    "description": "Ranked",
+    "detailedDescription": "Teamfight Tactics (Ranked)"
+  },
+  "1101": {
+    "name": "1v0 (Ranked)",
+    "shortName": "1v0 (Ranked)",
+    "description": "1v0 (Ranked)",
+    "detailedDescription": ""
+  },
+  "1102": {
+    "name": "2v0 (Ranked)",
+    "shortName": "2v0 (Ranked)",
+    "description": "2v0 (Ranked)",
+    "detailedDescription": ""
+  },
+  "1110": {
+    "name": "Teamfight Tactics (Tutorial)",
+    "shortName": "Teamfight Tactics (Tutorial)",
+    "description": "Tutorial",
+    "detailedDescription": ""
+  },
+  "1111": {
+    "name": "TFT Simulation ",
+    "shortName": "TFT Simulation",
+    "description": "Simulation",
+    "detailedDescription": ""
+  },
+  "1120": {
+    "name": "Teamfight Tactics (Normal Hyper Roll)",
+    "shortName": "Teamfight Tactics (Normal Hyper Roll)",
+    "description": "Normal Hyper Roll",
+    "detailedDescription": "Teamfight Tactics (Normal Hyper Roll)"
+  },
+  "1121": {
+    "name": "1v0 (Normal Hyper Roll)",
+    "shortName": "1v0 (Normal Hyper Roll)",
+    "description": "1v0 (Normal Hyper Roll)",
+    "detailedDescription": ""
+  },
+  "1122": {
+    "name": "2v0 (Normal Hyper Roll)",
+    "shortName": "2v0 (Normal Hyper Roll)",
+    "description": "2v0 (Normal Hyper Roll)",
+    "detailedDescription": ""
+  },
+  "1130": {
+    "name": "Teamfight Tactics (Hyper Roll)",
+    "shortName": "Teamfight Tactics (Hyper Roll)",
+    "description": "Hyper Roll",
+    "detailedDescription": "Teamfight Tactics (Hyper Roll)"
+  },
+  "1131": {
+    "name": "1v0 (Hyper Roll)",
+    "shortName": "1v0 (Hyper Roll)",
+    "description": "1v0 (Hyper Roll)",
+    "detailedDescription": ""
+  },
+  "1132": {
+    "name": "2v0 (Hyper Roll)",
+    "shortName": "2v0 (Hyper Roll)",
+    "description": "2v0 (Hyper Roll)",
+    "detailedDescription": ""
+  },
+  "1140": {
+    "name": "Teamfight Tactics (Normal Double Up)",
+    "shortName": "Teamfight Tactics (Normal Double Up)",
+    "description": "Normal Double Up",
+    "detailedDescription": "Teamfight Tactics (Normal Double Up)"
+  },
+  "1141": {
+    "name": "Teamfight Tactics (Double Up 1v7 Bots)",
+    "shortName": "Teamfight Tactics (Double Up 1v7 Bots)",
+    "description": "1v7 Bots (Double Up)",
+    "detailedDescription": "Teamfight Tactics (Double Up 1v7 Bots)"
+  },
+  "1142": {
+    "name": "2v0 (Normal Double Up)",
+    "shortName": "2v0 (Normal Double Up)",
+    "description": "2v0 (Normal Double Up)",
+    "detailedDescription": "2v0 (Normal Double Up)"
+  },
+  "1143": {
+    "name": "4v0 (Normal Double Up)",
+    "shortName": "4v0 (Normal Double Up)",
+    "description": "4v0 (Normal Double Up)",
+    "detailedDescription": "4v0 (Normal Double Up)"
+  },
+  "1150": {
+    "name": "Teamfight Tactics (Double Up Workshop)",
+    "shortName": "Teamfight Tactics (Double Up Workshop)",
+    "description": "Double Up (Workshop)",
+    "detailedDescription": "Teamfight Tactics (Double Up Workshop)"
+  },
+  "1151": {
+    "name": "2v0 (Double Up)",
+    "shortName": "2v0 (Double Up)",
+    "description": "2v0 (Double Up)",
+    "detailedDescription": "2v0 (Double Up)"
+  },
+  "1152": {
+    "name": "4v0 (Double Up)",
+    "shortName": "4v0 (Double Up)",
+    "description": "4v0 (Double Up)",
+    "detailedDescription": "4v0 (Double Up)"
+  },
+  "1160": {
+    "name": "Teamfight Tactics (Double Up Workshop)",
+    "shortName": "Teamfight Tactics (Double Up Workshop)",
+    "description": "Double Up (Workshop)",
+    "detailedDescription": "Teamfight Tactics (Double Up Workshop)"
+  },
+  "1161": {
+    "name": "2v0 (Double Up)",
+    "shortName": "2v0 (Double Up)",
+    "description": "2v0 (Double Up)",
+    "detailedDescription": "2v0 (Double Up)"
+  },
+  "1162": {
+    "name": "4v0 (Double Up)",
+    "shortName": "4v0 (Double Up)",
+    "description": "4v0 (Double Up)",
+    "detailedDescription": "4v0 (Double Up)"
+  },
+  "1170": {
+    "name": "Teamfight Tactics (Fortune's Favor)",
+    "shortName": "Teamfight Tactics (Fortune's Favor)",
+    "description": "Fortune's Favor",
+    "detailedDescription": "Teamfight Tactics (Fortune's Favor)"
+  },
+  "1171": {
+    "name": "1v0 (Fortune's Favor)",
+    "shortName": "1v0 (Fortune's Favor)",
+    "description": "1v0 (Fortune's Favor)",
+    "detailedDescription": "1v0 (Fortune's Favor)"
+  },
+  "1172": {
+    "name": "2v0 (Fortune's Favor)",
+    "shortName": "2v0 (Fortune's Favor)",
+    "description": "2v0 (Fortune's Favor)",
+    "detailedDescription": "2v0 (Fortune's Favor)"
+  },
+  "1175": {
+    "name": "1v7 Bots (Fortune's Favor)",
+    "shortName": "1v7 Bots (Fortune's Favor)",
+    "description": "1v7 Bots (Fortune's Favor)",
+    "detailedDescription": "1v7 Bots (Fortune's Favor)"
+  },
+  "1180": {
+    "name": "Teamfight Tactics (Soul Brawl)",
+    "shortName": "Teamfight Tactics (Soul Brawl)",
+    "description": "Soul Brawl",
+    "detailedDescription": "Teamfight Tactics (Soul Brawl)"
+  },
+  "1181": {
+    "name": "1v0 (Soul Brawl)",
+    "shortName": "1v0 (Soul Brawl)",
+    "description": "1v0 (Soul Brawl)",
+    "detailedDescription": "1v0 (Soul Brawl)"
+  },
+  "1182": {
+    "name": "2v0 (Soul Brawl)",
+    "shortName": "2v0 (Soul Brawl)",
+    "description": "2v0 (Soul Brawl)",
+    "detailedDescription": "2v0 (Soul Brawl)"
+  },
+  "1185": {
+    "name": "1v7 Bots (Soul Brawl)",
+    "shortName": "1v7 Bots (Soul Brawl)",
+    "description": "1v7 Bots (Soul Brawl)",
+    "detailedDescription": "1v7 Bots (Soul Brawl)"
+  },
+  "1200": {
+    "name": "Nexus Blitz",
+    "shortName": "Nexus Blitz",
+    "description": "Blind Pick",
+    "detailedDescription": ""
+  },
+  "1201": {
+    "name": "1v1",
+    "shortName": "1v1",
+    "description": "1v1",
+    "detailedDescription": "1v1"
+  },
+  "1300": {
+    "name": "Nexus Blitz",
+    "shortName": "Nexus Blitz",
+    "description": "Blind Pick",
+    "detailedDescription": ""
+  },
+  "1301": {
+    "name": "1v1",
+    "shortName": "1v1",
+    "description": "1v1",
+    "detailedDescription": "1v1"
+  },
+  "1302": {
+    "name": "2v2",
+    "shortName": "2v2",
+    "description": "2v2",
+    "detailedDescription": ""
+  },
+  "1303": {
+    "name": "3v3",
+    "shortName": "3v3",
+    "description": "3v3",
+    "detailedDescription": ""
+  },
+  "1304": {
+    "name": "4v4",
+    "shortName": "4v4",
+    "description": "4v4",
+    "detailedDescription": ""
+  },
+  "1400": {
+    "name": "Ultimate Spellbook",
+    "shortName": "Ultimate Spellbook",
+    "description": "Ultimate Spellbook",
+    "detailedDescription": ""
+  },
+  "1401": {
+    "name": "1v1",
+    "shortName": "1v1",
+    "description": "1v1",
+    "detailedDescription": "1v1"
+  },
+  "1402": {
+    "name": "2v2",
+    "shortName": "2v2",
+    "description": "2v2",
+    "detailedDescription": ""
+  },
+  "1403": {
+    "name": "3v3",
+    "shortName": "3v3",
+    "description": "3v3",
+    "detailedDescription": ""
+  },
+  "1404": {
+    "name": "4v4",
+    "shortName": "4v4",
+    "description": "4v4",
+    "detailedDescription": ""
+  },
+  "1700": {
+    "name": "Arena",
+    "shortName": "Arena",
+    "description": "Arena",
+    "detailedDescription": "Arena"
+  },
+  "1701": {
+    "name": "1v0 (Arena)",
+    "shortName": "1v0 (Arena)",
+    "description": "1v0 (Arena)",
+    "detailedDescription": "1v0 (Arena)"
+  },
+  "1704": {
+    "name": "4v0 (Arena)",
+    "shortName": "4v0 (Arena)",
+    "description": "4v0 (Arena)",
+    "detailedDescription": "4v0 (Arena)"
+  },
+  "1900": {
+    "name": "Ultra Rapid Fire",
+    "shortName": "URF",
+    "description": "Ultra Rapid Fire",
+    "detailedDescription": ""
+  },
+  "1901": {
+    "name": "URF 1v1",
+    "shortName": "URF 1v1",
+    "description": "URF 1v1",
+    "detailedDescription": ""
+  },
+  "1902": {
+    "name": "URF 2v2",
+    "shortName": "URF 2v2",
+    "description": "URF 2v2",
+    "detailedDescription": ""
+  },
+  "1903": {
+    "name": "URF 3v3",
+    "shortName": "URF 3v3",
+    "description": "URF 3v3",
+    "detailedDescription": ""
+  },
+  "1904": {
+    "name": "URF 4v4",
+    "shortName": "URF 4v4",
+    "description": "URF 4v4",
+    "detailedDescription": ""
+  },
+  "2000": {
+    "name": "Tutorial Part 1",
+    "shortName": "Tutorial Part 1",
+    "description": "Tutorial Part 1",
+    "detailedDescription": ""
+  },
+  "2010": {
+    "name": "Tutorial Part 2",
+    "shortName": "Tutorial Part 2",
+    "description": "Tutorial Part 2",
+    "detailedDescription": ""
+  },
+  "2020": {
+    "name": "Tutorial Part 3",
+    "shortName": "Tutorial Part 3",
+    "description": "Tutorial Part 3",
+    "detailedDescription": ""
+  },
+  "3000": {
+    "name": "TFT Custom",
+    "shortName": "TFT Custom",
+    "description": "TFT Custom",
+    "detailedDescription": "TFT Custom"
+  },
+  "3010": {
+    "name": "TFT Hyper Roll Custom",
+    "shortName": "TFT Hyper Roll Custom",
+    "description": "TFT Hyper Roll Custom",
+    "detailedDescription": "TFT Hyper Roll Custom"
+  }
+}
