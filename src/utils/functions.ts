@@ -1,12 +1,12 @@
-import { InteractionGuildMember, PotoClient, User } from '@potoland/core';
+import { URL } from 'url';
 // import { ChampionMasteryData, Gamemode } from "../app/riot/types";
 import { DiscordEmoji } from '@biscuitland/api-types';
-import { URL } from 'url';
+import { InteractionGuildMember, PotoClient, User } from '@potoland/core';
+import allemotes from '../../json/emojis.json';
 // import { Region } from '../app/riot/utils/enums';
 import queues from '../../json/queues.json';
-import allemotes from '../../json/emojis.json';
-import { Ratelimit } from './constants';
 import { userModel } from '../app/models/user';
+import { Ratelimit } from './constants';
 
 const spellIdToName = {
   21: 'Barrier',
@@ -25,7 +25,7 @@ const spellIdToName = {
   12: 'Teleport',
   54: 'Placeholder',
   55: 'Placeholder',
-};
+} as const;
 
 // function _sortMastery(data: ChampionMasteryData[]) {
 //   const sorter = (a: ChampionMasteryData, b: ChampionMasteryData) =>
@@ -61,9 +61,9 @@ function calculateGameDuration(duration: number) {
 }
 
 function capitalizeString(str: string) {
-  str = str.toLowerCase();
-  if (str == null || str.length <= 1) return str;
-  return str.substring(0, 1).toUpperCase() + str.substring(1);
+  const strLowerCase = str.toLowerCase();
+  if (strLowerCase == null || strLowerCase.length <= 1) return strLowerCase;
+  return strLowerCase.substring(0, 1).toUpperCase() + strLowerCase.substring(1);
 }
 
 function rawEmote(name: string): string | null {
@@ -82,12 +82,12 @@ const normalizedNames = {
   Velkoz: 'VelKoz',
   Chogath: 'ChoGath',
   FiddleSticks: 'Fiddlesticks',
-};
+} as const;
+
 async function getEmojiData(_client: PotoClient, name: string) {
   const normalized = name.replace(/\W/g, '').replace(
     new RegExp(Object.keys(normalizedNames).join('|'), 'g'),
-    //@ts-ignore
-    (match) => normalizedNames[match] || match
+    (match) => normalizedNames[match as keyof typeof normalizedNames] ?? match
   );
 
   const allEmojis = <(DiscordEmoji & { guild_id: string })[]>allemotes.flat();
@@ -100,8 +100,7 @@ async function getEmojiData(_client: PotoClient, name: string) {
 async function championEmoji(name: string) {
   const correctedName = name.replace(
     /\W/g,
-    //@ts-ignore
-    (match) => nameCorrections[match] || match
+    (match) => normalizedNames[match as keyof typeof normalizedNames] ?? match
   );
   return getEmote(correctedName);
 }
@@ -112,21 +111,11 @@ function getEmote(name: string) {
   return raw ? `<:${raw}>` : '';
 }
 
-function getQueueById(id: number | string) {
-  return (<
-      Record<
-        string,
-        {
-          name: string;
-          shortName: string;
-          description: string;
-          detailedDescription: string;
-        }
-      >
-    >queues)[String(id)] ?? null;
+function getQueueById(id: number | string): typeof queues[keyof typeof queues] | null {
+  return queues[id as keyof typeof queues] ?? null;
 }
 
-function getSpellById(id: number) {
+function getSpellById(id: number): typeof spellIdToName[keyof typeof spellIdToName] | null {
   return spellIdToName[id as keyof typeof spellIdToName] ?? null;
 }
 
@@ -151,7 +140,7 @@ const disallowedTags = [
   'link',
   'style',
   'base',
-];
+] as const;
 
 const comments = /<!--[\s\S]*?-->/gi;
 const xssLocator = /javascript:\/\*-->/gi;
@@ -172,13 +161,13 @@ const removeRules = new RegExp(
   'gi'
 );
 
-function cleanHTML(input: string, allowed = ' ') {
+function cleanHTML(input: string, __allowed = ' ') {
   if (!input) return '';
   const hasUnsafeTag = disallowedTags.some((tag) =>
-    allowed.includes(`<${tag}>`)
+    __allowed.includes(`<${tag}>`)
   );
-  if (hasUnsafeTag) throw new Error(`Disallowed tags: ${allowed}`);
-  allowed = (`${allowed}`.toLowerCase().match(/<[a-z0-9]+>/g) || []).join('');
+  if (hasUnsafeTag) throw new Error(`Disallowed tags: ${__allowed}`);
+  const allowed = (`${__allowed}`.toLowerCase().match(/<[a-z0-9]+>/g) || []).join('');
 
   let output = input;
   output = output.replace(/<$/, '');
@@ -204,7 +193,7 @@ function cleanHTML(input: string, allowed = ' ') {
   }
 }
 
-const apiBaseURLs = {
+export const apiBaseURLs = {
   br: 'https://br1.api.riotgames.com',
   eune: 'https://eun1.api.riotgames.com',
   euw: 'https://euw1.api.riotgames.com',
@@ -217,9 +206,9 @@ const apiBaseURLs = {
   tr: 'https://tr1.api.riotgames.com',
   ru: 'https://ru.api.riotgames.com',
   pbe: 'https://na1.api.riotgames.com',
-};
+} as const;
 
-const regionalURLs = {
+export const regionalURLs = {
   na: 'https://americas.api.riotgames.com',
   pbe: 'https://americas.api.riotgames.com',
   br: 'https://americas.api.riotgames.com',
@@ -232,9 +221,11 @@ const regionalURLs = {
   euw: 'https://europe.api.riotgames.com',
   tr: 'https://europe.api.riotgames.com',
   ru: 'https://europe.api.riotgames.com',
-};
+} as const;
 
-function selectRegion(region: string, regional = false) {
+function selectRegion<R extends keyof typeof regionalURLs>(region: R, regional: true): typeof regionalURLs[R]
+function selectRegion<R extends keyof typeof apiBaseURLs>(region: R, regional?: false): typeof apiBaseURLs[R]
+function selectRegion<R extends keyof typeof regionalURLs | keyof typeof apiBaseURLs>(region: R, regional = false) {
   if (regional) {
     return regionalURLs[region as keyof typeof regionalURLs];
   }
@@ -294,36 +285,23 @@ async function parseSummonerOptions({
 // };
 
 function ApplyCooldown(data: Ratelimit) {
-  return <T extends { new (...args: any[]): {} }>(target: T) =>
+  return <T extends { new(...args: any[]): {} }>(target: T) =>
     class extends target {
       ratelimit = data;
     };
 }
 
-function makeIconURL(version: string, icon: number | undefined) {
+function makeIconURL(version: string, icon: number | undefined): `https://ddragon.leagueoflegends.com/cdn/${string}/img/profileicon/${string}.png` {
   return `https://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${icon}.png`;
 }
 
 export {
-  makeIconURL,
   ApplyCooldown,
   // _sortMastery,
-  amount,
-  calculateWinrate,
-  calculateCSPerMinute,
-  calculateKDA,
-  calculateKP,
-  calculateGameDuration,
-  capitalizeString,
-  rawEmote,
-  getEmote,
-  getQueueById,
-  getSpellById,
-  getParamFromUrl,
-  getEmojiData,
-  cleanHTML,
-  parseSummonerOptions,
-  championEmoji,
+  amount, calculateCSPerMinute, calculateGameDuration, calculateKDA,
+  calculateKP, calculateWinrate, capitalizeString, championEmoji, cleanHTML, getEmojiData, getEmote, getParamFromUrl, getQueueById,
+  getSpellById, makeIconURL, parseSummonerOptions, rawEmote,
   // isSupportedGamemode,
-  selectRegion,
+  selectRegion
 };
+

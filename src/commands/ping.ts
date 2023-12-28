@@ -14,10 +14,10 @@ import { ApplyCooldown } from '../utils/functions';
 })
 export default class PingCommand extends Command {
   async run(ctx: CommandContext<'client'>) {
-    const shardPing = () => ctx.client.gateway.get(0)?.latency ?? 0;
+    const shardPing = () => ctx.client.gateway.get(ctx.shardId)?.latency ?? 0;
 
     return await ctx.editOrReply({
-      content: `Pong! (gateway: ${shardPing()}ms)`,
+      content: `Pong! (gateway#${ctx.shardId}: ${shardPing()}ms)`,
     });
   }
 }

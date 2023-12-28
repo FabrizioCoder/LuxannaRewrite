@@ -1,18 +1,18 @@
+import { ApplicationCommandOptionType } from '@biscuitland/common';
 import {
   CommandContext,
   Declare,
+  Middlewares,
   OKFunction,
-  StopFunction,
   Options,
+  StopFunction,
   SubCommand,
   createOption,
-  Middlewares,
 } from '@potoland/core';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { userModel } from '../../app/models/user';
-import { ApplicationCommandOptionType } from '@biscuitland/common';
-import { RegionChoices } from '../../utils/constants';
 import DeferEphemeral from '../../middlewares/deferEphemeral';
+import { RegionChoices } from '../../utils/constants';
 import { ApplyCooldown } from '../../utils/functions';
 
 const options = {
@@ -71,8 +71,8 @@ export default class LinkCommand extends SubCommand {
       });
 
     const puuid = await SummonersManager.fetchByRiotId(
-      gameName!,
-      tagLine!,
+      gameName,
+      tagLine,
       ctx.options.region
     );
 

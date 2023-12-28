@@ -1,10 +1,10 @@
 import { restClient } from '../../lib/rest';
-import { selectRegion } from '../../utils/functions';
+import { regionalURLs, selectRegion } from '../../utils/functions';
 
 export class SummonerMatches {
   private matches: String[] = [];
 
-  constructor(readonly puuid: string, readonly summonerRegion: string) {}
+  constructor(readonly puuid: string, readonly summonerRegion: keyof typeof regionalURLs) { }
 
   async getMatchesHistory() {
     if (!this.matches.length) await this.fetchMatchesId();

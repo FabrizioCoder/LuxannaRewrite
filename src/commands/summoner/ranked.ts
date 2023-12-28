@@ -1,13 +1,13 @@
+import { MessageEmbed } from '@biscuitland/helpers';
 import { CommandContext, Declare, Options, SubCommand } from '@potoland/core';
 import { SummonersManager } from '../../app/managers/summonersManager';
+import { EmbedColors, searchOptions } from '../../utils/constants';
 import {
   capitalizeString,
   getEmote,
   makeIconURL,
   parseSummonerOptions,
 } from '../../utils/functions';
-import { MessageEmbed } from '@biscuitland/helpers';
-import { EmbedColors, searchOptions } from '../../utils/constants';
 
 @Declare({
   name: 'ranked',
@@ -53,34 +53,32 @@ export default class RankedCommand extends SubCommand {
       .addFields([
         soloQ
           ? {
-              name: 'Solo/Duo',
-              value: `${getEmote(
-                capitalizeString(soloQ.tier!)
-              )} ${capitalizeString(soloQ.tier!)} ${soloQ.rank} ${
-                soloQ.leaguePoints
+            name: 'Solo/Duo',
+            value: `${getEmote(
+              capitalizeString(soloQ.tier!)
+            )} ${capitalizeString(soloQ.tier!)} ${soloQ.rank} ${soloQ.leaguePoints
               } LP`,
-              inline: true,
-            }
+            inline: true,
+          }
           : {
-              name: 'Solo/Duo',
-              value: `${getEmote('Unranked')} *Unranked*`,
-              inline: true,
-            },
+            name: 'Solo/Duo',
+            value: `${getEmote('Unranked')} *Unranked*`,
+            inline: true,
+          },
         flexQ
           ? {
-              name: 'Flex',
-              value: `${getEmote(
-                capitalizeString(flexQ.tier!)
-              )} ${capitalizeString(flexQ.tier!)} ${flexQ.rank} ${
-                flexQ.leaguePoints
+            name: 'Flex',
+            value: `${getEmote(
+              capitalizeString(flexQ.tier!)
+            )} ${capitalizeString(flexQ.tier!)} ${flexQ.rank} ${flexQ.leaguePoints
               } LP`,
-              inline: true,
-            }
+            inline: true,
+          }
           : {
-              name: 'Flex',
-              value: `${getEmote('Unranked')} *Unranked*`,
-              inline: true,
-            },
+            name: 'Flex',
+            value: `${getEmote('Unranked')} *Unranked*`,
+            inline: true,
+          },
       ]);
 
     return ctx.editOrReply({
