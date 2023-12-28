@@ -11,6 +11,16 @@
     "generate-riot-types": "npx openapi-typescript https://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.yml -o ./src/app/riot/schema.d.ts"
   },
   "author": "Fabrizio Santana <fabrizio.ivan@outlook.com>",
+  "contributors": [
+    {
+      "name": "FreeAoi",
+      "url": "https://github.com/FreeAoi"
+    },
+    {
+      "name": "MARCROCK22",
+      "url": "https://github.com/MARCROCK22"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "@biomejs/biome": "^1.4.1",
