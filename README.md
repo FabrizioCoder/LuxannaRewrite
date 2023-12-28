@@ -27,7 +27,7 @@ See Luxanna's commands with its "/" slash integration. Try some commands like "/
 
 ## Feedback
 
-If you have any feedback, please reach out to me at Discord: `fabriziocoder`.
+If you have any feedback, please reach out to me at Discord: `fbrz.sf`.
 
 ## Links
 
