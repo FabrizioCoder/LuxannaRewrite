@@ -1,5 +1,5 @@
 import { ApplicationCommandOptionType } from '@biscuitland/common';
-import { createOption, OKFunction, StopFunction } from '@potoland/core';
+import { OKFunction, StopFunction, createOption } from '@potoland/core';
 import { Image } from 'imagescript';
 
 export enum LeagueRegion {
@@ -111,17 +111,17 @@ export const HextechColors = {
 export const gardients = {
   DarkBlue: Image.gradient({
     0: HextechColors.BLUE6,
-    1: HextechColors.BLUE7,
+    .7: HextechColors.BLUE7,
   }),
   Gold: Image.gradient({
     0: HextechColors.GOLD5,
-    1: HextechColors.GOLD4,
+    .7: HextechColors.GOLD4,
   }),
   Blue: Image.gradient({
     0: HextechColors.BLUE4,
-    1: HextechColors.BLUE2,
+    .7: HextechColors.BLUE2,
   }),
-};
+} as const;
 
 export interface Ratelimit {
   type: 'user' | 'channel';

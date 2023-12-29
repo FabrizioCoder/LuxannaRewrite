@@ -1,7 +1,7 @@
 import { restClient } from "../../lib/rest";
-import { selectRegion } from "../../utils/functions";
+import { regionalURLs, selectRegion } from "../../utils/functions";
 import { SummonerLeague } from "./league";
-import {SummonerMatches} from "./match";
+import { SummonerMatches } from "./match";
 
 /**
  * A representation of a RIOT account.
@@ -19,13 +19,13 @@ export class Summoner {
     public readonly gameName: string,
     public readonly tagLine: string,
     public readonly puuid: string,
-    public readonly region: string,
+    public readonly region: keyof typeof regionalURLs,
   ) {
   }
 
   async getLeague(): Promise<SummonerLeague> {
 
-    if(!this.id) await this.fetchSummonerData();
+    if (!this.id) await this.fetchSummonerData();
 
     if (!this.league) {
       this.league = new SummonerLeague(this.id!, this.region);
@@ -35,7 +35,7 @@ export class Summoner {
   }
 
   async getMatches() {
-    if(!this.match) {
+    if (!this.match) {
       this.match = new SummonerMatches(this.puuid, this.region);
     }
 

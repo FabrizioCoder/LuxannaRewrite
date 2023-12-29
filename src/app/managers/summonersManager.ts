@@ -1,5 +1,5 @@
 import { restClient } from "../../lib/rest";
-import { selectRegion } from "../../utils/functions";
+import { regionalURLs, selectRegion } from "../../utils/functions";
 import { Summoner } from "../structures/summoner";
 
 export class SummonersManager {
@@ -24,7 +24,7 @@ export class SummonersManager {
     let summoner = this.summoners.get(identifier);
 
     if (!summoner) {
-      const [region, gameName, tagLine] = identifier.split(":") as [string, string, string];
+      const [region, gameName, tagLine] = identifier.split(":") as [keyof typeof regionalURLs, string, string];
       const summonerPUUID = await SummonersManager.fetchByRiotId(gameName, tagLine, region);
       if (!summonerPUUID) return null;
 
@@ -35,11 +35,11 @@ export class SummonersManager {
     return summoner;
   }
 
-  public static async fetchByRiotId(gameName: string, tagLine: string, region: string) {
+  public static async fetchByRiotId(gameName: string, tagLine: string, region: keyof typeof regionalURLs) {
     const { data: account } = await restClient.GET("/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}", {
       params: {
         path: {
-          gameName,
+          gameName: encodeURIComponent(gameName),
           tagLine,
         },
       },
