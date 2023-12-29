@@ -2,6 +2,27 @@ import { ApplicationCommandOptionType } from '@biscuitland/common';
 import { OKFunction, StopFunction, createOption } from '@potoland/core';
 import { Image } from 'imagescript';
 
+export enum TierOrder {
+  CHALLENGER = 0,
+  GRANDMASTER = 1,
+  MASTER = 2,
+  DIAMOND = 3,
+  PLATINUM = 4,
+  EMERALD = 5,
+  GOLD = 6,
+  SILVER = 7,
+  BRONZE = 8,
+  IRON = 9,
+  UNRANKED = 10,
+}
+
+export enum TierLevel {
+  I = 0,
+  II = 1,
+  III = 2,
+  IV = 3,
+}
+
 export enum LeagueRegion {
   BRAZIL = 'br',
   EUROPE_NORTHEAST = 'eune',
@@ -111,15 +132,15 @@ export const HextechColors = {
 export const gardients = {
   DarkBlue: Image.gradient({
     0: HextechColors.BLUE6,
-    .7: HextechColors.BLUE7,
+    0.7: HextechColors.BLUE7,
   }),
   Gold: Image.gradient({
     0: HextechColors.GOLD5,
-    .7: HextechColors.GOLD4,
+    0.7: HextechColors.GOLD4,
   }),
   Blue: Image.gradient({
     0: HextechColors.BLUE4,
-    .7: HextechColors.BLUE2,
+    0.7: HextechColors.BLUE2,
   }),
 } as const;
 

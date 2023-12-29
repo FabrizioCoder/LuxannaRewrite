@@ -1,9 +1,7 @@
 import { CommandContext, Declare, Options, SubCommand } from '@potoland/core';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { searchOptions } from '../../utils/constants';
-import {
-  parseSummonerOptions
-} from '../../utils/functions';
+import { parseSummonerOptions } from '../../utils/functions';
 import { makeRankedProfile } from '../../utils/images/ranked';
 
 @Declare({
@@ -33,7 +31,7 @@ export default class RankedCommand extends SubCommand {
 
     if (!summoner)
       return ctx.editOrReply({
-        content: 'Summoner not found',
+        content: 'Summoner not found.',
       });
 
     const SummonerRankeds = await summoner.getLeague();
@@ -41,7 +39,7 @@ export default class RankedCommand extends SubCommand {
 
     return ctx.editOrReply(
       {
-        content: 'Ranked profile',
+        content: `Ranked stats for **${gameName}#${tagLine}** (${args.region.toUpperCase()})`,
       },
       [
         {
