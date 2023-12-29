@@ -11,7 +11,8 @@ import {
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { userModel } from '../../app/models/user';
 import { RegionChoices } from '../../utils/constants';
-import { ApplyCooldown } from '../../utils/functions';
+import { ApplyCooldown, regionalURLs } from '../../utils/functions';
+import { makeLinkedAccount } from '../../utils/images/link';
 
 const options = {
   'riot-id': createOption({
@@ -37,7 +38,10 @@ const options = {
     required: true,
     type: ApplicationCommandOptionType.String,
     choices: RegionChoices,
-    value(value: string, ok: OKFunction<string>) {
+    value(
+      value: keyof typeof regionalURLs,
+      ok: OKFunction<keyof typeof regionalURLs>
+    ) {
       ok(value);
     },
   }),
@@ -86,8 +90,25 @@ export default class LinkCommand extends SubCommand {
       region: ctx.options.region,
     });
 
-    return ctx.editOrReply({
-      content: `Your account (\`${gameName}#${tagLine}\`) has been linked successfully.`,
-    });
+    const summoner = await SummonersManager.getInstance().getSummoner(
+      `${ctx.options.region}:${gameName}:${tagLine}`
+    );
+    const img = await makeLinkedAccount(
+      ctx.options['riot-id'],
+      ctx.options.region,
+      (await summoner?.getSummonerData())!
+    );
+
+    return ctx.editOrReply(
+      {
+        content: `Your account has been linked successfully.`,
+      },
+      [
+        {
+          data: img,
+          name: 'linked_account.png',
+        },
+      ]
+    );
   }
 }

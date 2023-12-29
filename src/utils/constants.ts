@@ -1,6 +1,7 @@
 import { ApplicationCommandOptionType } from '@biscuitland/common';
 import { OKFunction, StopFunction, createOption } from '@potoland/core';
 import { Image } from 'imagescript';
+import { regionalURLs } from './functions';
 
 export enum TierOrder {
   CHALLENGER = 0,
@@ -67,16 +68,6 @@ export const hide = createOption({
 });
 
 export const searchOptions = {
-  user: createOption({
-    description:
-      'When searching for an account linked to a user, the user is required.',
-    description_localizations: {
-      'es-ES':
-        'Cuando buscas una cuenta vinculada a un usuario, el usuario es requerido.',
-    },
-    required: false,
-    type: 6,
-  }),
   'riot-id': createOption({
     description:
       'When searching for a specific player, the RiotId is required.',
@@ -84,7 +75,7 @@ export const searchOptions = {
       'es-ES': 'Cuando buscas un jugador específico, el RiotId es requerido.',
     },
     required: false,
-    type: 3,
+    type: ApplicationCommandOptionType.String,
     value(value: string, ok: OKFunction<string>, fail: StopFunction) {
       if (!value.includes('#'))
         fail(Error('The RiotId must include the "#". (FabrizioCoder#6030)'));
@@ -101,9 +92,22 @@ export const searchOptions = {
     required: false,
     type: ApplicationCommandOptionType.String,
     choices: RegionChoices,
-    value(value: string, ok: OKFunction<string>) {
+    value(
+      value: keyof typeof regionalURLs,
+      ok: OKFunction<keyof typeof regionalURLs>
+    ) {
       ok(value);
     },
+  }),
+  user: createOption({
+    description:
+      'When searching for an account linked to a user, the user is required.',
+    description_localizations: {
+      'es-ES':
+        'Cuando buscas una cuenta vinculada a un usuario, el usuario es requerido.',
+    },
+    required: false,
+    type: ApplicationCommandOptionType.User,
   }),
 };
 
