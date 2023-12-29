@@ -2,7 +2,7 @@ import { restClient } from '../../lib/rest';
 import { regionalURLs, selectRegion } from '../../utils/functions';
 
 export class SummonerMatches {
-  private matches: String[] = [];
+  private matches: string[] = [];
 
   constructor(readonly puuid: string, readonly summonerRegion: keyof typeof regionalURLs) { }
 

@@ -133,7 +133,7 @@ export const HextechColors = {
   BLACK: 0x010a13ff,
 } as const;
 
-export const gardients = {
+export const Gradients = {
   DarkBlue: Image.gradient({
     0: HextechColors.BLUE6,
     0.7: HextechColors.BLUE7,
