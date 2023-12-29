@@ -131,23 +131,17 @@ export async function makeRankedProfile(
     tftPos = 181;
   }
 
-  {
-    // Solo/duo
-    const soloQImage = await createRank('SOLO/DUO', soloQ, boldFont);
-    canvas.composite(soloQImage, soloQPos);
-  }
+  // Solo/duo
+  const soloQImage = await createRank('SOLO/DUO', soloQ, boldFont);
+  canvas.composite(soloQImage, soloQPos);
 
-  {
-    // Flex
-    const flexImage = await createRank('FLEX', flex, boldFont);
-    canvas.composite(flexImage, flexPos);
-  }
+  // Flex
+  const flexImage = await createRank('FLEX', flex, boldFont);
+  canvas.composite(flexImage, flexPos);
 
-  {
-    // Tft (right)
-    const tftImage = await createRank('TFT', tft, boldFont);
-    canvas.composite(tftImage, tftPos);
-  }
+  // Tft (right)
+  const tftImage = await createRank('TFT', tft, boldFont);
+  canvas.composite(tftImage, tftPos);
 
   const encoded = await canvas.encode(1, {
     description: 'Summoner Profile. By: Luxanna#6457',
