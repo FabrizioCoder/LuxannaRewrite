@@ -1,20 +1,20 @@
-import { CommandContext, Declare, Options, SubCommand } from '@potoland/core';
-import { SummonersManager } from '../../app/managers/summonersManager';
-import { searchOptions } from '../../utils/constants';
-import { parseSummonerOptions } from '../../utils/functions';
-import { makeRankedProfile } from '../../utils/images/ranked';
+import { CommandContext, Declare, Options, SubCommand } from "@potoland/core";
+import { SummonersManager } from "../../app/managers/summonersManager";
+import { searchOptions } from "../../utils/constants";
+import { parseSummonerOptions } from "../../utils/functions";
+import { makeRankedProfile } from "../../utils/images/ranked";
 
 @Declare({
-  name: 'ranked',
-  description: 'Get the summoner ranked stats',
+  name: "ranked",
+  description: "Get the summoner ranked stats",
 })
 @Options(searchOptions)
 export default class RankedCommand extends SubCommand {
-  async run(ctx: CommandContext<'client', typeof searchOptions>) {
+  async run(ctx: CommandContext<"client", typeof searchOptions>) {
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,
-      riotId: ctx.options['riot-id'],
+      riotId: ctx.options["riot-id"],
       region: ctx.options.region,
     });
 
@@ -24,14 +24,12 @@ export default class RankedCommand extends SubCommand {
           "You don't have a linked account. Enter your RiotId and region or you can also link your account with `/account link`.",
       });
 
-    const [gameName, tagLine] = args.riotId.split('#');
-    const summoner = await SummonersManager.getInstance().getSummoner(
-      `${args.region}:${gameName}:${tagLine}`
-    );
+    const [gameName, tagLine] = args.riotId.split("#");
+    const summoner = await SummonersManager.getInstance().getSummoner(`${args.region}:${gameName}:${tagLine}`);
 
     if (!summoner)
       return ctx.editOrReply({
-        content: 'Summoner not found.',
+        content: "Summoner not found.",
       });
 
     const SummonerRankeds = await summoner.getLeague();
@@ -44,9 +42,9 @@ export default class RankedCommand extends SubCommand {
       [
         {
           data: img,
-          name: 'ranked.png',
+          name: "ranked.png",
         },
-      ]
+      ],
     );
   }
 }
