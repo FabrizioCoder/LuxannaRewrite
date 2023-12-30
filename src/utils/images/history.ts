@@ -4,6 +4,7 @@ import { join } from 'path';
 import { default as Augments } from '../../../json/augments.json';
 import * as Champions from '../../../json/champions.json';
 import { default as Perks } from '../../../json/perks.json';
+import * as Queues from '../../../json/queues.json';
 import * as SummonerSpells from '../../../json/summoners.json';
 import { SummonerMatches } from '../../app/structures/match';
 import { Summoner } from '../../app/structures/summoner';
@@ -95,6 +96,19 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
     console.log(match.info.gameMode)
 
     switch (match.info.gameMode) {
+        case 'CHERRY': {
+            const places = ['st', 'nd', 'rd', 'th'];
+            const subteamPlacement = await Image.renderText(boldFont, 16, participant.subteamPlacement!.toString() + places[participant.subteamPlacement! - 1]);
+
+            canvas.composite(subteamPlacement, 336 - subteamPlacement.width / 2, 62)
+            const augments = [participant.playerAugment1, participant.playerAugment2, participant.playerAugment3, participant.playerAugment4].filter(x => x !== undefined) as number[]
+            const augmentsIcons = await Promise.all(augments.map(x => getAugment(x)))
+
+            for (let i = 0; i < augmentsIcons.length; i++) {
+                const perk = augmentsIcons[i]!
+                canvas.composite(perk, i < 2 ? 251 : 375, (i % 2) * 50)
+            }
+        } break
         default: {
             const spells = await Promise.all([
                 participant.summoner1Id,
@@ -123,25 +137,12 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
             const visionScore = await Image.renderText(boldFont, 16, participant.visionScore!.toString())
             canvas.composite(visionScore, 336 - visionScore.width / 2, 62)
         } break
-        case 'CHERRY': {
-            const places = ['st', 'nd', 'rd', 'th'];
-            const subteamPlacement = await Image.renderText(boldFont, 16, participant.subteamPlacement!.toString() + places[participant.subteamPlacement! - 1]);
-
-            canvas.composite(subteamPlacement, 336 - subteamPlacement.width / 2, 62)
-            const augments = [participant.playerAugment1, participant.playerAugment2, participant.playerAugment3, participant.playerAugment4].filter(x => x !== undefined) as number[]
-            const augmentsIcons = await Promise.all(augments.map(x => getAugment(x)))
-
-            for (let i = 0; i < augmentsIcons.length; i++) {
-                const perk = augmentsIcons[i]!
-                canvas.composite(perk, i < 2 ? 251 : 375, (i % 2) * 50)
-            }
-        } break
     }
 
     const ward = (await getItem('13.24.1', participant.item6)).roundCorners(6);
     canvas.composite(ward, 311, 10)
 
-    const gameMode = await Image.renderText(boldFont, 20, match.info.gameMode);
+    const gameMode = await Image.renderText(boldFont, 20, Queues[match.info.queueId as unknown as keyof typeof Queues]?.shortName ?? match.info.gameMode);
     canvas.composite(gameMode, 85 - gameMode.width / 2);
 
     const winOrDefeat = await Image.renderText(boldFont, 18, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
@@ -174,7 +175,7 @@ export async function makeMatchHistory(
     const participant = firstMatch.info.participants.find(x => x.puuid === summoner.puuid)!
     const icon = await getIcon('13.24.1', participant.championId.toString())
 
-    const gameMode = await Image.renderText(boldFont, 26, firstMatch.info.gameMode);
+    const gameMode = await Image.renderText(boldFont, 26, Queues[firstMatch.info.queueId as unknown as keyof typeof Queues]?.shortName ?? firstMatch.info.gameMode);
     canvas.composite(gameMode, 96 - gameMode.width / 2, 34);
 
     const winOrDefeat = await Image.renderText(boldFont, 22, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
@@ -270,7 +271,7 @@ export async function makeMatchHistory(
         // canvas.composite(deathsText, 795 - kdaText.width / 2 + killsText.width, 33 + 24 - scale)
     }
 
-    const kdaScore = await Image.renderText(boldFont, 20, ((participant.kills + participant.assists) / (participant.deaths || 1)).toFixed(1) + ' KDA', 0xFABE4Fff)
+    const kdaScore = await Image.renderText(boldFont, 20, `${((participant.kills + participant.assists) / (participant.deaths || 1)).toFixed(1)} KDA`, 0xFABE4Fff)
     canvas.composite(kdaScore, 795 - kdaScore.width / 2, 67)
 
     const csScore = await Image.renderText(boldFont, 18, `${participant.totalMinionsKilled} CS (${(participant.totalMinionsKilled / (firstMatch.info.gameDuration / 60)).toFixed(1)})`, 0xACBEE0ff)
@@ -295,5 +296,5 @@ function numberToTimestamp(d: number) {
     const minutes = Math.floor(d / 60);
     const seconds = d % 60;
 
-    return `${minutes}:${seconds > 9 ? seconds : '0' + seconds}`
+    return `${minutes}:${seconds > 9 ? seconds : `0${seconds}`}`
 }
