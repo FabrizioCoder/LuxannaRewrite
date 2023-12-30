@@ -19,12 +19,12 @@ function getIcon(version: string, champion: string, size = 120) {
         .then(x => Image.decode(x))
 }
 
-function getSpell(version: string, spell: string) {
+function getSpell(version: string, spell: string, size = 44) {
     const url = `https://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${Object.values(SummonerSpells).find(x => x.key === spell)?.id}.png`;
     return fetch(url)
         .then(x => x.arrayBuffer() as Promise<Buffer>)
         .then(x => Image.decode(x))
-        .then(x => x.resize(44, 44))
+        .then(x => x.resize(size, size))
 }
 
 function getItem(version: string, item: number) {
@@ -50,12 +50,12 @@ async function getAugment(augment: number) {
         .then(x => x.resize(44, 44))
 }
 
-async function getPerk(perk: number, isSecondary = false) {
+async function getPerk(perk: number, isSecondary = false, size = 50) {
     const baseURL = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default"
     const perkJson = Perks.find(x => x.id === perk)
     if (!perkJson) {
         console.log(perk)
-        return new Image(50, 50)
+        return new Image(size, size)
     }
     const url = `${baseURL}/v1${perkJson?.iconPath.split('v1')[1]?.toLowerCase()}`
     if (isSecondary) { }
@@ -79,7 +79,7 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
             const spells = await Promise.all([
                 participant.summoner1Id,
                 participant.summoner2Id
-            ].map(x => getSpell('13.24.1', x.toString())));
+            ].map(x => getSpell('13.24.1', x.toString(), 40)));
 
             // for (let i = 0; i < spells.length; i++) {
             //     const spell = spells[i]!
@@ -90,7 +90,7 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
             const primaryRune = primary!.selections[0]!;
             const secondaryRune = secondary!.selections[0]!;
 
-            const perks = await Promise.all([getPerk(primaryRune.perk), getPerk(secondaryRune.perk, true)]);
+            const perks = await Promise.all([getPerk(primaryRune.perk, false, 40), getPerk(secondaryRune.perk, true, 40)]);
             // for (let i = 0; i < perks.length; i++) {
             //     const perk = perks[i]!
             //     canvas.composite(perk, 350, i * 50)
@@ -98,7 +98,7 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
             const images = [...spells, ...perks]
             for (let i = 0; i < 4; i++) {
                 const image = images[i]!.cropCircle()
-                canvas.composite(image, i < 2 ? 265 : 365, (i % 2) * 50)
+                canvas.composite(image, i < 2 ? 254 : 375, (i % 2) * 50)
             }
             const visionScore = await Image.renderText(boldFont, 16, participant.visionScore!.toString())
             canvas.composite(visionScore, 336 - visionScore.width / 2, 62)
@@ -113,13 +113,19 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
 
             for (let i = 0; i < augmentsIcons.length; i++) {
                 const perk = augmentsIcons[i]!
-                canvas.composite(perk, i < 2 ? 265 : 365, (i % 2) * 50)
+                canvas.composite(perk, i < 2 ? 251 : 375, (i % 2) * 50)
             }
         } break
     }
 
     const ward = (await getItem('13.24.1', participant.item6)).roundCorners(6);
     canvas.composite(ward, 311, 10)
+
+    const gameMode = await Image.renderText(boldFont, 20, match.info.gameMode);
+    canvas.composite(gameMode, 85 - gameMode.width / 2);
+
+    // const winOrDefeat = await Image.renderText(boldFont, 22, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
+    // canvas.composite(winOrDefeat, 85 - winOrDefeat.width / 2, 50);
 
     canvas.composite(icon, 155);
     return canvas;
@@ -136,8 +142,8 @@ export async function makeMatchHistory(
     const participant = firstMatch.info.participants.find(x => x.puuid === summoner.puuid)!
     const icon = await getIcon('13.24.1', participant.championId.toString())
 
-    const text = await Image.renderText(boldFont, 26, firstMatch.info.gameMode);
-    canvas.composite(text, 96 - text.width / 2, 34);
+    const gameMode = await Image.renderText(boldFont, 26, firstMatch.info.gameMode);
+    canvas.composite(gameMode, 96 - gameMode.width / 2, 34);
 
     const winOrDefeat = await Image.renderText(boldFont, 22, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
     canvas.composite(winOrDefeat, 85 - winOrDefeat.width, 83);
