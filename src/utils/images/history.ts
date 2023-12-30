@@ -145,7 +145,7 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
     const gameMode = await Image.renderText(boldFont, 20, Queues[match.info.queueId as unknown as keyof typeof Queues]?.shortName ?? match.info.gameMode);
     canvas.composite(gameMode, 85 - gameMode.width / 2);
 
-    const winOrDefeat = await Image.renderText(boldFont, 18, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
+    const winOrDefeat = await Image.renderText(boldFont, 18, participant.teamEarlySurrendered ? 'REMAKE' : participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
     canvas.composite(winOrDefeat, 55 - winOrDefeat.width / 2, 26);
 
     const kdaText = await makeKDA(participant.kills, participant.deaths, participant.assists, boldFont, 15)
@@ -178,7 +178,7 @@ export async function makeMatchHistory(
     const gameMode = await Image.renderText(boldFont, 26, Queues[firstMatch.info.queueId as unknown as keyof typeof Queues]?.shortName ?? firstMatch.info.gameMode);
     canvas.composite(gameMode, 96 - gameMode.width / 2, 34);
 
-    const winOrDefeat = await Image.renderText(boldFont, 22, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
+    const winOrDefeat = await Image.renderText(boldFont, 22, participant.teamEarlySurrendered ? 'REMAKE' : participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
     canvas.composite(winOrDefeat, 85 - winOrDefeat.width, 83);
 
     const time = await Image.renderText(boldFont, 18, numberToTimestamp(firstMatch.info.gameDuration), 0xAAB7D1ff);

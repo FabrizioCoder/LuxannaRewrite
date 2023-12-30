@@ -8,7 +8,8 @@ main();
 
 // async function draw() {
 //     const summoner = (await SummonersManager.getInstance().getSummoner(
-//         'lan:FreeAoi:0001'
+//         'lan:MARCROCK22:lan'
+//         // 'lan:FreeAoi:0001'
 //     ))!
 //     const matchesId = await (await summoner.getMatches()).getMatchesHistory() ?? []
 //     const matches = await Promise.all(matchesId.map(x => summoner.match?.getMatchById(x)))
