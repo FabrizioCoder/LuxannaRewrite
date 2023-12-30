@@ -139,8 +139,8 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
         } break
     }
 
-    const ward = (await getItem('13.24.1', participant.item6)).roundCorners(6);
-    canvas.composite(ward, 311, 10)
+    const ward = participant.item6 ? (await getItem('13.24.1', participant.item6)).roundCorners(6) : null;
+    if (ward) canvas.composite(ward, 311, 10)
 
     const gameMode = await Image.renderText(boldFont, 20, Queues[match.info.queueId as unknown as keyof typeof Queues]?.shortName ?? match.info.gameMode);
     canvas.composite(gameMode, 85 - gameMode.width / 2);
@@ -244,8 +244,8 @@ export async function makeMatchHistory(
         canvas.composite(icon, 501 + 56 * x, 24 + y * 58)
     }
 
-    const ward = await getItem('13.24.1', participant.item6)
-    canvas.composite(ward, 669, 42)
+    const ward = participant.item6 ? (await getItem('13.24.1', participant.item6)).roundCorners(6) : null;
+    if (ward) canvas.composite(ward, 669, 42)
 
     // const kills = await Image.renderText(boldFont, 24, '30')
     // const deaths = await Image.renderText(boldFont, 24, '66', 0xEB3349ff)
