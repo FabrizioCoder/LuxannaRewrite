@@ -79,8 +79,6 @@ export async function makeRankedProfile(data: SummonerLeague, summoner: Summoner
   const soloQ = await data.getSoloQueue();
   const tft = await data.getTFTQueue();
 
-  flex.tier;
-
   const highest = [soloQ, flex, tft].sort((a, b) => {
     const tier = TierOrder[a?.tier! as keyof typeof TierOrder] - TierOrder[b?.tier! as keyof typeof TierOrder];
     if (tier !== 0) {
