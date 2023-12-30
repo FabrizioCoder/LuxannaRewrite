@@ -65,6 +65,26 @@ async function getPerk(perk: number, isSecondary = false, size = 50) {
         .then(x => x.resize(44, 44))
 }
 
+async function makeKDA(kills: number, deaths: number, assists: number, font: Buffer, scale = 24) {
+    const slashImage = await Image.renderText(font, scale - 2, ' /  ', 0x3d4f72ff)
+    const killsImage = await Image.renderText(font, scale, `${kills}`)
+    const deathsImage = await Image.renderText(font, scale, `${deaths}`, 0xEB3349ff)
+    const assistsImage = await Image.renderText(font, scale, `${assists}`)
+
+    const canvas = new Image(
+        killsImage.width + assistsImage.width + deathsImage.width + slashImage.width * 2,
+        Math.max(killsImage.height, deathsImage.height, assistsImage.height),
+    )
+
+    canvas.composite(killsImage)
+    canvas.composite(slashImage, killsImage.width, canvas.height / 2 - slashImage.height / 2)
+    canvas.composite(deathsImage, killsImage.width + slashImage.width)
+    canvas.composite(slashImage, killsImage.width + deathsImage.width + slashImage.width, canvas.height / 2 - slashImage.height / 2)
+    canvas.composite(assistsImage, killsImage.width + deathsImage.width + slashImage.width * 2)
+
+    return canvas
+}
+
 async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['getMatchById']>>>, summoner: Summoner, boldFont: Buffer) {
     const canvas = new Image(600, 190)
     // canvas.fill((x, y) => Gradients.DarkBlue((x + y) / (canvas.width + canvas.height)));
@@ -124,8 +144,20 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
     const gameMode = await Image.renderText(boldFont, 20, match.info.gameMode);
     canvas.composite(gameMode, 85 - gameMode.width / 2);
 
-    // const winOrDefeat = await Image.renderText(boldFont, 22, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
-    // canvas.composite(winOrDefeat, 85 - winOrDefeat.width / 2, 50);
+    const winOrDefeat = await Image.renderText(boldFont, 18, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
+    canvas.composite(winOrDefeat, 55 - winOrDefeat.width / 2, 26);
+
+    const kdaText = await makeKDA(participant.kills, participant.deaths, participant.assists, boldFont, 15)
+    canvas.composite(kdaText, 55 - kdaText.width / 2, 50);
+
+    const kdaScore = await Image.renderText(boldFont, 15, ((participant.kills + participant.assists) / (participant.deaths || 1)).toFixed(1), 0xFABE4Fff)
+    canvas.composite(kdaScore, 122 - kdaScore.width / 2, 50)
+
+    const time = await Image.renderText(boldFont, 18, numberToTimestamp(match.info.gameDuration), 0xAAB7D1ff);
+    canvas.composite(time, 122 - time.width / 2, 26);
+
+    const csScore = await Image.renderText(boldFont, 18, `${participant.totalMinionsKilled} CS (${(participant.totalMinionsKilled / (match.info.gameDuration / 60)).toFixed(1)})`, 0xACBEE0ff)
+    canvas.composite(csScore, 85 - csScore.width / 2, 71)
 
     canvas.composite(icon, 155);
     return canvas;
@@ -148,8 +180,8 @@ export async function makeMatchHistory(
     const winOrDefeat = await Image.renderText(boldFont, 22, participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
     canvas.composite(winOrDefeat, 85 - winOrDefeat.width, 83);
 
-    const time = await Image.renderText(boldFont, 18, '16:63', 0xAAB7D1ff);
-    canvas.composite(time, 108, 86);
+    const time = await Image.renderText(boldFont, 18, numberToTimestamp(firstMatch.info.gameDuration), 0xAAB7D1ff);
+    canvas.composite(time, 128 - time.width / 2, 86);
 
     switch (firstMatch.info.gameMode) {
         case 'CHERRY': {
@@ -208,8 +240,6 @@ export async function makeMatchHistory(
         const x = i % 3
         const y = Math.floor(i / 3);
 
-        console.log({ x, y })
-
         canvas.composite(icon, 501 + 56 * x, 24 + y * 58)
     }
 
@@ -229,15 +259,15 @@ export async function makeMatchHistory(
     // const kdaText = await Image.renderText(boldFont, 24, '30 / 5 / 4');
     {
         let scale = 24
-        let kdaText = await Image.renderText(boldFont, scale, `${participant.kills} / ${participant.deaths} / ${participant.assists}`);
+        let kdaText = await makeKDA(participant.kills, participant.deaths, participant.assists, boldFont, scale)
 
         while (kdaText.width > 125) {
-            kdaText = await Image.renderText(boldFont, --scale, `${participant.kills} / ${participant.deaths} / ${participant.assists}`);
+            kdaText = await makeKDA(participant.kills, participant.deaths, participant.assists, boldFont, --scale)
         }
-        const killsText = await Image.renderText(boldFont, scale, `${participant.kills} /`);
-        const deathsText = await Image.renderText(boldFont, scale, ` ${participant.deaths}`, 0xEB3349ff);
+        // const killsText = await Image.renderText(boldFont, scale, `${participant.kills} /`);
+        // const deathsText = await Image.renderText(boldFont, scale, ` ${participant.deaths}`, 0xEB3349ff);
         canvas.composite(kdaText, 795 - kdaText.width / 2, 33 + 24 - scale)
-        canvas.composite(deathsText, 795 - kdaText.width / 2 + killsText.width, 33 + 24 - scale)
+        // canvas.composite(deathsText, 795 - kdaText.width / 2 + killsText.width, 33 + 24 - scale)
     }
 
     const kdaScore = await Image.renderText(boldFont, 20, ((participant.kills + participant.assists) / (participant.deaths || 1)).toFixed(1) + ' KDA', 0xFABE4Fff)
@@ -259,4 +289,11 @@ export async function makeMatchHistory(
     });
 
     return Buffer.from(encoded);
+}
+
+function numberToTimestamp(d: number) {
+    const minutes = Math.floor(d / 60);
+    const seconds = d % 60;
+
+    return `${minutes}:${seconds > 9 ? seconds : '0' + seconds}`
 }

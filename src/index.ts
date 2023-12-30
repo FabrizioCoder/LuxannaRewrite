@@ -15,10 +15,6 @@ async function draw() {
 
     console.log(matches)
 
-    // await writeFile(join(process.cwd(), 'res.json'), JSON.stringify(matches))
-
-    // const matches = JSON.parse((await readFile(join(process.cwd(), 'res.json'))).toString()) as unknown as NonNullable<Awaited<ReturnType<SummonerMatches['getMatchById']>>>[]
-
     await writeFile(
         //@ts-expect-error
         join(process.cwd(), 'res.png'), await makeMatchHistory(matches.slice(0, 5), summoner)
