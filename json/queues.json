@@ -365,6 +365,12 @@
     "description": "Ranked Flex",
     "detailedDescription": ""
   },
+  "490": {
+    "name": "Quickplay",
+    "shortName": "Quickplay",
+    "description": "Quickplay",
+    "detailedDescription": "Normal (Quickplay)"
+  },
   "600": {
     "name": "Blood Moon",
     "shortName": "Blood Moon",
@@ -396,6 +402,18 @@
     "detailedDescription": ""
   },
   "701": {
+    "name": "Clash",
+    "shortName": "Clash",
+    "description": "Clash",
+    "detailedDescription": ""
+  },
+  "720": {
+    "name": "Clash",
+    "shortName": "Clash",
+    "description": "Clash",
+    "detailedDescription": ""
+  },
+  "721": {
     "name": "Clash",
     "shortName": "Clash",
     "description": "Clash",
@@ -804,7 +822,7 @@
     "detailedDescription": ""
   },
   "1111": {
-    "name": "TFT Simulation ",
+    "name": "TFT Simulation",
     "shortName": "TFT Simulation",
     "description": "Simulation",
     "detailedDescription": ""
@@ -953,6 +971,30 @@
     "description": "1v7 Bots (Soul Brawl)",
     "detailedDescription": "1v7 Bots (Soul Brawl)"
   },
+  "1190": {
+    "name": "Teamfight Tactics (Choncc's Treasure)",
+    "shortName": "Teamfight Tactics (Choncc's Treasure)",
+    "description": "Choncc's Treasure",
+    "detailedDescription": "Teamfight Tactics (Choncc's Treasure)"
+  },
+  "1191": {
+    "name": "1v0 (Choncc's Treasure)",
+    "shortName": "1v0 (Choncc's Treasure)",
+    "description": "1v0 (Choncc's Treasure)",
+    "detailedDescription": "1v0 (Choncc's Treasure)"
+  },
+  "1192": {
+    "name": "2v0 (Choncc's Treasure)",
+    "shortName": "2v0 (Choncc's Treasure)",
+    "description": "2v0 (Choncc's Treasure)",
+    "detailedDescription": "2v0 (Choncc's Treasure)"
+  },
+  "1195": {
+    "name": "1v7 Bots (Choncc's Treasure)",
+    "shortName": "1v7 Bots (Choncc's Treasure)",
+    "description": "1v7 Bots (Choncc's Treasure)",
+    "detailedDescription": "1v7 Bots (Choncc's Treasure)"
+  },
   "1200": {
     "name": "Nexus Blitz",
     "shortName": "Nexus Blitz",
@@ -1043,6 +1085,12 @@
     "description": "4v0 (Arena)",
     "detailedDescription": "4v0 (Arena)"
   },
+  "1710": {
+    "name": "Arena",
+    "shortName": "Arena",
+    "description": "Arena",
+    "detailedDescription": "Arena"
+  },
   "1900": {
     "name": "Ultra Rapid Fire",
     "shortName": "URF",
@@ -1090,6 +1138,12 @@
     "shortName": "Tutorial Part 3",
     "description": "Tutorial Part 3",
     "detailedDescription": ""
+  },
+  "2200": {
+    "name": "Teamfight Tactics (Normal)",
+    "shortName": "Teamfight Tactics (Normal)",
+    "description": "Normal",
+    "detailedDescription": "Teamfight Tactics (Normal)"
   },
   "3000": {
     "name": "TFT Custom",

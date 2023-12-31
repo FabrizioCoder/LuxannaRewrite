@@ -13,27 +13,27 @@ const paths = {
     background: join(process.cwd(), 'assets', 'history', 'background.png')
 } as const
 
-function getIcon(version: string, champion: string, size = 120) {
+async function getIcon(version: string, champion: string, size = 120) {
     const url = `https://prod.api.assets.riotgames.com/public/v1/asset/lol/${version}/CHAMPION/${Object.values(Champions).find(x => x.key === champion)?.key}/ICON?width=${size}&height=${size}&auto=png`
-    return fetch(url)
-        .then(x => x.arrayBuffer() as Promise<Buffer>)
-        .then(x => Image.decode(x))
+    const x_1 = await fetch(url);
+    const x_2 = await (x_1.arrayBuffer() as Promise<Buffer>);
+    return await Image.decode(x_2);
 }
 
-function getSpell(version: string, spell: string, size = 44) {
+async function getSpell(version: string, spell: string, size = 44) {
     const url = `https://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${Object.values(SummonerSpells).find(x => x.key === spell)?.id}.png`;
-    return fetch(url)
-        .then(x => x.arrayBuffer() as Promise<Buffer>)
-        .then(x => Image.decode(x))
-        .then(x => x.resize(size, size))
+    const x_1 = await fetch(url);
+    const x_2 = await (x_1.arrayBuffer() as Promise<Buffer>);
+    const x_3 = await Image.decode(x_2);
+    return x_3.resize(size, size);
 }
 
-function getItem(version: string, item: number) {
+async function getItem(version: string, item: number) {
     const url = `https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item}.png`;
-    return fetch(url)
-        .then(x => x.arrayBuffer() as Promise<Buffer>)
-        .then(x => Image.decode(x))
-        .then(x => x.resize(50, 50))
+    const x = await fetch(url);
+    const x_1 = await (x.arrayBuffer() as Promise<Buffer>);
+    const x_2 = await Image.decode(x_1);
+    return x_2.resize(50, 50);
 }
 
 async function getAugment(augment: number) {
@@ -142,7 +142,8 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
     const ward = participant.item6 ? (await getItem('13.24.1', participant.item6)).roundCorners(6) : null;
     if (ward) canvas.composite(ward, 311, 10)
 
-    const gameMode = await Image.renderText(boldFont, 20, Queues[match.info.queueId as unknown as keyof typeof Queues]?.shortName ?? match.info.gameMode);
+    const gameQueue = Queues[match.info.queueId as unknown as keyof typeof Queues]
+    const gameMode = await Image.renderText(boldFont, 20, gameQueue ? gameQueue.description.replace('Ranked ', '') || match.info.gameMode : match.info.gameMode);
     canvas.composite(gameMode, 85 - gameMode.width / 2);
 
     const winOrDefeat = await Image.renderText(boldFont, 18, participant.teamEarlySurrendered ? 'REDO' : participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
@@ -175,7 +176,8 @@ export async function makeMatchHistory(
     const participant = firstMatch.info.participants.find(x => x.puuid === summoner.puuid)!
     const icon = await getIcon('13.24.1', participant.championId.toString())
 
-    const gameMode = await Image.renderText(boldFont, 26, Queues[firstMatch.info.queueId as unknown as keyof typeof Queues]?.shortName ?? firstMatch.info.gameMode);
+    const gameQueue = Queues[firstMatch.info.queueId as unknown as keyof typeof Queues]
+    const gameMode = await Image.renderText(boldFont, 26, gameQueue ? gameQueue.description.replace('Ranked ', '') || firstMatch.info.gameMode : firstMatch.info.gameMode);
     canvas.composite(gameMode, 96 - gameMode.width / 2, 34);
 
     const winOrDefeat = await Image.renderText(boldFont, 22, participant.teamEarlySurrendered ? 'REDO' : participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
@@ -274,7 +276,8 @@ export async function makeMatchHistory(
     const kdaScore = await Image.renderText(boldFont, 20, `${((participant.kills + participant.assists) / (participant.deaths || 1)).toFixed(1)} KDA`, 0xFABE4Fff)
     canvas.composite(kdaScore, 795 - kdaScore.width / 2, 67)
 
-    const csScore = await Image.renderText(boldFont, 18, `${participant.totalMinionsKilled} CS (${(participant.totalMinionsKilled / (firstMatch.info.gameDuration / 60)).toFixed(1)})`, 0xACBEE0ff)
+    const totalCS = participant.totalMinionsKilled + participant.neutralMinionsKilled
+    const csScore = await Image.renderText(boldFont, 18, `${totalCS} CS (${(totalCS / (firstMatch.info.gameDuration / 60)).toFixed(1)})`, 0xACBEE0ff)
     canvas.composite(csScore, 795 - csScore.width / 2, 96)
 
     canvas.composite(icon.roundCorners(16), 214, 18)
