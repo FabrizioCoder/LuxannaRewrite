@@ -186,15 +186,15 @@
     "detailedDescription": ""
   },
   "318": {
-    "name": "AR Ultra Rapid Fire",
+    "name": "URF",
     "shortName": "ARURF",
-    "description": "AR Ultra Rapid Fire",
+    "description": "URF",
     "detailedDescription": ""
   },
   "319": {
-    "name": "AR Ultra Rapid Fire",
+    "name": "URF",
     "shortName": "ARURF",
-    "description": "AR Ultra Rapid Fire",
+    "description": "URF",
     "detailedDescription": ""
   },
   "320": {
@@ -272,7 +272,7 @@
   "420": {
     "name": "Ranked Solo/Duo",
     "shortName": "Ranked Solo/Duo",
-    "description": "Ranked Solo/Duo",
+    "description": "Solo/Duo",
     "detailedDescription": ""
   },
   "421": {
@@ -314,7 +314,7 @@
   "440": {
     "name": "Ranked Flex",
     "shortName": "Ranked Flex",
-    "description": "Ranked Flex",
+    "description": "Flex",
     "detailedDescription": ""
   },
   "441": {
@@ -504,9 +504,9 @@
     "detailedDescription": "ARAM 5v5 Bots"
   },
   "900": {
-    "name": "AR Ultra Rapid Fire",
+    "name": "URF",
     "shortName": "ARURF",
-    "description": "AR Ultra Rapid Fire",
+    "description": "URF",
     "detailedDescription": ""
   },
   "901": {

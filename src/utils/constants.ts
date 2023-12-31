@@ -79,10 +79,10 @@ export const QueueChoices = [
     name: 'Blind Pick',
     value: '430',
   },
-  // {
-  //   name: 'URF',
-  //   value: '900',
-  // },
+  {
+    name: 'URF',
+    value: '900',
+  },
   {
     name: 'Arena',
     value: '1700',

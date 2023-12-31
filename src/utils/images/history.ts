@@ -143,7 +143,7 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
     if (ward) canvas.composite(ward, 311, 10)
 
     const gameQueue = Queues[match.info.queueId as unknown as keyof typeof Queues]
-    const gameMode = await Image.renderText(boldFont, 20, gameQueue ? gameQueue.description.replace('Ranked ', '') || match.info.gameMode : match.info.gameMode);
+    const gameMode = await Image.renderText(boldFont, 20, gameQueue ? gameQueue.description || match.info.gameMode : match.info.gameMode);
     canvas.composite(gameMode, 85 - gameMode.width / 2);
 
     const winOrDefeat = await Image.renderText(boldFont, 18, participant.teamEarlySurrendered ? 'REDO' : participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
@@ -177,7 +177,7 @@ export async function makeMatchHistory(
     const icon = await getIcon('13.24.1', participant.championId.toString())
 
     const gameQueue = Queues[firstMatch.info.queueId as unknown as keyof typeof Queues]
-    const gameMode = await Image.renderText(boldFont, 26, gameQueue ? gameQueue.description.replace('Ranked ', '') || firstMatch.info.gameMode : firstMatch.info.gameMode);
+    const gameMode = await Image.renderText(boldFont, 26, gameQueue ? gameQueue.description || firstMatch.info.gameMode : firstMatch.info.gameMode);
     canvas.composite(gameMode, 96 - gameMode.width / 2, 34);
 
     const winOrDefeat = await Image.renderText(boldFont, 22, participant.teamEarlySurrendered ? 'REDO' : participant.win ? 'WIN' : 'LOSE', participant.win ? 0x93F9B9ff : 0xEB3349ff);
