@@ -6,8 +6,8 @@ export class SummonerMatches {
 
   constructor(readonly puuid: string, readonly summonerRegion: keyof typeof regionalURLs) { }
 
-  async getMatchesHistory() {
-    if (!this.matches.length) await this.fetchMatchesId();
+  async getMatchesHistory(queue?: number) {
+    if (!this.matches.length) await this.fetchMatchesId(queue);
     return this.matches;
   }
 
@@ -15,17 +15,19 @@ export class SummonerMatches {
     return this.fetchMatch(matchId);
   }
 
-  private async fetchMatchesId() {
+  private async fetchMatchesId(queue?: number) {
     const { data: matches } = await restClient.GET(
       '/lol/match/v5/matches/by-puuid/{puuid}/ids',
+
       {
         params: {
           path: {
             puuid: this.puuid,
           },
           query: {
-            count: 20, // Fetch the last 20 matches
-          },
+            count: 5,
+            queue: queue ? queue : undefined,
+          }
         },
 
         overwriteURL: selectRegion(this.summonerRegion, true),

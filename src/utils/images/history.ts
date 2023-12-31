@@ -40,7 +40,7 @@ async function getAugment(augment: number) {
     const baseURL = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default"
     const perkJson = Augments.find(x => x.id === augment)
     if (!perkJson) {
-        console.log(augment)
+        // console.log(augment)
         return new Image(44, 44)
     }
     const url = `${baseURL}/${perkJson?.augmentSmallIconPath.split('assets')[1]?.toLowerCase()}`
@@ -55,7 +55,7 @@ async function getPerk(perk: number, isSecondary = false, size = 50) {
     const baseURL = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default"
     const perkJson = Perks.find(x => x.id === perk)
     if (!perkJson) {
-        console.log(perk)
+        // console.log(perk)
         return new Image(size, size)
     }
     const url = `${baseURL}/v1${perkJson?.iconPath.split('v1')[1]?.toLowerCase()}`
@@ -93,7 +93,7 @@ async function makeLabel(match: NonNullable<Awaited<ReturnType<SummonerMatches['
     const participant = match.info.participants.find(x => x.puuid === summoner.puuid)!
     const icon = (await getIcon('13.24.1', participant.championId.toString(), 91)).roundCorners(16)
 
-    console.log(match.info.gameMode)
+    // console.log(match.info.gameMode)
 
     switch (match.info.gameMode) {
         case 'CHERRY': {

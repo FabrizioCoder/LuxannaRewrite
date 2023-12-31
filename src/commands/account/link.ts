@@ -22,7 +22,7 @@ const options = {
     },
     required: true,
     type: 3,
-    value(value: string, ok: OKFunction<string>, fail: StopFunction) {
+    value({ value }, ok: OKFunction<string>, fail: StopFunction) {
       if (!value.includes('#'))
         fail(Error('The RiotId must include the "#". (FabrizioCoder#6030)'));
       ok(value);
@@ -39,10 +39,10 @@ const options = {
     type: ApplicationCommandOptionType.String,
     choices: RegionChoices,
     value(
-      value: keyof typeof regionalURLs,
+      { value },
       ok: OKFunction<keyof typeof regionalURLs>
     ) {
-      ok(value);
+      ok(value as keyof typeof regionalURLs);
     },
   }),
 };
@@ -71,10 +71,8 @@ export default class LinkCommand extends SubCommand {
         content: 'You already have a linked account.',
       });
 
-    const puuid = await SummonersManager.fetchByRiotId(
-      gameName,
-      tagLine,
-      ctx.options.region
+    const puuid = await SummonersManager.getInstance().getSummoner(
+      `${ctx.options.region}:${gameName}:${tagLine}`
     );
 
     if (!puuid)
@@ -96,12 +94,12 @@ export default class LinkCommand extends SubCommand {
     const img = await makeLinkedAccount(
       ctx.options['riot-id'],
       ctx.options.region,
-      (await summoner?.getSummonerData())!
+      summoner!
     );
 
     return ctx.editOrReply(
       {
-        content: `Your account has been linked successfully.`,
+        content: "Your account has been linked successfully.",
       },
       [
         {

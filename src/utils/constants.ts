@@ -58,10 +58,33 @@ export const RegionChoices = Object.entries(LeagueRegion).map((region) => ({
   type: ApplicationCommandOptionType.String,
 }));
 
+export const QueueChoices = [
+  {
+    name: 'ARAM',
+    value: '450',
+  },
+  {
+    name: 'Ranked Solo/Duo',
+    value: '420',
+  },
+  {
+    name: 'Ranked Flex',
+    value: '440',
+  },
+  {
+    name: 'Draft Pick',
+    value: '400',
+  },
+  {
+    name: 'Blind Pick',
+    value: '430',
+  },
+];
+
 export const hide = createOption({
   type: ApplicationCommandOptionType.Boolean,
   description: 'Hide command output',
-  value: (value: boolean, ok) => {
+  value: ({ value }, ok) => {
     ok(value);
   },
   required: false,
@@ -76,10 +99,10 @@ export const searchOptions = {
     },
     required: false,
     type: ApplicationCommandOptionType.String,
-    value(value: string, ok: OKFunction<string>, fail: StopFunction) {
-      if (!value.includes('#'))
+    value({ value }, ok: OKFunction<string>, fail: StopFunction) {
+      if (!value!.includes('#'))
         fail(Error('The RiotId must include the "#". (FabrizioCoder#6030)'));
-      ok(value);
+      ok(value!);
     },
   }),
   region: createOption({
@@ -93,10 +116,10 @@ export const searchOptions = {
     type: ApplicationCommandOptionType.String,
     choices: RegionChoices,
     value(
-      value: keyof typeof regionalURLs,
+      { value },
       ok: OKFunction<keyof typeof regionalURLs>
     ) {
-      ok(value);
+      ok(value as keyof typeof regionalURLs);
     },
   }),
   user: createOption({
