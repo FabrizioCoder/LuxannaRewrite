@@ -1,8 +1,8 @@
 import { Snowflake } from '@biscuitland/common';
-import { Collection, createMiddleware } from '@potoland/core';
+import { LimitedCollection, createMiddleware } from '@potoland/core';
 import { Ratelimit } from '../utils/constants';
 
-const cooldowns = new Collection<
+const cooldowns = new LimitedCollection<
   Snowflake,
   Ratelimit
 >({});
