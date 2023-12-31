@@ -91,18 +91,23 @@ export async function makeRankedProfile(data: SummonerLeague, summoner: Summoner
   let soloQPos = 0;
   let flexPos = 0;
   let tftPos = 0;
-  if (highest[0] === soloQ) {
-    soloQPos = 181;
-    flexPos = 0;
-    tftPos = 364;
-  } else if (highest[0] === flex) {
-    soloQPos = 0;
-    flexPos = 181;
-    tftPos = 364;
-  } else if (highest[0] === tft) {
-    soloQPos = 0;
-    flexPos = 364;
-    tftPos = 181;
+
+  switch (highest[0]) {
+    case soloQ:
+      soloQPos = 181;
+      flexPos = 0;
+      tftPos = 364;
+      break;
+    case flex:
+      soloQPos = 0;
+      flexPos = 181;
+      tftPos = 364;
+      break;
+    case tft:
+      soloQPos = 0;
+      flexPos = 364;
+      tftPos = 181;
+      break;
   }
 
   // Solo/duo
