@@ -1,9 +1,7 @@
-import { URL } from 'url';
-// import { ChampionMasteryData, Gamemode } from "../app/riot/types";
 import { DiscordEmoji } from '@biscuitland/api-types';
 import { InteractionGuildMember, PotoClient, User } from '@potoland/core';
+import { URL } from 'url';
 import allemotes from '../../json/emojis.json';
-// import { Region } from '../app/riot/utils/enums';
 import queues from '../../json/queues.json';
 import { userModel } from '../app/models/user';
 import { Ratelimit } from './constants';
@@ -26,13 +24,6 @@ const spellIdToName = {
   54: 'Placeholder',
   55: 'Placeholder',
 } as const;
-
-// function _sortMastery(data: ChampionMasteryData[]) {
-//   const sorter = (a: ChampionMasteryData, b: ChampionMasteryData) =>
-//     b.championLevel - a.championLevel || b.championPoints - a.championPoints;
-
-//   return data.sort(sorter);
-// }
 
 function amount(entry: number) {
   return Intl.NumberFormat('en', { notation: 'compact' }).format(entry);
@@ -233,21 +224,6 @@ function selectRegion<R extends keyof typeof regionalURLs | keyof typeof apiBase
   return apiBaseURLs[region as keyof typeof apiBaseURLs];
 }
 
-// async function parseSummonerOptions(
-//   interaction: ApplicationCommandInteraction
-// ) {
-//   let sumName = <string | undefined>interaction.options.getString('name')!;
-//   let sumRegion = <Region | undefined>interaction.options.getString('region')!;
-//   let user = interaction.options.getUser('user') ?? interaction.author;
-//   const { summoner_name, summoner_region } =
-//     (await interaction.client.orm.getDiscordUserData(user.id)) ?? {};
-
-//   sumName ||= summoner_name;
-//   sumRegion ||= summoner_region;
-
-//   return { sumName, sumRegion };
-// }
-
 async function parseSummonerOptions({
   user,
   userId,
@@ -280,10 +256,6 @@ async function parseSummonerOptions({
   return { riotId, region };
 }
 
-// const isSupportedGamemode = (keyInput: string): keyInput is Gamemode => {
-//   return ["classic", "twisted-treeline", "aram", "urf"].includes(keyInput);
-// };
-
 function ApplyCooldown(data: Ratelimit) {
   return <T extends { new(...args: any[]): {} }>(target: T) =>
     class extends target {
@@ -297,11 +269,9 @@ function makeIconURL(version: string, icon: number | undefined): `https://ddrago
 
 export {
   ApplyCooldown,
-  // _sortMastery,
   amount, calculateCSPerMinute, calculateGameDuration, calculateKDA,
   calculateKP, calculateWinrate, capitalizeString, championEmoji, cleanHTML, getEmojiData, getEmote, getParamFromUrl, getQueueById,
   getSpellById, makeIconURL, parseSummonerOptions, rawEmote,
-  // isSupportedGamemode,
   selectRegion
 };
 
