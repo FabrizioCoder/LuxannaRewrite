@@ -42,7 +42,7 @@
     "openapi-fetch": "^0.8.2",
     "satori": "^0.10.11",
     "satori-html": "^0.3.2",
-    "svg2img": "^0.9.4",
+    "sharp": "^0.33.1",
     "tiramisu-cli": "github:potoland/potocli"
   },
   "devDependencies": {

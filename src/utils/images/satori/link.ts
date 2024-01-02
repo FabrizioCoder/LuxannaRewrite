@@ -1,12 +1,9 @@
 import { readFile } from 'fs/promises';
-import { promisify } from 'util';
 import { join } from 'path';
 import satori from 'satori';
-import svg2img_callback from 'svg2img';
+import sharp from 'sharp';
 
 export async function makeLinkedProfile(riotId: string, iconUrl: string) {
-  //@ts-nocheck
-  const svg2img = promisify(svg2img_callback);
   const { html } = await (eval('import("satori-html")') as Promise<typeof import('satori-html')>);
   const robotoArrayBuffer = await readFile(join(process.cwd(), 'assets', 'fonts', 'BeaufortforLOL-Bold.ttf'));
 
@@ -60,12 +57,17 @@ export async function makeLinkedProfile(riotId: string, iconUrl: string) {
       {
         name: 'Beaufortfor-Bold',
         data: robotoArrayBuffer,
-        weight: 400,
+        weight: 700,
         style: 'normal',
       },
     ],
   });
 
-  //@ts-ignore
-  return await svg2img(svg, { format: 'png', compressionLevel: 0 });
+  return await sharp(Buffer.from(svg))
+    .png({
+      compressionLevel: 0,
+      quality: 100,
+      effort: 10,
+    })
+    .toBuffer();
 }
