@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=578;height=256;initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- haz que en el medio esté una imagen en circulo y debajo haya un nombre -->
+    <div class="profile">
+      <!-- watermark zona superior derecha-->
+      <p id="watermark">@Luxanna#6457</p>
+      <img
+        src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/profileicon/5967.png"
+        alt="profile"
+        id="icon"
+      />
+      <h1 id="riotId">FabrizioCoder#6030</h1>
+      <h2 id="region">LAN</h2>
+    </div>
+  </body>
+
+  <style>
+    /* BeaufortforLOL-Regular */
+    @font-face {
+      font-family: 'Beaufortfor-Bold';
+      src: url('../../../../../assets/fonts/BeaufortforLOL-Bold.ttf')
+        format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    div {
+      width: 578px;
+      height: 256px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url('../../../../../assets/link/Fondo.svg');
+
+      font-family: 'Beaufortfor-Bold';
+
+      color: #c89b3c;
+    }
+
+    #icon {
+      height: 135px;
+      width: 135px;
+      border-radius: 50%;
+      margin-top: 5px;
+    }
+
+    #riotId {
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    /* bajo el riotID */
+    #region {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1px;
+      color: #fff;
+    }
+    #watermark {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0px;
+      font-size: 10px;
+      color: #6b6b6b;
+    }
+  </style>
+</html>

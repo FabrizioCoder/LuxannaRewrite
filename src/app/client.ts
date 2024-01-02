@@ -8,9 +8,7 @@ require('dotenv/config');
 export async function main() {
   const client = new Client();
 
-  const adapter = new Redis(
-    process.env.REDIS_URL!
-  );
+  const adapter = new Redis(process.env.REDIS_URL!);
 
   adapter.on('ready', () => client.logger.info('Redis ready'));
   adapter.on('error', (err) => console.error('redis error', err));
@@ -23,7 +21,9 @@ export async function main() {
 
   await client.start();
 
-  await mongoose.connect(process.env.MONGO_URI!);
+  await mongoose.connect(process.env.MONGO_URI!, {
+    dbName: 'lux',
+  });
 }
 
 declare module '@potoland/core' {
