@@ -1,31 +1,32 @@
+import { PotoClient } from '@potoland/core';
 import { regionalURLs } from "../../utils/functions";
 import { Summoner } from "../structures/summoner";
 
 export class SummonersManager {
-  // key: region:gameName:tagLine
-  summoners: Map<string, Summoner> = new Map();
+  constructor(public client: PotoClient) { }
 
   private static instance: SummonersManager;
 
-  public static getInstance(): SummonersManager {
+  public static getInstance(client: PotoClient): SummonersManager {
     if (!SummonersManager.instance) {
-      SummonersManager.instance = new SummonersManager();
+      SummonersManager.instance = new SummonersManager(client);
     }
-
     return SummonersManager.instance;
   }
 
   public addSummoner(summoner: Summoner) {
-    this.summoners.set(`${summoner.region}:${summoner.gameName}:${summoner.tagLine}`, summoner);
+    this.client.store.set(`${summoner.region}:${summoner.gameName}:${summoner.tagLine}`, summoner, {
+      ex: 300
+    });
   }
 
   async getSummoner(identifier: string) {
-    let summoner = this.summoners.get(identifier);
+    let summoner = <Summoner><unknown>(await this.client.store.get(identifier));
 
-    // If the summoner is already "cached", return it.
-    if (summoner) return summoner;
+    if (summoner) return new Summoner(summoner.gameName, summoner.tagLine, summoner.puuid, summoner.region, summoner! as any);
 
-    // If the summoner isn't cached, fetch it from RIOT API.
+
+
     const [region, gameName, tagLine] = identifier.split(":") as [keyof typeof regionalURLs, string, string];
     const summonerPUUID = await Summoner.fetchSummonerPUUID(gameName, tagLine, region);
 

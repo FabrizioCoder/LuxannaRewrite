@@ -14,6 +14,7 @@ export class Summoner {
   public summonerLevel: number;
   public profileIconId: number;
   public name: string;
+  public accountId: string;
 
   constructor(
     public readonly gameName: string,
@@ -26,6 +27,7 @@ export class Summoner {
     this.summonerLevel = summonerData.summonerLevel;
     this.profileIconId = summonerData.profileIconId;
     this.name = summonerData.name;
+    this.accountId = summonerData.accountId;
   }
 
   async getLeague(): Promise<SummonerLeague> {
@@ -53,11 +55,11 @@ export class Summoner {
     return account.puuid;
   }
 
-  public static async fetchSummonerData(uuid: string, region: keyof typeof regionalURLs) {
+  public static async fetchSummonerData(puuid: string, region: keyof typeof regionalURLs) {
     const { data: summoner } = await restClient.GET("/lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}", {
       params: {
         path: {
-          encryptedPUUID: uuid,
+          encryptedPUUID: puuid,
         },
       },
       overwriteURL: selectRegion(region),

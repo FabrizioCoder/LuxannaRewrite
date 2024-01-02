@@ -9,7 +9,7 @@ export class SummonerLeague {
   private RANKED_FLEX_SR?: League;
   private RANKED_TFT?: League | null;
 
-  constructor(readonly summonerId: string, readonly summonerRegion: keyof typeof regionalURLs) {}
+  constructor(readonly summonerId: string, readonly summonerRegion: keyof typeof regionalURLs) { }
 
   async getSoloQueue() {
     if (!this.RANKED_SOLO_5x5) await this.fetchSummonerLeague();

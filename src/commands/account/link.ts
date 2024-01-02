@@ -71,11 +71,11 @@ export default class LinkCommand extends SubCommand {
         content: 'You already have a linked account.',
       });
 
-    const puuid = await SummonersManager.getInstance().getSummoner(
+    const summoner = await SummonersManager.getInstance(ctx.client).getSummoner(
       `${ctx.options.region}:${gameName}:${tagLine}`
     );
 
-    if (!puuid)
+    if (!summoner)
       return ctx.editOrReply({
         content: "The summoner doesn't exist",
       });
@@ -84,13 +84,11 @@ export default class LinkCommand extends SubCommand {
       id: ctx.author.id,
       gameName,
       tagLine,
-      puuid,
+      summoner: summoner.puuid,
       region: ctx.options.region,
     });
 
-    const summoner = await SummonersManager.getInstance().getSummoner(
-      `${ctx.options.region}:${gameName}:${tagLine}`
-    );
+
     const img = await makeLinkedAccount(
       ctx.options['riot-id'],
       ctx.options.region,

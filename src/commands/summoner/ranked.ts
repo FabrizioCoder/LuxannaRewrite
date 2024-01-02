@@ -18,19 +18,21 @@ export default class RankedCommand extends SubCommand {
       region: ctx.options.region,
     });
 
-    if (!args)
+    if (!args) {
       return ctx.editOrReply({
         content:
           "You don't have a linked account. Enter your RiotId and region or you can also link your account with `/account link`.",
       });
+    }
 
     const [gameName, tagLine] = args.riotId.split("#");
-    const summoner = await SummonersManager.getInstance().getSummoner(`${args.region}:${gameName}:${tagLine}`);
+    const summoner = await SummonersManager.getInstance(ctx.client).getSummoner(`${args.region}:${gameName}:${tagLine}`);
 
-    if (!summoner)
+    if (!summoner) {
       return ctx.editOrReply({
         content: "Summoner not found.",
       });
+    }
 
     const SummonerRankeds = await summoner.getLeague();
     const img = await makeRankedProfile(SummonerRankeds, summoner);
