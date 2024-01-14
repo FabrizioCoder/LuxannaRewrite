@@ -1,4 +1,12 @@
-import { AutoLoad, Command, CommandContext, Declare, Groups, Middlewares, OnOptionsReturnObject } from '@potoland/core';
+import {
+  AutoLoad,
+  Command,
+  CommandContext,
+  Declare,
+  Groups,
+  Middlewares,
+  OnOptionsReturnObject,
+} from 'biscuitjs';
 import DeferReply from '../../middlewares/deferReply';
 
 @Declare({
@@ -8,7 +16,7 @@ import DeferReply from '../../middlewares/deferReply';
 @Groups({
   matches: {
     defaultDescription: 'Summoner matches',
-  }
+  },
 })
 @Middlewares([DeferReply])
 @AutoLoad()

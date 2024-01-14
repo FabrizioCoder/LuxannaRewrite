@@ -1,35 +1,34 @@
-import { PotoClient as Client } from '@potoland/core';
+import { Client, RedisAdapter } from 'biscuitjs';
 import { Ratelimit } from '../utils/constants';
-import { Redis } from 'ioredis';
-import { LuxannaStore } from './cache';
 import mongoose from 'mongoose';
-require('dotenv/config');
+import 'dotenv/config';
 
 export async function main() {
   const client = new Client();
 
-  const adapter = new Redis(process.env.REDIS_URL!);
-
-  adapter.on('ready', () => client.logger.info('Redis ready'));
-  adapter.on('error', (err) => console.error('redis error', err));
-
   client.events.OnFail = async (...err) => console.error('error', ...err);
-  client.setServices({
-    defaultLang: 'en-US',
-  });
-  client.store = new LuxannaStore(adapter);
 
   await client.start();
+  client.setServices({
+    cache: {
+      adapter: new RedisAdapter({
+        redisOptions: {
+          host: 'us1-special-buffalo-38283.upstash.io',
+          port: 38283,
+          password: 'eda62d2d2974486883fb4a9862ea2308',
+          tls: {},
+        },
+      }),
+      disabledCache: ['channels', 'presences', 'roles', 'stickers'],
+    },
+  });
 
   await mongoose.connect(process.env.MONGO_URI!, {
     dbName: 'lux',
   });
 }
 
-declare module '@potoland/core' {
-  interface PotoClient {
-    store: LuxannaStore;
-  }
+declare module 'biscuitjs' {
   interface Command {
     ratelimit: Ratelimit;
   }

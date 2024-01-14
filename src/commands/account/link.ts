@@ -1,13 +1,26 @@
 import { ApplicationCommandOptionType } from '@biscuitland/common';
-import { CommandContext, Declare, OKFunction, Options, StopFunction, SubCommand, createOption } from '@potoland/core';
+import {
+  CommandContext,
+  Declare,
+  OKFunction,
+  Options,
+  StopFunction,
+  SubCommand,
+  createStringOption,
+  Attachment,
+} from 'biscuitjs';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { userModel } from '../../app/models/user';
 import { RegionChoices } from '../../utils/constants';
-import { ApplyCooldown, makeIconURL, regionalURLs } from '../../utils/functions';
+import {
+  ApplyCooldown,
+  makeIconURL,
+  regionalURLs,
+} from '../../utils/functions';
 import { makeLinkedProfile } from '../../utils/images/satori/link';
 
 const options = {
-  'riot-id': createOption({
+  'riot-id': createStringOption({
     description: 'When you want to add your account, your RiotId is required.',
     description_localizations: {
       'es-ES': 'Cuando quieres añadir tu cuenta, tu RiotId es requerido.',
@@ -15,14 +28,17 @@ const options = {
     required: true,
     type: 3,
     value({ value }, ok: OKFunction<string>, fail: StopFunction) {
-      if (!value.includes('#')) fail(Error('The RiotId must include the "#". (FabrizioCoder#6030)'));
+      if (!value.includes('#'))
+        fail(Error('The RiotId must include the "#". (FabrizioCoder#6030)'));
       ok(value);
     },
   }),
-  region: createOption({
-    description: 'When you want to add your account, the region in which you play is required.',
+  region: createStringOption({
+    description:
+      'When you want to add your account, the region in which you play is required.',
     description_localizations: {
-      'es-ES': 'Cuando quieres añadir tu cuenta, la región en la que juegas es requerida.',
+      'es-ES':
+        'Cuando quieres añadir tu cuenta, la región en la que juegas es requerida.',
     },
     required: true,
     type: ApplicationCommandOptionType.String,
@@ -58,7 +74,7 @@ export default class LinkCommand extends SubCommand {
       });
 
     const summoner = await SummonersManager.getInstance(ctx.client).getSummoner(
-      `${ctx.options.region}:${gameName}:${tagLine}`,
+      `${ctx.options.region}:${gameName}:${tagLine}`
     );
 
     if (!summoner)
@@ -74,19 +90,19 @@ export default class LinkCommand extends SubCommand {
       region: ctx.options.region,
     });
 
-    const img = await makeLinkedProfile(ctx.options['riot-id'], makeIconURL('13.24.1', summoner.profileIconId!));
-
-    return ctx.editOrReply(
-      {
-        content: 'Your account has been linked successfully.',
-      },
-      [
-        {
-          data: img,
-          name: 'linked_account.png',
-          contentType: 'image/png',
-        },
-      ],
+    const img = await makeLinkedProfile(
+      ctx.options['riot-id'],
+      makeIconURL('14.1.1', summoner.profileIconId!)
     );
+
+    return ctx.editOrReply({
+      content: 'Your account has been linked successfully.',
+      files: [
+        new Attachment()
+          .setName('linked_account.png')
+          .setFile('buffer', img)
+          .setDescription('Your linked account'),
+      ],
+    });
   }
 }

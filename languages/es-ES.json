@@ -1,8 +1,0 @@
-{
-  "system": {
-    "cooldown": {
-      "user": "Estás en enfriamiento. Inténtalo de nuevo en {{time}}s",
-      "channel": "El canal está en enfriamiento. Vuelve a intentarlo en {{time}}s"
-    }
-  }
-}

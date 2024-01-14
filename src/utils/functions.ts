@@ -1,5 +1,5 @@
 import { DiscordEmoji } from '@biscuitland/api-types';
-import { InteractionGuildMember, PotoClient, User } from '@potoland/core';
+import { InteractionGuildMember, Client, User } from 'biscuitjs';
 import { URL } from 'url';
 import allemotes from '../../json/emojis.json';
 import queues from '../../json/queues.json';
@@ -75,11 +75,13 @@ const normalizedNames = {
   FiddleSticks: 'Fiddlesticks',
 } as const;
 
-async function getEmojiData(_client: PotoClient, name: string) {
-  const normalized = name.replace(/\W/g, '').replace(
-    new RegExp(Object.keys(normalizedNames).join('|'), 'g'),
-    (match) => normalizedNames[match as keyof typeof normalizedNames] ?? match
-  );
+async function getEmojiData(_client: Client, name: string) {
+  const normalized = name
+    .replace(/\W/g, '')
+    .replace(
+      new RegExp(Object.keys(normalizedNames).join('|'), 'g'),
+      (match) => normalizedNames[match as keyof typeof normalizedNames] ?? match
+    );
 
   const allEmojis = <(DiscordEmoji & { guild_id: string })[]>allemotes.flat();
 
@@ -102,11 +104,15 @@ function getEmote(name: string) {
   return raw ? `<:${raw}>` : '';
 }
 
-function getQueueById(id: number | string): typeof queues[keyof typeof queues] | null {
+function getQueueById(
+  id: number | string
+): (typeof queues)[keyof typeof queues] | null {
   return queues[id as keyof typeof queues] ?? null;
 }
 
-function getSpellById(id: number): typeof spellIdToName[keyof typeof spellIdToName] | null {
+function getSpellById(
+  id: number
+): (typeof spellIdToName)[keyof typeof spellIdToName] | null {
   return spellIdToName[id as keyof typeof spellIdToName] ?? null;
 }
 
@@ -158,7 +164,9 @@ function cleanHTML(input: string, __allowed = ' ') {
     __allowed.includes(`<${tag}>`)
   );
   if (hasUnsafeTag) throw new Error(`Disallowed tags: ${__allowed}`);
-  const allowed = (`${__allowed}`.toLowerCase().match(/<[a-z0-9]+>/g) || []).join('');
+  const allowed = (
+    `${__allowed}`.toLowerCase().match(/<[a-z0-9]+>/g) || []
+  ).join('');
 
   let output = input;
   output = output.replace(/<$/, '');
@@ -214,9 +222,17 @@ export const regionalURLs = {
   ru: 'https://europe.api.riotgames.com',
 } as const;
 
-function selectRegion<R extends keyof typeof regionalURLs>(region: R, regional: true): typeof regionalURLs[R]
-function selectRegion<R extends keyof typeof apiBaseURLs>(region: R, regional?: false): typeof apiBaseURLs[R]
-function selectRegion<R extends keyof typeof regionalURLs | keyof typeof apiBaseURLs>(region: R, regional = false) {
+function selectRegion<R extends keyof typeof regionalURLs>(
+  region: R,
+  regional: true
+): (typeof regionalURLs)[R];
+function selectRegion<R extends keyof typeof apiBaseURLs>(
+  region: R,
+  regional?: false
+): (typeof apiBaseURLs)[R];
+function selectRegion<
+  R extends keyof typeof regionalURLs | keyof typeof apiBaseURLs
+>(region: R, regional = false) {
   if (regional) {
     return regionalURLs[region as keyof typeof regionalURLs];
   }
@@ -257,21 +273,37 @@ async function parseSummonerOptions({
 }
 
 function ApplyCooldown(data: Ratelimit) {
-  return <T extends { new(...args: any[]): {} }>(target: T) =>
+  return <T extends { new (...args: any[]): {} }>(target: T) =>
     class extends target {
       ratelimit = data;
     };
 }
 
-function makeIconURL(version: string, icon: number | undefined): `https://ddragon.leagueoflegends.com/cdn/${string}/img/profileicon/${string}.png` {
+function makeIconURL(
+  version: string,
+  icon: number | undefined
+): `https://ddragon.leagueoflegends.com/cdn/${string}/img/profileicon/${string}.png` {
   return `https://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${icon}.png`;
 }
 
 export {
   ApplyCooldown,
-  amount, calculateCSPerMinute, calculateGameDuration, calculateKDA,
-  calculateKP, calculateWinrate, capitalizeString, championEmoji, cleanHTML, getEmojiData, getEmote, getParamFromUrl, getQueueById,
-  getSpellById, makeIconURL, parseSummonerOptions, rawEmote,
-  selectRegion
+  amount,
+  calculateCSPerMinute,
+  calculateGameDuration,
+  calculateKDA,
+  calculateKP,
+  calculateWinrate,
+  capitalizeString,
+  championEmoji,
+  cleanHTML,
+  getEmojiData,
+  getEmote,
+  getParamFromUrl,
+  getQueueById,
+  getSpellById,
+  makeIconURL,
+  parseSummonerOptions,
+  rawEmote,
+  selectRegion,
 };
-

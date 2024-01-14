@@ -5,7 +5,7 @@ import {
   Declare,
   Middlewares,
   OnOptionsReturnObject,
-} from '@potoland/core';
+} from 'biscuitjs';
 import DeferEphemeral from '../../middlewares/deferEphemeral';
 
 @Declare({

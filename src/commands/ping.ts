@@ -1,4 +1,4 @@
-import { Command, CommandContext, Declare, Middlewares } from '@potoland/core';
+import { Command, CommandContext, Declare, Middlewares } from 'biscuitjs';
 import Cooldown from '../middlewares/cooldown';
 import DeferReply from '../middlewares/deferReply';
 import { ApplyCooldown } from '../utils/functions';

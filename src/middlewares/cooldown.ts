@@ -1,11 +1,8 @@
 import { Snowflake } from '@biscuitland/common';
-import { LimitedCollection, createMiddleware } from '@potoland/core';
+import { LimitedCollection, createMiddleware } from 'biscuitjs';
 import { Ratelimit } from '../utils/constants';
 
-const cooldowns = new LimitedCollection<
-  Snowflake,
-  Ratelimit
->({});
+const cooldowns = new LimitedCollection<Snowflake, Ratelimit>({});
 
 export default createMiddleware<void>(async (middle) => {
   const commandCooldown = middle.context.resolver.parent?.ratelimit;
@@ -13,11 +10,6 @@ export default createMiddleware<void>(async (middle) => {
 
   const commmandName = middle.context.resolver.fullCommandName;
 
-  // can be written as middle.context.interaction.channel?.id || middle.context.author.id
-  /*
-  no
-  - TypeScript Sorcerer Supreme
-  */
   const id =
     commandCooldown.type === 'channel'
       ? middle.context.interaction.channel?.id ?? middle.context.author.id //dm channel (?)
@@ -30,21 +22,19 @@ export default createMiddleware<void>(async (middle) => {
     return middle.next();
   }
 
-  const timeLeft = (currentCooldown.expireOn - Date.now()) / 1000
+  const timeLeft = (currentCooldown.expireOn - Date.now()) / 1000;
   switch (commandCooldown.type) {
     case 'user':
       await middle.context.interaction.editOrReply({
-        content: middle.context.t('system.cooldown.user', {
-          time: `**${timeLeft.toFixed(1)}**`,
-        }),
+        content: `You are on cooldown for **${timeLeft.toFixed(1)}** seconds.`,
       });
       middle.stop(new Error(`cooldown (user: ${id})`));
       break;
     case 'channel':
       await middle.context.interaction.editOrReply({
-        content: middle.context.t('system.cooldown.channel', {
-          time: `**${timeLeft.toFixed(1)}**`,
-        }),
+        content: `This channel is on cooldown for **${timeLeft.toFixed(
+          1
+        )}** seconds.`,
       });
       middle.stop(new Error(`cooldown (channel: ${id})`));
       break;

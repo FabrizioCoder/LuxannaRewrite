@@ -1,20 +1,20 @@
-import { CommandContext, Declare, Options, SubCommand } from "@potoland/core";
-import { SummonersManager } from "../../app/managers/summonersManager";
-import { searchOptions } from "../../utils/constants";
-import { parseSummonerOptions } from "../../utils/functions";
-import { makeRankedProfile } from "../../utils/images/ranked";
+import { CommandContext, Declare, Options, SubCommand } from 'biscuitjs';
+import { SummonersManager } from '../../app/managers/summonersManager';
+import { searchOptions } from '../../utils/constants';
+import { parseSummonerOptions } from '../../utils/functions';
+import { makeRankedProfile } from '../../utils/images/ranked';
 
 @Declare({
-  name: "ranked",
-  description: "Get the summoner ranked stats",
+  name: 'ranked',
+  description: 'Get the summoner ranked stats',
 })
 @Options(searchOptions)
 export default class RankedCommand extends SubCommand {
-  async run(ctx: CommandContext<"client", typeof searchOptions>) {
+  async run(ctx: CommandContext<'client', typeof searchOptions>) {
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,
-      riotId: ctx.options["riot-id"],
+      riotId: ctx.options['riot-id'],
       region: ctx.options.region,
     });
 
@@ -25,28 +25,28 @@ export default class RankedCommand extends SubCommand {
       });
     }
 
-    const [gameName, tagLine] = args.riotId.split("#");
-    const summoner = await SummonersManager.getInstance(ctx.client).getSummoner(`${args.region}:${gameName}:${tagLine}`);
+    const [gameName, tagLine] = args.riotId.split('#');
+    const summoner = await SummonersManager.getInstance(ctx.client).getSummoner(
+      `${args.region}:${gameName}:${tagLine}`
+    );
 
     if (!summoner) {
       return ctx.editOrReply({
-        content: "Summoner not found.",
+        content: 'Summoner not found.',
       });
     }
 
     const SummonerRankeds = await summoner.getLeague();
     const img = await makeRankedProfile(SummonerRankeds, summoner);
 
-    return ctx.editOrReply(
-      {
-        content: `Ranked stats for **${gameName}#${tagLine}** (${args.region.toUpperCase()})`,
-      },
-      [
+    return ctx.editOrReply({
+      content: `Ranked stats for **${gameName}#${tagLine}** (${args.region.toUpperCase()})`,
+      files: [
         {
           data: img,
-          name: "ranked.png",
+          name: 'ranked.png',
         },
       ],
-    );
+    });
   }
 }

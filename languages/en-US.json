@@ -1,8 +1,0 @@
-{
-  "system": {
-    "cooldown": {
-      "user": "You are in cooldown. Please try again in {{time}}s",
-      "channel": "The channel is in cooldown. Please try again in {{time}}s"
-    }
-  }
-}

@@ -1,5 +1,11 @@
 import { ApplicationCommandOptionType } from '@biscuitland/common';
-import { OKFunction, StopFunction, createOption } from '@potoland/core';
+import {
+  OKFunction,
+  StopFunction,
+  createStringOption,
+  createBooleanOption,
+  createUserOption,
+} from 'biscuitjs';
 import { Image } from 'imagescript';
 import { regionalURLs } from './functions';
 
@@ -86,10 +92,10 @@ export const QueueChoices = [
   {
     name: 'Arena',
     value: '1700',
-  }
+  },
 ];
 
-export const hide = createOption({
+export const hide = createBooleanOption({
   type: ApplicationCommandOptionType.Boolean,
   description: 'Hide command output',
   value: ({ value }, ok) => {
@@ -99,7 +105,7 @@ export const hide = createOption({
 });
 
 export const searchOptions = {
-  'riot-id': createOption({
+  'riot-id': createStringOption({
     description:
       'When searching for a specific player, the RiotId is required.',
     description_localizations: {
@@ -113,7 +119,7 @@ export const searchOptions = {
       ok(value!);
     },
   }),
-  region: createOption({
+  region: createStringOption({
     description:
       'When searching for a specific player, the region in which he plays is required.',
     description_localizations: {
@@ -123,14 +129,11 @@ export const searchOptions = {
     required: false,
     type: ApplicationCommandOptionType.String,
     choices: RegionChoices,
-    value(
-      { value },
-      ok: OKFunction<keyof typeof regionalURLs>
-    ) {
+    value({ value }, ok: OKFunction<keyof typeof regionalURLs>) {
       ok(value as keyof typeof regionalURLs);
     },
   }),
-  user: createOption({
+  user: createUserOption({
     description:
       'When searching for an account linked to a user, the user is required.',
     description_localizations: {

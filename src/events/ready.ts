@@ -1,4 +1,4 @@
-import { createEvent } from '@potoland/core';
+import { createEvent } from 'biscuitjs';
 
 export default createEvent({
   data: { once: true, name: 'ready' },

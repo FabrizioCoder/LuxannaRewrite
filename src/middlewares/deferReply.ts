@@ -1,5 +1,5 @@
 import { MessageFlags } from '@biscuitland/common';
-import { createMiddleware } from '@potoland/core';
+import { createMiddleware } from 'biscuitjs';
 
 export default createMiddleware<void>(async (middle) => {
   await middle.context.interaction.deferReply(
