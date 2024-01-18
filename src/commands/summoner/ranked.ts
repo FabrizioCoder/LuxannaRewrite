@@ -1,4 +1,10 @@
-import { CommandContext, Declare, Options, SubCommand } from 'biscuitjs';
+import {
+  Attachment,
+  CommandContext,
+  Declare,
+  Options,
+  SubCommand,
+} from 'biscuitjs';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { searchOptions } from '../../utils/constants';
 import { parseSummonerOptions } from '../../utils/functions';
@@ -42,10 +48,10 @@ export default class RankedCommand extends SubCommand {
     return ctx.editOrReply({
       content: `Ranked stats for **${gameName}#${tagLine}** (${args.region.toUpperCase()})`,
       files: [
-        {
-          data: img,
-          name: 'ranked.png',
-        },
+        new Attachment()
+          .setName('ranked.png')
+          .setFile('buffer', img)
+          .setDescription('Ranked stats'),
       ],
     });
   }

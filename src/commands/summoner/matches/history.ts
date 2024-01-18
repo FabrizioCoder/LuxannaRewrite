@@ -86,7 +86,6 @@ export default class HistoryCommand extends SubCommand {
     );
 
     const buffer = await makeMatchHistory(matches as any, summoner);
-    console.log(buffer);
 
     ctx.editOrReply({
       content: `Match history for **${gameName}#${tagLine}** (${args.region.toUpperCase()})`,

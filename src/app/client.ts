@@ -18,6 +18,7 @@ export async function main() {
           password: 'eda62d2d2974486883fb4a9862ea2308',
           tls: {},
         },
+        namespace: 'lux',
       }),
       disabledCache: ['channels', 'presences', 'roles', 'stickers'],
     },
