@@ -131,7 +131,7 @@ async function makeKDA(
 }
 
 async function makeLabel(
-  match: NonNullable<Awaited<ReturnType<SummonerMatches['getMatchById']>>>,
+  match: NonNullable<Awaited<ReturnType<SummonerMatches['getById']>>>,
   summoner: Summoner,
   boldFont: Buffer
 ) {
@@ -291,7 +291,7 @@ async function makeLabel(
 }
 
 export async function makeMatchHistory(
-  matches: NonNullable<Awaited<ReturnType<SummonerMatches['getMatchById']>>>[],
+  matches: NonNullable<Awaited<ReturnType<SummonerMatches['getById']>>>[],
   summoner: Summoner
 ) {
   const canvas = await Image.decode(await readFile(paths.background));

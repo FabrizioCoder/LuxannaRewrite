@@ -4,14 +4,17 @@ import { regionalURLs, selectRegion } from '../../utils/functions';
 export class SummonerMatches {
   private matches: string[] = [];
 
-  constructor(readonly puuid: string, readonly summonerRegion: keyof typeof regionalURLs) { }
+  constructor(
+    readonly puuid: string,
+    readonly summonerRegion: keyof typeof regionalURLs
+  ) {}
 
-  async getMatchesHistory(queue?: number) {
+  async getHistory(queue?: number) {
     if (!this.matches.length) await this.fetchMatchesId(queue);
     return this.matches;
   }
 
-  getMatchById(matchId: string) {
+  getById(matchId: string) {
     return this.fetchMatch(matchId);
   }
 
@@ -27,7 +30,7 @@ export class SummonerMatches {
           query: {
             count: 5,
             queue: queue ? queue : undefined,
-          }
+          },
         },
 
         overwriteURL: selectRegion(this.summonerRegion, true),

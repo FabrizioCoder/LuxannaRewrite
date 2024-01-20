@@ -1,6 +1,6 @@
 // settings & const
 const DEFAULT_HEADERS = {
-  "Content-Type": "application/json",
+  'Content-Type': 'application/json',
 };
 
 /**
@@ -14,8 +14,8 @@ export default function createClient(clientOptions) {
     bodySerializer: globalBodySerializer,
     ...baseOptions
   } = clientOptions ?? {};
-  let baseUrl = baseOptions.baseUrl ?? "";
-  if (baseUrl.endsWith("/")) {
+  let baseUrl = baseOptions.baseUrl ?? '';
+  if (baseUrl.endsWith('/')) {
     baseUrl = baseUrl.slice(0, -1); // remove trailing slash
   }
 
@@ -30,7 +30,7 @@ export default function createClient(clientOptions) {
       headers,
       body: requestBody,
       params = {},
-      parseAs = "json",
+      parseAs = 'json',
       querySerializer = globalQuerySerializer ?? defaultQuerySerializer,
       bodySerializer = globalBodySerializer ?? defaultBodySerializer,
       ...init
@@ -44,12 +44,17 @@ export default function createClient(clientOptions) {
     });
 
     // console.log(finalURL);
-    const finalHeaders = mergeHeaders(DEFAULT_HEADERS, clientOptions?.headers, headers, params.header);
+    const finalHeaders = mergeHeaders(
+      DEFAULT_HEADERS,
+      clientOptions?.headers,
+      headers,
+      params.header
+    );
 
     // fetch!
     /** @type {RequestInit} */
     const requestInit = {
-      redirect: "follow",
+      redirect: 'follow',
       ...baseOptions,
       ...init,
       headers: finalHeaders,
@@ -60,28 +65,34 @@ export default function createClient(clientOptions) {
     }
     // remove `Content-Type` if serialized body is FormData; browser will correctly set Content-Type & boundary expression
     if (requestInit.body instanceof FormData) {
-      finalHeaders.delete("Content-Type");
+      finalHeaders.delete('Content-Type');
     }
 
     const response = await fetch(finalURL, requestInit);
 
     // handle empty content
     // note: we return `{}` because we want user truthy checks for `.data` or `.error` to succeed
-    if (response.status === 204 || response.headers.get("Content-Length") === "0") {
+    if (
+      response.status === 204 ||
+      response.headers.get('Content-Length') === '0'
+    ) {
       return response.ok ? { data: {}, response } : { error: {}, response };
     }
 
     // parse response (falling back to .text() when necessary)
     if (response.ok) {
       // if "stream", skip parsing entirely
-      if (parseAs === "stream") {
+      if (parseAs === 'stream') {
         // fix for bun: bun consumes response.body, therefore clone before accessing
         // TODO: test this?
         return { data: response.clone().body, response };
       }
       const cloned = response.clone();
       return {
-        data: typeof cloned[parseAs] === "function" ? await cloned[parseAs]() : await cloned.text(),
+        data:
+          typeof cloned[parseAs] === 'function'
+            ? await cloned[parseAs]()
+            : await cloned.text(),
         response,
       };
     }
@@ -99,35 +110,35 @@ export default function createClient(clientOptions) {
   return {
     /** Call a GET endpoint */
     async GET(url, init) {
-      return coreFetch(url, { ...init, method: "GET" });
+      return coreFetch(url, { ...init, method: 'GET' });
     },
     /** Call a PUT endpoint */
     async PUT(url, init) {
-      return coreFetch(url, { ...init, method: "PUT" });
+      return coreFetch(url, { ...init, method: 'PUT' });
     },
     /** Call a POST endpoint */
     async POST(url, init) {
-      return coreFetch(url, { ...init, method: "POST" });
+      return coreFetch(url, { ...init, method: 'POST' });
     },
     /** Call a DELETE endpoint */
     async DELETE(url, init) {
-      return coreFetch(url, { ...init, method: "DELETE" });
+      return coreFetch(url, { ...init, method: 'DELETE' });
     },
     /** Call a OPTIONS endpoint */
     async OPTIONS(url, init) {
-      return coreFetch(url, { ...init, method: "OPTIONS" });
+      return coreFetch(url, { ...init, method: 'OPTIONS' });
     },
     /** Call a HEAD endpoint */
     async HEAD(url, init) {
-      return coreFetch(url, { ...init, method: "HEAD" });
+      return coreFetch(url, { ...init, method: 'HEAD' });
     },
     /** Call a PATCH endpoint */
     async PATCH(url, init) {
-      return coreFetch(url, { ...init, method: "PATCH" });
+      return coreFetch(url, { ...init, method: 'PATCH' });
     },
     /** Call a TRACE endpoint */
     async TRACE(url, init) {
-      return coreFetch(url, { ...init, method: "TRACE" });
+      return coreFetch(url, { ...init, method: 'TRACE' });
     },
   };
 }
@@ -140,7 +151,7 @@ export default function createClient(clientOptions) {
  */
 export function defaultQuerySerializer(q) {
   const search = [];
-  if (q && typeof q === "object") {
+  if (q && typeof q === 'object') {
     for (const [k, v] of Object.entries(q)) {
       const value = defaultQueryParamSerializer([k], v);
       if (value) {
@@ -148,7 +159,7 @@ export function defaultQuerySerializer(q) {
       }
     }
   }
-  return search.join("&");
+  return search.join('&');
 }
 
 /**
@@ -159,10 +170,10 @@ export function defaultQueryParamSerializer(key, value) {
   if (value === null || value === undefined) {
     return undefined;
   }
-  if (typeof value === "string") {
+  if (typeof value === 'string') {
     return `${deepObjectPath(key)}=${encodeURIComponent(value)}`;
   }
-  if (typeof value === "number" || typeof value === "boolean") {
+  if (typeof value === 'number' || typeof value === 'boolean') {
     return `${deepObjectPath(key)}=${String(value)}`;
   }
   if (Array.isArray(value)) {
@@ -176,9 +187,9 @@ export function defaultQueryParamSerializer(key, value) {
         nextValue.push(next);
       }
     }
-    return nextValue.join("&");
+    return nextValue.join('&');
   }
-  if (typeof value === "object") {
+  if (typeof value === 'object') {
     if (!Object.keys(value).length) {
       return undefined;
     }
@@ -191,7 +202,7 @@ export function defaultQueryParamSerializer(key, value) {
         }
       }
     }
-    return nextValue.join("&");
+    return nextValue.join('&');
   }
   return encodeURIComponent(`${deepObjectPath(key)}=${String(value)}`);
 }
@@ -241,10 +252,13 @@ export function createFinalURL(pathname, options) {
 export function mergeHeaders(...allHeaders) {
   const headers = new Headers();
   for (const headerSet of allHeaders) {
-    if (!headerSet || typeof headerSet !== "object") {
+    if (!headerSet || typeof headerSet !== 'object') {
       continue;
     }
-    const iterator = headerSet instanceof Headers ? headerSet.entries() : Object.entries(headerSet);
+    const iterator =
+      headerSet instanceof Headers
+        ? headerSet.entries()
+        : Object.entries(headerSet);
     for (const [k, v] of iterator) {
       if (v === null) {
         headers.delete(k);

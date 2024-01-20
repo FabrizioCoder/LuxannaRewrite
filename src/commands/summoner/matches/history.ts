@@ -71,9 +71,7 @@ export default class HistoryCommand extends SubCommand {
     const queue = ctx.options.queue;
 
     const matchesId =
-      (await (
-        await summoner.getMatches()
-      ).getMatchesHistory(parseInt(queue)!)) ?? [];
+      (await (await summoner.getMatches()).getHistory(parseInt(queue)!)) ?? [];
 
     if (!matchesId || !matchesId.length) {
       return ctx.editOrReply({
@@ -82,7 +80,7 @@ export default class HistoryCommand extends SubCommand {
     }
 
     const matches = await Promise.all(
-      matchesId.map((x) => summoner.match?.getMatchById(x))
+      matchesId.map((x) => summoner.match?.getById(x))
     );
 
     const buffer = await makeMatchHistory(matches as any, summoner);

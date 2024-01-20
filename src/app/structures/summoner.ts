@@ -1,8 +1,9 @@
-import { restClient } from "../../lib/rest";
-import { components } from "../../lib/schema";
-import { regionalURLs, selectRegion } from "../../utils/functions";
-import { SummonerLeague } from "./league";
-import { SummonerMatches } from "./match";
+import { restClient } from '../../lib/rest';
+import { components } from '../../lib/schema';
+import { regionalURLs, selectRegion } from '../../utils/functions';
+import { SummonerLeague } from './league';
+import { SummonerMastery } from './mastery';
+import { SummonerMatches } from './match';
 
 /**
  * A representation of a RIOT account.
@@ -10,6 +11,7 @@ import { SummonerMatches } from "./match";
 export class Summoner {
   public league?: SummonerLeague;
   public match?: SummonerMatches;
+  public mastery?: SummonerMastery;
   public id: string;
   public summonerLevel: number;
   public profileIconId: number;
@@ -21,7 +23,7 @@ export class Summoner {
     public readonly tagLine: string,
     public readonly puuid: string,
     public readonly region: keyof typeof regionalURLs,
-    summonerData: components["schemas"]["summoner-v4.SummonerDTO"],
+    summonerData: components['schemas']['summoner-v4.SummonerDTO']
   ) {
     this.id = summonerData.id;
     this.summonerLevel = summonerData.summonerLevel;
@@ -40,30 +42,49 @@ export class Summoner {
     return this.match!;
   }
 
+  async getMastery() {
+    if (!this.mastery)
+      this.mastery = new SummonerMastery(this.puuid, this.region);
+    return this.mastery!;
+  }
+
   // Util Methods
-  public static async fetchSummonerPUUID(gameName: string, tagLine: string, region: keyof typeof regionalURLs) {
-    const { data: account } = await restClient.GET("/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}", {
-      params: {
-        path: {
-          gameName: gameName,
-          tagLine: tagLine,
+  public static async fetchSummonerPUUID(
+    gameName: string,
+    tagLine: string,
+    region: keyof typeof regionalURLs
+  ) {
+    const { data: account } = await restClient.GET(
+      '/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}',
+      {
+        params: {
+          path: {
+            gameName: gameName,
+            tagLine: tagLine,
+          },
         },
-      },
-      overwriteURL: selectRegion(region, true),
-    });
+        overwriteURL: selectRegion(region, true),
+      }
+    );
     if (!account) return null;
     return account.puuid;
   }
 
-  public static async fetchSummonerData(puuid: string, region: keyof typeof regionalURLs) {
-    const { data: summoner } = await restClient.GET("/lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}", {
-      params: {
-        path: {
-          encryptedPUUID: puuid,
+  public static async fetchSummonerData(
+    puuid: string,
+    region: keyof typeof regionalURLs
+  ) {
+    const { data: summoner } = await restClient.GET(
+      '/lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}',
+      {
+        params: {
+          path: {
+            encryptedPUUID: puuid,
+          },
         },
-      },
-      overwriteURL: selectRegion(region),
-    });
+        overwriteURL: selectRegion(region),
+      }
+    );
 
     if (!summoner) return null;
     return summoner;

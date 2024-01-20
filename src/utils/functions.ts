@@ -3,6 +3,7 @@ import { InteractionGuildMember, Client, User } from 'biscuitjs';
 import { URL } from 'url';
 import allemotes from '../../json/emojis.json';
 import queues from '../../json/queues.json';
+import champions from '../../json/champions.json';
 import { userModel } from '../app/models/user';
 import { Ratelimit } from './constants';
 
@@ -102,6 +103,20 @@ function getEmote(name: string) {
   const raw = rawEmote(name);
 
   return raw ? `<:${raw}>` : '';
+}
+
+function getChampionByName({
+  name,
+}: {
+  name: string;
+}): (typeof champions)[keyof typeof champions] | null {
+  return champions[name as keyof typeof champions] ?? null;
+}
+/**
+ * key: 266
+ */
+function getChampionById({ key }: { key: string }) {
+  return Object.values(champions).find((x) => x.key === key);
 }
 
 function getQueueById(
@@ -288,7 +303,6 @@ function makeIconURL(
 
 export {
   ApplyCooldown,
-  amount,
   calculateCSPerMinute,
   calculateGameDuration,
   calculateKDA,
@@ -297,6 +311,8 @@ export {
   capitalizeString,
   championEmoji,
   cleanHTML,
+  getChampionById,
+  getChampionByName,
   getEmojiData,
   getEmote,
   getParamFromUrl,
@@ -306,4 +322,5 @@ export {
   parseSummonerOptions,
   rawEmote,
   selectRegion,
+  amount,
 };
