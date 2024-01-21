@@ -1,10 +1,17 @@
 import {
+	APIMessageComponentEmoji,
+	ActionRow,
 	Attachment,
+	Button,
+	ButtonStyle,
 	CommandContext,
+	ComponentsListener,
 	Declare,
 	MessageEmbed,
+	MessageFlags,
 	Options,
 	SubCommand,
+	resolveEmoji,
 } from "biscuitjs";
 import { EmbedColors, searchOptions } from "../../utils/constants";
 import {
@@ -17,6 +24,7 @@ import {
 	getQueueById,
 	makeIconURL,
 	parseSummonerOptions,
+	rawEmote,
 } from "../../utils/functions";
 import { SummonersManager } from "../../app/managers/summonersManager";
 import { components } from "../../lib/schema";
@@ -46,7 +54,7 @@ export default class RankedCommand extends SubCommand {
 		}
 
 		const [gameName, tagLine] = args.riotId.split("#");
-		const summoner = await SummonersManager.getInstance(ctx.client).getSummoner(
+		const summoner = await SummonersManager.getInstance(ctx.client).get(
 			`${args.region}:${gameName}:${tagLine}`,
 		);
 
@@ -118,7 +126,7 @@ export default class RankedCommand extends SubCommand {
 
 			for (const mastery of highestMastery) {
 				const champion = getChampionById({ key: String(mastery.championId) })!;
-				const championEmote = await championEmoji(champion.id);
+				const championEmote = championEmoji(champion.id);
 				const formatTime = `<t:${Math.floor(mastery.lastPlayTime / 1000)}:R>`;
 				highestMasteryValue.push(
 					[
@@ -139,13 +147,13 @@ export default class RankedCommand extends SubCommand {
 
 		//Recent Games
 		const SummonerMatches = await summoner.getMatches();
-		const recentGames = await SummonerMatches.getHistory();
+		const recentGames = await SummonerMatches.fetchHistory();
 		let recentGamesValue = [];
 
 		if (recentGames.length) {
 			let data: components["schemas"]["match-v5.ParticipantDto"];
 			for (const id of recentGames) {
-				const match = await SummonerMatches.getById(id);
+				const match = await SummonerMatches.fetchById(id);
 
 				if (match) {
 					for (const participant of match.info.participants) {
@@ -159,7 +167,7 @@ export default class RankedCommand extends SubCommand {
 
 				const queue = getQueueById(match!.info.queueId);
 
-				const championEmote = await championEmoji(champion.id);
+				const championEmote = championEmoji(champion.id);
 
 				const formatKDA = `${data!.kills}/${data!.deaths}/${data!.assists}, ${
 					data!.totalMinionsKilled + data!.neutralMinionsKilled
@@ -180,6 +188,92 @@ export default class RankedCommand extends SubCommand {
 					].join("\n"),
 				);
 			}
+		}
+
+		// Current Game
+		const SummonerSpectator = await summoner.getSpectator();
+		const currentGame = await SummonerSpectator.fetchActiveGame();
+		const row = new ActionRow();
+		if (currentGame) {
+			const selfParticipant = currentGame.participants.filter(
+				(p) => p.summonerId === summoner.id,
+			)[0]!;
+
+			const champion = getChampionById({
+				key: String(selfParticipant.championId),
+			})!;
+			const championEmote = rawEmote(champion.id)!;
+
+			const queue = getQueueById(currentGame.gameQueueConfigId!)!;
+
+			const blueParticipants = await Promise.all(
+				currentGame.participants
+					.filter((p) => p.teamId === 100)
+					.map(async (participant) => {
+						const champion = getChampionById({
+							key: String(participant.championId),
+						})!;
+						const championEmote = championEmoji(champion.id);
+
+						return `${championEmote} ${champion.name}`;
+					}),
+			);
+
+			const redParticipants = await Promise.all(
+				currentGame.participants
+					.filter((p) => p.teamId === 200)
+					.map(async (participant) => {
+						const champion = getChampionById({
+							key: String(participant.championId),
+						})!;
+						const championEmote = championEmoji(champion.id);
+
+						return `${championEmote} ${champion.name}`;
+					}),
+			);
+
+			const embedCurrentGame = new MessageEmbed()
+				.setAuthor({
+					name: `${summoner.gameName}#${summoner.tagLine}`,
+					iconUrl: profileIconURL,
+				})
+				.setTitle(
+					queue.detailedDescription || queue.description || "Unknown queue",
+				)
+				.setColor(EmbedColors.BLUE)
+				.addFields([
+					{
+						name: "Blue Team",
+						value: blueParticipants.join("\n"),
+						inline: true,
+					},
+					{
+						name: "Red Team",
+						value: redParticipants.join("\n"),
+						inline: true,
+					},
+				]);
+
+			row.addComponents([
+				new Button({
+					style: ButtonStyle.Primary,
+					custom_id: "active_game",
+					emoji: {
+						name: championEmote.split(":")[0],
+						id: championEmote.split(":")[1],
+					},
+					label: `Playing as ${champion.name} (${
+						queue.description || queue.name || "Unknown queue"
+					})`,
+				}).run((i, stop) => {
+					i.editOrReply({
+						embeds: [embedCurrentGame],
+						components: [],
+						flags: MessageFlags.Ephemeral,
+					});
+					stop("clicked");
+				}),
+			]);
 		}
 
 		embed
@@ -220,6 +314,28 @@ export default class RankedCommand extends SubCommand {
 				},
 			]);
 
+		const componentsListener = new ComponentsListener({
+			timeout: 30000,
+			filter: (interaction) => {
+				if (interaction.user.id !== ctx.author.id) {
+					interaction.write({
+						content: `⚠️ ${interaction.user.toString()}, you can't use this button.`,
+						flags: MessageFlags.Ephemeral,
+					});
+					return false;
+				}
+
+				return true;
+			},
+			onStop: async (reason) => {
+				if (reason === "timeout" || reason === "clicked") {
+					await ctx.editOrReply({
+						components: [],
+					});
+				}
+			},
+		});
+
 		return ctx.editOrReply({
 			embeds: [embed],
 			files: bufferGraphic
@@ -230,6 +346,7 @@ export default class RankedCommand extends SubCommand {
 							.setDescription("Mastery graphic"),
 				  ]
 				: undefined,
+			components: row.components.length ? componentsListener.addRows(row) : [],
 		});
 	}
 }

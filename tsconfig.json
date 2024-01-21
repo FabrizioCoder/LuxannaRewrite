@@ -12,6 +12,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "preserveConstEnums": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
     /* Type Checking */
     "noImplicitAny": true,
     "noUncheckedIndexedAccess": true,

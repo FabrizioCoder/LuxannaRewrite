@@ -1,68 +1,66 @@
-import { Client } from 'biscuitjs';
-import { regionalURLs } from '../../utils/functions';
-import { Summoner } from '../structures/summoner';
+import { Client } from "biscuitjs";
+import { regionalURLs } from "../../utils/functions";
+import { Summoner } from "../structures/summoner";
 
 export class SummonersManager {
-  summoners: Map<string, Summoner> = new Map();
-  constructor(public client: Client) {}
+	summoners: Map<string, Summoner> = new Map();
 
-  private static instance: SummonersManager;
+	constructor(public client: Client) {}
 
-  public static getInstance(client: Client): SummonersManager {
-    if (!SummonersManager.instance) {
-      SummonersManager.instance = new SummonersManager(client);
-    }
-    return SummonersManager.instance;
-  }
+	private static instance: SummonersManager;
 
-  public addSummoner(summoner: Summoner) {
-    this.summoners.set(
-      `${summoner.region}:${summoner.gameName}:${summoner.tagLine}`,
-      summoner
-    );
-  }
+	public static getInstance(client: Client): SummonersManager {
+		if (!SummonersManager.instance) {
+			SummonersManager.instance = new SummonersManager(client);
+		}
+		return SummonersManager.instance;
+	}
 
-  async getSummoner(identifier: string) {
-    let summoner = <Summoner>this.summoners.get(identifier);
+	public add(summoner: Summoner) {
+		this.summoners.set(
+			`${summoner.region}:${summoner.gameName}:${summoner.tagLine}`,
+			summoner,
+		);
+	}
 
-    if (summoner)
-      return new Summoner(
-        summoner.gameName,
-        summoner.tagLine,
-        summoner.puuid,
-        summoner.region,
-        summoner! as any
-      );
+	async get(identifier: string) {
+		let summoner = <Summoner>this.summoners.get(identifier);
 
-    const [region, gameName, tagLine] = identifier.split(':') as [
-      keyof typeof regionalURLs,
-      string,
-      string
-    ];
-    const summonerPUUID = await Summoner.fetchSummonerPUUID(
-      gameName,
-      tagLine,
-      region
-    );
+		if (summoner)
+			return new Summoner(
+				summoner.gameName,
+				summoner.tagLine,
+				summoner.puuid,
+				summoner.region,
+				summoner! as any,
+			);
 
-    if (!summonerPUUID) return null;
+		const [region, gameName, tagLine] = identifier.split(":") as [
+			keyof typeof regionalURLs,
+			string,
+			string,
+		];
+		const summonerPUUID = await Summoner.fetchByRiotId(
+			gameName,
+			tagLine,
+			region,
+		);
 
-    const summonerData = await Summoner.fetchSummonerData(
-      summonerPUUID,
-      region
-    );
-    if (!summonerData) return null;
+		if (!summonerPUUID) return null;
 
-    summoner = new Summoner(
-      gameName,
-      tagLine,
-      summonerPUUID,
-      region,
-      summonerData
-    );
+		const summonerData = await Summoner.fetchData(summonerPUUID, region);
+		if (!summonerData) return null;
 
-    this.addSummoner(summoner);
+		summoner = new Summoner(
+			gameName,
+			tagLine,
+			summonerPUUID,
+			region,
+			summonerData,
+		);
 
-    return summoner;
-  }
+		this.add(summoner);
+
+		return summoner;
+	}
 }

@@ -11,5 +11,6 @@ module.exports = config.bot({
     output: 'dist',
     commands: 'commands',
     events: 'events',
+    langs: 'locales',
   },
 });
