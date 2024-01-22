@@ -2,7 +2,7 @@ import { restClient } from "../../lib/rest";
 import { components } from "../../lib/schema";
 import { regionalURLs, selectRegion } from "../../utils/functions";
 import { LuxannaStore } from "../managers/cacheManager";
-import { SummonersManager } from '../managers/summonersManager';
+import { SummonersManager } from "../managers/summonersManager";
 import { SummonerLeague } from "./league";
 import { SummonerMastery } from "./mastery";
 import { SummonerMatches } from "./match";
@@ -27,7 +27,7 @@ export class Summoner {
     public readonly tagLine: string,
     public readonly puuid: string,
     public readonly region: keyof typeof regionalURLs,
-    summonerData: components["schemas"]["summoner-v4.SummonerDTO"],
+    summonerData: components["schemas"]["summoner-v4.SummonerDTO"]
   ) {
     this.id = summonerData.id;
     this.summonerLevel = summonerData.summonerLevel;
@@ -40,10 +40,10 @@ export class Summoner {
   public static async fetchPUUID(
     gameName: string,
     tagLine: string,
-    region: keyof typeof regionalURLs,
+    region: keyof typeof regionalURLs
   ) {
     const cached = (await LuxannaStore.getInstance().get(
-      `link:summoner:${gameName}:${tagLine}`,
+      `link:summoner:${gameName}:${tagLine}`
     )) as components["schemas"]["summoner-v4.SummonerDTO"] | null;
 
     if (cached) return cached.puuid;
@@ -58,14 +58,14 @@ export class Summoner {
           },
         },
         overwriteURL: selectRegion(region, true),
-      },
+      }
     );
     if (!account) return null;
 
     if (account) {
       await LuxannaStore.getInstance().link(
         `summoner:${gameName}:${tagLine}`,
-        `summoner:${account.puuid}`,
+        `summoner:${account.puuid}`
       );
     }
 
@@ -73,11 +73,6 @@ export class Summoner {
   }
 
   public static async fetchById(id: string, region: keyof typeof regionalURLs) {
-    const cached = await LuxannaStore.getInstance().get(`link:summoner:${id}`);
-
-    if (cached)
-      return cached as components["schemas"]["summoner-v4.SummonerDTO"];
-
     const { data: summoner } = await restClient.GET(
       "/lol/summoner/v4/summoners/{encryptedSummonerId}",
       {
@@ -87,7 +82,7 @@ export class Summoner {
           },
         },
         overwriteURL: selectRegion(region, false),
-      },
+      }
     );
 
     if (!summoner) return null;
@@ -97,16 +92,16 @@ export class Summoner {
 
     const data = await SummonersManager.getInstance().get(
       `${region}:${account.gameName}:${account.tagLine}`
-    )
+    );
 
     if (!data) return null;
 
-    return data
+    return data;
   }
 
   public static async fetchData(
     puuid: string,
-    region: keyof typeof regionalURLs,
+    region: keyof typeof regionalURLs
   ) {
     const cached = await LuxannaStore.getInstance().get(`summoner:${puuid}`);
 
@@ -122,7 +117,7 @@ export class Summoner {
           },
         },
         overwriteURL: selectRegion(region),
-      },
+      }
     );
 
     if (!summoner) return null;
@@ -133,7 +128,7 @@ export class Summoner {
       }),
       LuxannaStore.getInstance().link(
         `summoner:${summoner.id}`,
-        `summoner:${puuid}`,
+        `summoner:${puuid}`
       ),
     ]);
     return summoner;
@@ -141,7 +136,7 @@ export class Summoner {
 
   private static async fetchAccount(
     puuid: string,
-    region: keyof typeof regionalURLs,
+    region: keyof typeof regionalURLs
   ) {
     const cached = await LuxannaStore.getInstance().get(`account:${puuid}`);
 
@@ -156,7 +151,7 @@ export class Summoner {
           },
         },
         overwriteURL: selectRegion(region, true),
-      },
+      }
     );
 
     if (!account) return null;
