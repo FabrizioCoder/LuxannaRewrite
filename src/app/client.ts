@@ -6,6 +6,8 @@ import {
 	ParseLocales,
 	UserCommandInteraction,
 	MessageCommandInteraction,
+	ActivityType,
+	PresenceUpdateStatus,
 } from "biscuitjs";
 import { Ratelimit } from "../utils/constants";
 import mongoose from "mongoose";
@@ -13,7 +15,22 @@ import "dotenv/config";
 import type defaultLang from "../locales/en-US.ts";
 
 export async function main() {
-	const client = new Client();
+	const client = new Client({
+		presence(shardId) {
+			return {
+				activities: [
+					{
+						name: "the summoner's rift",
+						type: ActivityType.Watching,
+					}
+				],
+				status: PresenceUpdateStatus.DoNotDisturb,
+				shardId,
+				afk: false,
+				since: Date.now(),
+			}
+		},
+	});
 
 	client.events.OnFail = async (...err) => console.error("error", ...err);
 
@@ -46,8 +63,8 @@ declare module "biscuitjs" {
 	interface MenuCommandContext<
 		C extends keyof IClients,
 		T extends
-			| UserCommandInteraction<boolean>
-			| MessageCommandInteraction<boolean>,
+		| UserCommandInteraction<boolean>
+		| MessageCommandInteraction<boolean>,
 		M extends readonly MiddlewareContext[] = [],
 	> {
 		t: ParseLocales<typeof defaultLang>;
