@@ -47,7 +47,6 @@ export class Summoner {
     )) as components["schemas"]["summoner-v4.SummonerDTO"] | null;
 
     if (cached) return cached.puuid;
-    console.log(cached);
     const { data: account } = await restClient.GET(
       "/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}",
       {
