@@ -988,7 +988,7 @@
 	},
 	"Chogath": {
 		"version": "14.1.1",
-		"id": "Chogath",
+		"id": "ChoGath",
 		"key": "31",
 		"name": "Cho'Gath",
 		"title": "the Terror of the Void",
@@ -3808,7 +3808,7 @@
 	},
 	"MonkeyKing": {
 		"version": "14.1.1",
-		"id": "MonkeyKing",
+		"id": "Wukong",
 		"key": "62",
 		"name": "Wukong",
 		"title": "the Monkey King",
