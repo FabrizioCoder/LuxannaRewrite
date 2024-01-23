@@ -14,7 +14,7 @@ import DeferEphemeral from '../../middlewares/deferEphemeral';
 })
 @AutoLoad()
 @Middlewares([DeferEphemeral])
-export default class DevCommand extends Command {
+export default class AccountCommand extends Command {
   async onOptionsError(
     ctx: CommandContext<'client'>,
     returns: OnOptionsReturnObject
