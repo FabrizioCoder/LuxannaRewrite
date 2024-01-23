@@ -28,7 +28,7 @@ export async function makeLinkedProfile(riotId: string, iconUrl: string) {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-image: url('https://i.imgur.com/wL7rh0n.png');
+        background-image: url('https://i.imgur.com/wL7rh0n.jpge');
         font-family: 'Beaufortfor-Bold';
         color: #c89b3c;
       }

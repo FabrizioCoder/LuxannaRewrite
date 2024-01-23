@@ -32,7 +32,7 @@ export default class RankedCommand extends SubCommand {
 		}
 
 		const [gameName, tagLine] = args.riotId.split("#");
-		const summoner = await SummonersManager.getInstance(ctx.client).get(
+		const summoner = await SummonersManager.getInstance().get(
 			`${args.region}:${gameName}:${tagLine}`,
 		);
 

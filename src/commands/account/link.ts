@@ -73,26 +73,27 @@ export default class LinkCommand extends SubCommand {
 				content: "You already have a linked account.",
 			});
 
-		const summoner = await SummonersManager.getInstance(ctx.client).get(
-			`${ctx.options.region}:${gameName}:${tagLine}`,
-		);
+		// const summoner = await SummonersManager.getInstance().get(
+		// 	`${ctx.options.region}:${gameName}:${tagLine}`,
+		// );
 
-		if (!summoner)
-			return ctx.editOrReply({
-				content: "The summoner doesn't exist",
-			});
+		// if (!summoner)
+		// 	return ctx.editOrReply({
+		// 		content: "The summoner doesn't exist",
+		// 	});
 
-		await userModel.create({
-			id: ctx.author.id,
-			gameName,
-			tagLine,
-			puuid: summoner.puuid,
-			region: ctx.options.region,
-		});
+		// await userModel.create({
+		// 	id: ctx.author.id,
+		// 	gameName,
+		// 	tagLine,
+		// 	puuid: summoner.puuid,
+		// 	region: ctx.options.region,
+		// });
 
 		const img = await makeLinkedProfile(
 			ctx.options["riot-id"],
-			makeIconURL("14.1.1", summoner.profileIconId!),
+			"https://ddragon.leagueoflegends.com/cdn/14.1.1/img/profileicon/4655.png"
+			// makeIconURL("14.1.1", summoner.profileIconId!),
 		);
 
 		return ctx.editOrReply({
