@@ -3150,7 +3150,7 @@
 	},
 	"Leblanc": {
 		"version": "14.1.1",
-		"id": "Leblanc",
+		"id": "LeBlanc",
 		"key": "7",
 		"name": "LeBlanc",
 		"title": "the Deceiver",
@@ -4936,7 +4936,7 @@
 	},
 	"Renata": {
 		"version": "14.1.1",
-		"id": "Renata",
+		"id": "RenataGlasc",
 		"key": "888",
 		"name": "Renata Glasc",
 		"title": "the Chem-Baroness",
@@ -6769,7 +6769,7 @@
 	},
 	"Velkoz": {
 		"version": "14.1.1",
-		"id": "Velkoz",
+		"id": "VelKoz",
 		"key": "161",
 		"name": "Vel'Koz",
 		"title": "the Eye of the Void",
