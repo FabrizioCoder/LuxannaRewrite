@@ -31,7 +31,6 @@
 		"@swc/cli": "^0.1.65",
 		"@swc/core": "^1.3.105",
 		"@upstash/redis": "^1.28.2",
-		"array-paginator": "^2.0.0",
 		"axios": "^1.6.5",
 		"biscuitjs": "github:potoland/potocuit#master",
 		"chart.js": "^3.9.1",

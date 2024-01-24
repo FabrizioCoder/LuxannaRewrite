@@ -13,4 +13,5 @@ module.exports = config.bot({
     events: 'events',
     langs: 'locales',
   },
+  debug: false
 });

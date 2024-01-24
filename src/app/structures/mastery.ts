@@ -8,7 +8,7 @@ export class SummonerMastery {
   constructor(
     readonly puuid: string,
     readonly summonerRegion: keyof typeof regionalURLs
-  ) {}
+  ) { }
 
   async fetchAll(): Promise<Schema[] | undefined> {
     const cached = (await LuxannaStore.getInstance().get(

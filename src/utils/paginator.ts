@@ -1,26 +1,21 @@
-import { Paginator } from 'array-paginator';
 import {
-  CommandContext,
-  ChatInputCommandInteraction,
+  APIInteractionResponseCallbackData,
   ActionRow,
   Button,
-  ButtonStyle,
-  ComponentsListener,
-  MessageFlags,
-  MessageEmbed,
   ButtonInteraction,
-  APIInteractionResponseCallbackData,
+  ButtonStyle,
+  ChatInputCommandInteraction,
+  CommandContext,
+  ComponentsListener,
+  MessageEmbed,
+  MessageFlags,
 } from 'biscuitjs';
 
 export class EmbedPaginator {
-  context: CommandContext<'client'>;
-  pager: Paginator<MessageEmbed>;
+  currentPage = 0;
   emojis: IObject;
-  interaction: ChatInputCommandInteraction | null;
-  constructor(context: CommandContext<'client'>, pages: MessageEmbed[]) {
-    this.context = context;
-    this.pager = new Paginator(pages, 1, 0);
-    this.interaction = null;
+  interaction?: ChatInputCommandInteraction
+  constructor(public context: CommandContext<'client'>, public pages: MessageEmbed[], public baseEmbed: MessageEmbed) {
     this.emojis = {
       first: '⏮️',
       previous: '◀️',
@@ -31,46 +26,49 @@ export class EmbedPaginator {
 
   start() {
     return {
-      embeds: this.pager.first()!,
+      embeds: [this.getEmbed(this.pages[0]!)],
       components: this.getListener().addRows(this.getComponets()),
-    } as Omit<APIInteractionResponseCallbackData, 'embeds' | 'components'>;
+    } as Omit<APIInteractionResponseCallbackData, 'components'>;
   }
 
   getComponets() {
     const row = new ActionRow();
     row.addComponents([
       new Button()
-      .setCustomId('first')
-      .setStyle(ButtonStyle.Primary)
-      .setEmoji(this.emojis.first)
-      .setDisabled(!this.pager.hasFirst())
-      .run((interaction) => {
-        this.changePage(this.pager.first()!, interaction);
-      }),
+        .setCustomId('first')
+        .setStyle(ButtonStyle.Primary)
+        .setEmoji(this.emojis.first)
+        .setDisabled(!this.currentPage)
+        .run(async (interaction) => {
+          this.currentPage = 0
+          await this.changePage(this.pages[0]!, interaction);
+        }),
       new Button()
-      .setCustomId('previous')
-      .setStyle(ButtonStyle.Primary)
-      .setEmoji(this.emojis.previous)
-      .setDisabled(!this.pager.hasPrevious())
-      .run((interaction) => {
-        this.changePage(this.pager.previous()!, interaction);
-      }),
+        .setCustomId('previous')
+        .setStyle(ButtonStyle.Primary)
+        .setEmoji(this.emojis.previous)
+        .setDisabled(!this.currentPage)
+        .run(async (interaction) => {
+          await this.changePage(this.pages[--this.currentPage]!, interaction);
+        }),
       new Button()
-      .setCustomId('next')
-      .setStyle(ButtonStyle.Primary)
-      .setEmoji(this.emojis.next)
-      .setDisabled(!this.pager.hasNext())
-      .run((interaction) => {
-        this.changePage(this.pager.next()!, interaction);
-      }),
+        .setCustomId('next')
+        .setStyle(ButtonStyle.Primary)
+        .setEmoji(this.emojis.next)
+        .setDisabled(!(this.pages.length > (this.currentPage + 1)))
+        .run(async (interaction) => {
+          await this.changePage(this.pages[++this.currentPage]!, interaction);
+        }),
       new Button()
-      .setCustomId('last')
-      .setStyle(ButtonStyle.Primary)
-      .setEmoji(this.emojis.last)
-      .setDisabled(!this.pager.hasLast())
-      .run((interaction) => {
-        this.changePage(this.pager.last()!, interaction);
-      }),
+        .setCustomId('last')
+        .setStyle(ButtonStyle.Primary)
+        .setEmoji(this.emojis.last)
+        .setDisabled((this.currentPage + 1) === this.pages.length)
+        .run(async (interaction) => {
+          this.currentPage = this.pages.length - 1
+          await this.changePage(this.pages[this.currentPage]!, interaction);
+
+        }),
     ]);
 
     return row;
@@ -81,11 +79,10 @@ export class EmbedPaginator {
       timeout: 30000,
       filter: (interaction) => {
         if (interaction.user.id !== this.context.author.id) {
-          interaction.write({
+          return interaction.write({
             content: `⚠️ ${interaction.user.toString()}, you can't use this button.`,
             flags: MessageFlags.Ephemeral,
           });
-          return false;
         }
 
         return true;
@@ -102,11 +99,20 @@ export class EmbedPaginator {
     return componentsListener;
   }
 
-  changePage(page: MessageEmbed[], interaction: ButtonInteraction) {
-    interaction.editOrReply({
-      embeds: page,
+  changePage(page: MessageEmbed, interaction: ButtonInteraction) {
+    return interaction.update({
+      embeds: [this.getEmbed(page)],
       components: this.getListener().addRows(this.getComponets()),
     });
+  }
+
+  getEmbed(embed: MessageEmbed) {
+    const result = new MessageEmbed({
+      ...this.baseEmbed.data,
+      ...embed.data
+    })
+
+    return result;
   }
 }
 
