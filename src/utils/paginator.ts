@@ -1,5 +1,4 @@
 import {
-  APIInteractionResponseCallbackData,
   ActionRow,
   Button,
   ButtonInteraction,
@@ -8,7 +7,7 @@ import {
   CommandContext,
   ComponentsListener,
   MessageEmbed,
-  MessageFlags,
+  MessageFlags
 } from 'biscuitjs';
 
 export class EmbedPaginator {
@@ -28,7 +27,7 @@ export class EmbedPaginator {
     return {
       embeds: [this.getEmbed(this.pages[0]!)],
       components: this.getListener().addRows(this.getComponets()),
-    } as Omit<APIInteractionResponseCallbackData, 'components'>;
+    }
   }
 
   getComponets() {
