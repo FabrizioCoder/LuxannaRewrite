@@ -1,9 +1,9 @@
-import { restClient } from "../../lib/rest";
-import { components } from "../../lib/schema";
-import { regionalURLs, selectRegion } from "../../utils/functions";
-import { LuxannaStore } from "../managers/cacheManager";
+import { restClient } from '../../lib/rest';
+import { components } from '../../lib/schema';
+import { regionalURLs, selectRegion } from '../../utils/functions';
+import { LuxannaStore } from '../managers/cacheManager';
 
-type Schema = components["schemas"]["champion-mastery-v4.ChampionMasteryDto"];
+type Schema = components['schemas']['champion-mastery-v4.ChampionMasteryDto'];
 export class SummonerMastery {
   constructor(
     readonly puuid: string,
@@ -18,14 +18,14 @@ export class SummonerMastery {
     if (cached) return cached;
 
     const { data: mastery } = await restClient.GET(
-      "/lol/champion-mastery/v4/champion-masteries/by-puuid/{encryptedPUUID}",
+      '/lol/champion-mastery/v4/champion-masteries/by-puuid/{encryptedPUUID}',
       {
         params: {
           path: {
             encryptedPUUID: this.puuid,
           },
         },
-        overwriteURL: selectRegion(this.summonerRegion, true),
+        overwriteURL: selectRegion(this.summonerRegion, false),
       }
     );
 
@@ -46,7 +46,7 @@ export class SummonerMastery {
     if (cached) return cached;
 
     const { data: mastery } = await restClient.GET(
-      "/lol/champion-mastery/v4/champion-masteries/by-puuid/{encryptedPUUID}/top",
+      '/lol/champion-mastery/v4/champion-masteries/by-puuid/{encryptedPUUID}/top',
       {
         params: {
           path: {

@@ -1,5 +1,4 @@
 import {
-  APIMessageComponentEmoji,
   ActionRow,
   Attachment,
   Button,
@@ -11,9 +10,8 @@ import {
   MessageFlags,
   Options,
   SubCommand,
-  resolveEmoji,
-} from "biscuitjs";
-import { EmbedColors, searchOptions } from "../../utils/constants";
+} from 'biscuitjs';
+import { EmbedColors, searchOptions } from '../../utils/constants';
 import {
   calculateWinrate,
   capitalizeString,
@@ -25,45 +23,48 @@ import {
   makeIconURL,
   parseSummonerOptions,
   rawEmote,
-} from "../../utils/functions";
-import { SummonersManager } from "../../app/managers/summonersManager";
-import { components } from "../../lib/schema";
-import { makeMasteryGraphic } from "../../utils/images/satori/mastery";
-const noShowRank = ["CHALLENGER", "GRANDMASTER", "MASTER"];
+} from '../../utils/functions';
+import { SummonersManager } from '../../app/managers/summonersManager';
+import { components } from '../../lib/schema';
+import { makeMasteryGraphic } from '../../utils/images/satori/mastery';
+import { Summoner } from '../../app/structures/summoner';
+import { APIEmbedField } from 'biscuitjs';
+const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER', 'UNRANKED'];
 
 @Declare({
-  name: "profile",
-  description: "Get the summoner profile",
+  name: 'profile',
+  description: 'Get the summoner profile',
 })
 @Options(searchOptions)
-export default class RankedCommand extends SubCommand {
-  async run(ctx: CommandContext<"client", typeof searchOptions>) {
+export default class ProfileCommand extends SubCommand {
+  async run(ctx: CommandContext<'client', typeof searchOptions>) {
     const embed = new MessageEmbed();
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,
-      riotId: ctx.options["riot-id"],
+      riotId: ctx.options['riot-id'],
       region: ctx.options.region,
     });
 
     if (!args) {
       return ctx.editOrReply({
-        content:
-          "You don't have a linked account. Enter your RiotId and region or you can also link your account with `/account link`.",
+        content: ctx.options.user
+          ? ctx.t.commands.errors.noLinkedAccount.user.get()
+          : ctx.t.commands.errors.noLinkedAccount.self.get(),
       });
     }
 
-    const [gameName, tagLine] = args.riotId.split("#");
+    const [gameName, tagLine] = args.riotId.split('#');
     const summoner = await SummonersManager.getInstance().get(
       `${args.region}:${gameName}:${tagLine}`
     );
 
     if (!summoner) {
       return ctx.editOrReply({
-        content: "Summoner not found.",
+        content: 'Summoner not found.',
       });
     }
-    const profileIconURL = makeIconURL("14.1.1", summoner.profileIconId);
+    const profileIconURL = makeIconURL('14.1.1', summoner.profileIconId);
 
     const basicInfoValue = [
       `\`Level:\` ${summoner.summonerLevel}`,
@@ -72,12 +73,12 @@ export default class RankedCommand extends SubCommand {
     ];
 
     let soloQInfoValue: string[] = [
-      `${getEmote("Unranked")} Unranked`,
-      "└ **0W** / **0L**, 0% WR",
+      `${getEmote('Unranked')} Unranked`,
+      '└ **0W** / **0L**, 0% WR',
     ];
     let flexInfoValue: string[] = [
-      `${getEmote("Unranked")} Unranked`,
-      "└ **0W** / **0L**, 0% WR",
+      `${getEmote('Unranked')} Unranked`,
+      '└ **0W** / **0L**, 0% WR',
     ];
 
     const SummonerLeague = await summoner.getLeague();
@@ -90,12 +91,12 @@ export default class RankedCommand extends SubCommand {
       soloQInfoValue = [
         // Tier
         `${getEmote(tier)} ${tier}${
-          noShowRank.includes(soloQ.tier!) ? "" : ` ${soloQ.rank}`
+          noShowRank.includes(soloQ.tier!) ? '' : ` ${soloQ.rank}`
         } (${soloQ.leaguePoints} LP)`,
         `└ **${soloQ.wins}W** / **${soloQ.losses}L**, ${calculateWinrate(
           soloQ.wins,
           soloQ.losses
-        )}% WR${soloQ.hotStreak ? " (\\🔥)" : ""}`,
+        )}% WR${soloQ.hotStreak ? ' (\\🔥)' : ''}`,
       ];
     }
 
@@ -104,12 +105,12 @@ export default class RankedCommand extends SubCommand {
       flexInfoValue = [
         // Tier
         `${getEmote(tier)} ${tier}${
-          noShowRank.includes(flex.tier!) ? "" : ` ${flex.rank}`
+          noShowRank.includes(flex.tier!) ? '' : ` ${flex.rank}`
         } (${flex.leaguePoints} LP)`,
         `└ **${flex.wins}W** / **${flex.losses}L**, ${calculateWinrate(
           flex.wins,
           flex.losses
-        )}% WR${flex.hotStreak ? " (\\🔥)" : ""}`,
+        )}% WR${flex.hotStreak ? ' (\\🔥)' : ''}`,
       ];
     }
 
@@ -134,7 +135,7 @@ export default class RankedCommand extends SubCommand {
               champion.name
             }**`,
             `└ ${mastery.championPoints.toLocaleString()} pts (${formatTime})`,
-          ].join("\n")
+          ].join('\n')
         );
         values.push({
           champion: champion.name,
@@ -142,7 +143,7 @@ export default class RankedCommand extends SubCommand {
         });
       }
       bufferGraphic = await makeMasteryGraphic(values);
-      embed.setImage("attachment://mastery.png");
+      embed.setImage('attachment://mastery.png');
     }
 
     //Recent Games
@@ -151,7 +152,7 @@ export default class RankedCommand extends SubCommand {
     let recentGamesValue = [];
 
     if (recentGames.length) {
-      let data: components["schemas"]["match-v5.ParticipantDto"];
+      let data: components['schemas']['match-v5.ParticipantDto'];
       for (const id of recentGames) {
         const match = await SummonerMatches.fetchById(id);
 
@@ -180,12 +181,12 @@ export default class RankedCommand extends SubCommand {
         recentGamesValue.push(
           [
             `${
-              data!.teamEarlySurrendered ? "🔃" : data!.win ? "✅" : "❌"
+              data!.teamEarlySurrendered ? '🔃' : data!.win ? '✅' : '❌'
             } ${championEmote} **${champion!.name}**, *${
-              queue!.description || queue!.name || "Unknown queue"
+              queue!.description || queue!.name || 'Unknown queue'
             }*`,
             `└ ${formatKDA} (${formatTime})`,
-          ].join("\n")
+          ].join('\n')
         );
       }
     }
@@ -194,6 +195,11 @@ export default class RankedCommand extends SubCommand {
     const SummonerSpectator = await summoner.getSpectator();
     const currentGame = await SummonerSpectator.fetchActiveGame();
     const row = new ActionRow();
+    let field: APIEmbedField = {
+      name: '\u200b',
+      value: '\u200b',
+      inline: false,
+    };
     if (currentGame) {
       const selfParticipant = currentGame.participants.filter(
         (p) => p.summonerId === summoner.id
@@ -206,9 +212,86 @@ export default class RankedCommand extends SubCommand {
 
       const queue = getQueueById(currentGame.gameQueueConfigId!)!;
 
+      const msToTime = (duration: number) => {
+        const seconds = Math.floor((duration / 1000) % 60);
+        const minutes = Math.floor((duration / (1000 * 60)) % 60);
+
+        return `${minutes}:${seconds}`;
+      };
+      const formatTime = msToTime(Date.now() - currentGame.gameStartTime!);
+
+      const blueChampions = await Promise.all(
+        currentGame.participants
+          .filter((p) => p.teamId === 100)
+          .map(async (participant) => {
+            const champion = getChampionById({
+              key: String(participant.championId),
+            })!;
+            const championEmote = championEmoji(champion.id);
+
+            return `${championEmote} ${champion.name}`;
+          })
+      );
+
       const blueParticipants = await Promise.all(
         currentGame.participants
           .filter((p) => p.teamId === 100)
+          .map(async (participant) => {
+            const sum = (await Summoner.fetchById(
+              participant.summonerId,
+              summoner.region
+            ))!;
+
+            return `${sum.gameName}#${sum.tagLine}`;
+          })
+      );
+
+      const blueRanks = await Promise.all(
+        currentGame.participants
+          .filter((p) => p.teamId === 100)
+          .map(async (participant) => {
+            const sum = (await Summoner.fetchById(
+              participant.summonerId,
+              summoner.region
+            ))!;
+
+            const sumLeague = await sum.getLeague();
+            const soloQ = await sumLeague.getSoloQueue();
+            const flex = await sumLeague.getFlexQueue();
+
+            const selectedQueue = soloQ
+              ? soloQ
+              : flex || {
+                  tier: 'UNRANKED',
+                  rank: '',
+                  wins: 0,
+                  losses: 1,
+                };
+
+            if (!selectedQueue) {
+              return '';
+            }
+
+            const tier = capitalizeString(selectedQueue.tier!.toLowerCase());
+            const tierEmote = getEmote(tier);
+            const winrate = calculateWinrate(
+              selectedQueue.wins,
+              selectedQueue.losses
+            );
+
+            return `${tierEmote} ${tier}${
+              noShowRank.includes(selectedQueue.tier!)
+                ? ''
+                : ` ${selectedQueue.rank}`
+            } (**${selectedQueue.wins}W** / **${
+              selectedQueue.losses
+            }L**, ${winrate}% WR)`;
+          })
+      );
+
+      const redChampions = await Promise.all(
+        currentGame.participants
+          .filter((p) => p.teamId === 200)
           .map(async (participant) => {
             const champion = getChampionById({
               key: String(participant.championId),
@@ -223,12 +306,55 @@ export default class RankedCommand extends SubCommand {
         currentGame.participants
           .filter((p) => p.teamId === 200)
           .map(async (participant) => {
-            const champion = getChampionById({
-              key: String(participant.championId),
-            })!;
-            const championEmote = championEmoji(champion.id);
+            const sum = (await Summoner.fetchById(
+              participant.summonerId,
+              summoner.region
+            ))!;
 
-            return `${championEmote} ${champion.name}`;
+            return `${sum.gameName}#${sum.tagLine}`;
+          })
+      );
+
+      const redRanks = await Promise.all(
+        currentGame.participants
+          .filter((p) => p.teamId === 200)
+          .map(async (participant) => {
+            const sum = (await Summoner.fetchById(
+              participant.summonerId,
+              summoner.region
+            ))!;
+
+            const sumLeague = await sum.getLeague();
+            const soloQ = await sumLeague.getSoloQueue();
+            const flex = await sumLeague.getFlexQueue();
+
+            const selectedQueue = soloQ
+              ? soloQ
+              : flex || {
+                  tier: 'UNRANKED',
+                  rank: '',
+                  wins: 0,
+                  losses: 1,
+                };
+
+            if (!selectedQueue) {
+              return '';
+            }
+
+            const tier = capitalizeString(selectedQueue.tier!.toLowerCase());
+            const tierEmote = getEmote(tier);
+            const winrate = calculateWinrate(
+              selectedQueue.wins,
+              selectedQueue.losses
+            );
+
+            return `${tierEmote} ${tier}${
+              noShowRank.includes(selectedQueue.tier!)
+                ? ''
+                : ` ${selectedQueue.rank}`
+            } (**${selectedQueue.wins}W** / **${
+              selectedQueue.losses
+            }L**, ${winrate}% WR)`;
           })
       );
 
@@ -238,32 +364,61 @@ export default class RankedCommand extends SubCommand {
           iconUrl: profileIconURL,
         })
         .setTitle(
-          queue.detailedDescription || queue.description || "Unknown queue"
+          `${
+            queue.detailedDescription || queue.description || 'Unknown queue'
+          } - ${formatTime}`
         )
         .setColor(EmbedColors.BLUE)
         .addFields([
           {
-            name: "Blue Team",
-            value: blueParticipants.join("\n"),
+            name: 'Blue Team',
+            value: blueChampions.join('\n'),
             inline: true,
           },
           {
-            name: "Red Team",
-            value: redParticipants.join("\n"),
+            name: 'Summoner',
+            value: blueParticipants.join('\n'),
+            inline: true,
+          },
+          {
+            name: 'Rank',
+            value: blueRanks.join('\n'),
+            inline: true,
+          },
+          {
+            name: 'Red Team',
+            value: redChampions.join('\n'),
+            inline: true,
+          },
+          {
+            name: 'Summoner',
+            value: redParticipants.join('\n'),
+            inline: true,
+          },
+          {
+            name: 'Rank',
+            value: redRanks.join('\n'),
             inline: true,
           },
         ]);
 
+      field = {
+        name: 'Current Game',
+        value: `Playing as <:${championEmote}> **${champion.name}** in **${
+          queue.description || queue.name || 'Unknown queue'
+        }** (${formatTime})`,
+        inline: false,
+      };
       row.addComponents([
         new Button({
           style: ButtonStyle.Primary,
-          custom_id: "active_game",
+          custom_id: 'active_game',
           emoji: {
-            name: championEmote.split(":")[0],
-            id: championEmote.split(":")[1],
+            name: championEmote.split(':')[0],
+            id: championEmote.split(':')[1],
           },
           label: `Playing as ${champion.name} (${
-            queue.description || queue.name || "Unknown queue"
+            queue.description || queue.name || 'Unknown queue'
           })`,
         }).run((i, stop) => {
           i.editOrReply({
@@ -271,7 +426,7 @@ export default class RankedCommand extends SubCommand {
             components: [],
             flags: MessageFlags.Ephemeral,
           });
-          stop("clicked");
+          stop('clicked');
         }),
       ]);
     }
@@ -284,34 +439,35 @@ export default class RankedCommand extends SubCommand {
       .setColor(EmbedColors.BLUE)
       .addFields([
         {
-          name: "Basic Information",
-          value: basicInfoValue.join("\n"),
+          name: 'Basic Information',
+          value: basicInfoValue.join('\n'),
           inline: true,
         },
         {
-          name: "Ranked Solo/Duo",
-          value: soloQInfoValue.join("\n"),
+          name: 'Ranked Solo/Duo',
+          value: soloQInfoValue.join('\n'),
           inline: true,
         },
         {
-          name: "Ranked Flex",
-          value: flexInfoValue.join("\n"),
+          name: 'Ranked Flex',
+          value: flexInfoValue.join('\n'),
           inline: true,
         },
         {
-          name: "Highest Mastery",
+          name: 'Highest Mastery',
           value: highestMasteryValue.length
-            ? highestMasteryValue.join("\n")
-            : "No mastery found",
+            ? highestMasteryValue.join('\n')
+            : 'No mastery found',
           inline: true,
         },
         {
-          name: "Recent Games",
+          name: 'Recent Games',
           value: recentGamesValue.length
-            ? recentGamesValue.join("\n")
-            : "No recent games",
+            ? recentGamesValue.join('\n')
+            : 'No recent games',
           inline: true,
         },
+        field,
       ]);
 
     const componentsListener = new ComponentsListener({
@@ -328,7 +484,7 @@ export default class RankedCommand extends SubCommand {
         return true;
       },
       onStop: async (reason) => {
-        if (reason === "timeout" || reason === "clicked") {
+        if (reason === 'timeout' || reason === 'clicked') {
           await ctx.editOrReply({
             components: [],
           });
@@ -341,9 +497,9 @@ export default class RankedCommand extends SubCommand {
       files: bufferGraphic
         ? [
             new Attachment()
-              .setFile("buffer", bufferGraphic)
-              .setName("mastery.png")
-              .setDescription("Mastery graphic"),
+              .setFile('buffer', bufferGraphic)
+              .setName('mastery.png')
+              .setDescription('Mastery graphic'),
           ]
         : undefined,
       components: row.components.length ? componentsListener.addRows(row) : [],
