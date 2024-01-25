@@ -1,8 +1,9 @@
-import { Redis } from "ioredis";
+import { Redis } from 'ioredis';
 
 export class LuxannaStore {
   private adapter = new Redis({
-    host: '127.0.0.1', port: 6379,
+    host: '127.0.0.1',
+    port: 6379,
   });
 
   private static instance: LuxannaStore;
@@ -15,7 +16,7 @@ export class LuxannaStore {
   }
 
   async get(id: string): Promise<any | null> {
-    if (id.startsWith("link:")) {
+    if (id.startsWith('link:')) {
       const link = await this.adapter.get(id);
       id = link as string;
     }
@@ -25,14 +26,14 @@ export class LuxannaStore {
     return kv ? JSON.parse(kv as string) : null;
   }
   async set(id: string, data: unknown, options: Options): Promise<void> {
-    await this.adapter.set(id, JSON.stringify(data), "EX", options.ex);
+    await this.adapter.set(id, JSON.stringify(data), 'EX', options.ex / 1000);
   }
   async exists(id: string): Promise<boolean> {
     return (await this.adapter.exists(id)) === 1;
   }
 
   async link(id: string, link: string): Promise<void> {
-    await this.adapter.set(`link:${id}`, link, `EX`, 60 * 60 * 24);
+    await this.adapter.set(`link:${id}`, link, 'EX', (60 * 60 * 24) / 1000);
   }
 }
 
