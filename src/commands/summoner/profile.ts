@@ -29,6 +29,8 @@ import { components } from '../../lib/schema';
 import { makeMasteryGraphic } from '../../utils/images/satori/mastery';
 import { Summoner } from '../../app/structures/summoner';
 import { APIEmbedField } from 'biscuitjs';
+import { default as Maps } from '../../../json/maps.json';
+
 const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER', 'UNRANKED'];
 
 @Declare({
@@ -211,6 +213,7 @@ export default class ProfileCommand extends SubCommand {
       const championEmote = rawEmote(champion.id)!;
 
       const queue = getQueueById(currentGame.gameQueueConfigId!)!;
+      const map = Maps.find((m) => m.mapId === currentGame.mapId)!;
 
       const msToTime = (duration: number) => {
         const seconds = Math.floor((duration / 1000) % 60);
@@ -265,7 +268,7 @@ export default class ProfileCommand extends SubCommand {
                   tier: 'UNRANKED',
                   rank: '',
                   wins: 0,
-                  losses: 1,
+                  losses: 0,
                 };
 
             if (!selectedQueue) {
@@ -288,6 +291,22 @@ export default class ProfileCommand extends SubCommand {
             }L**, ${winrate}% WR)`;
           })
       );
+
+      const blueBans =
+        currentGame.bannedChampions.length === 0
+          ? null
+          : currentGame.bannedChampions
+              .filter((b) => b.teamId === 100)
+              .map((b) => {
+                if (b.championId === -1) return getEmote('_1');
+
+                const champion = getChampionById({
+                  key: String(b.championId),
+                })!;
+                const championEmote = championEmoji(champion.id);
+
+                return championEmote;
+              });
 
       const redChampions = await Promise.all(
         currentGame.participants
@@ -334,7 +353,7 @@ export default class ProfileCommand extends SubCommand {
                   tier: 'UNRANKED',
                   rank: '',
                   wins: 0,
-                  losses: 1,
+                  losses: 0,
                 };
 
             if (!selectedQueue) {
@@ -358,15 +377,31 @@ export default class ProfileCommand extends SubCommand {
           })
       );
 
+      const redBans =
+        currentGame.bannedChampions.length === 0
+          ? null
+          : currentGame.bannedChampions
+              .filter((b) => b.teamId === 200)
+              .map((b) => {
+                if (b.championId === -1) return getEmote('_1');
+
+                const champion = getChampionById({
+                  key: String(b.championId),
+                })!;
+                const championEmote = championEmoji(champion.id);
+
+                return championEmote;
+              });
+
       const embedCurrentGame = new MessageEmbed()
         .setAuthor({
           name: `${summoner.gameName}#${summoner.tagLine}`,
           iconUrl: profileIconURL,
         })
         .setTitle(
-          `${
+          `${map.mapName} - ${
             queue.detailedDescription || queue.description || 'Unknown queue'
-          } - ${formatTime}`
+          } (${formatTime})`
         )
         .setColor(EmbedColors.BLUE)
         .addFields([
@@ -386,6 +421,11 @@ export default class ProfileCommand extends SubCommand {
             inline: true,
           },
           {
+            name: 'Bans',
+            value: blueBans ? blueBans.join(' ') : 'No bans found',
+            inline: false,
+          },
+          {
             name: 'Red Team',
             value: redChampions.join('\n'),
             inline: true,
@@ -399,6 +439,11 @@ export default class ProfileCommand extends SubCommand {
             name: 'Rank',
             value: redRanks.join('\n'),
             inline: true,
+          },
+          {
+            name: 'Bans',
+            value: redBans ? redBans.join(' ') : 'No bans found',
+            inline: false,
           },
         ]);
 
@@ -475,7 +520,9 @@ export default class ProfileCommand extends SubCommand {
       filter: (interaction) => {
         if (interaction.user.id !== ctx.author.id) {
           interaction.write({
-            content: `⚠️ ${interaction.user.toString()}, you can't use this button.`,
+            content: ctx.t.commands.errors
+              .noUserButton(interaction.user.tag)
+              .get(),
             flags: MessageFlags.Ephemeral,
           });
           return false;

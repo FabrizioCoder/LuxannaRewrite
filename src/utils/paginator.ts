@@ -82,7 +82,9 @@ export class EmbedPaginator {
       filter: (interaction) => {
         if (interaction.user.id !== this.context.author.id) {
           return interaction.write({
-            content: `⚠️ ${interaction.user.toString()}, you can't use this button.`,
+            content: this.context.t.commands.errors
+              .noUserButton(interaction.user.tag)
+              .get(),
             flags: MessageFlags.Ephemeral,
           });
         }

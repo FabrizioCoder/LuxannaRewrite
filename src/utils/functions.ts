@@ -31,6 +31,7 @@ function amount(entry: number) {
 }
 
 function calculateWinrate(wins: number, losses: number) {
+  if (wins === 0 && losses === 0) return 0;
   return Math.round((wins / (wins + losses)) * 100);
 }
 
@@ -39,6 +40,7 @@ function calculateCSPerMinute(cs: number, duration: number) {
 }
 
 function calculateKDA(kills: number, deaths: number, assists: number) {
+  if (deaths === 0) return 'Perfect';
   return ((kills + assists) / deaths).toFixed(2);
 }
 
