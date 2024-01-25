@@ -66,7 +66,7 @@ export default class ProfileCommand extends SubCommand {
         content: 'Summoner not found.',
       });
     }
-    const profileIconURL = makeIconURL('14.1.1', summoner.profileIconId);
+    const profileIconURL = makeIconURL('14.2.1', summoner.profileIconId);
 
     const basicInfoValue = [
       `\`Level:\` ${summoner.summonerLevel}`,
