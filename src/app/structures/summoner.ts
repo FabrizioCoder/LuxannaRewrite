@@ -123,7 +123,7 @@ export class Summoner {
 
     await Promise.all([
       LuxannaStore.getInstance().set(`summoner:${puuid}`, summoner, {
-        ex: 60 * 60 * 24,
+        ex: 86,
       }),
       LuxannaStore.getInstance().link(
         `summoner:${summoner.id}`,
@@ -157,7 +157,7 @@ export class Summoner {
 
     await Promise.all([
       LuxannaStore.getInstance().set(`account:${puuid}`, account, {
-        ex: 60 * 60 * 24,
+        ex: 86,
       }),
       // LuxannaStore.getInstance().link(
       //   `account:${summoner.id}`,

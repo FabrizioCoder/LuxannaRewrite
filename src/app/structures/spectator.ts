@@ -1,9 +1,9 @@
-import { restClient } from "../../lib/rest";
-import { components } from "../../lib/schema";
-import { regionalURLs, selectRegion } from "../../utils/functions";
-import { LuxannaStore } from "../managers/cacheManager";
+import { restClient } from '../../lib/rest';
+import { components } from '../../lib/schema';
+import { regionalURLs, selectRegion } from '../../utils/functions';
+import { LuxannaStore } from '../managers/cacheManager';
 
-type Schema = components["schemas"]["spectator-v4.CurrentGameInfo"];
+type Schema = components['schemas']['spectator-v4.CurrentGameInfo'];
 export class SummonerSpectator {
   constructor(
     readonly summonerId: string,
@@ -18,7 +18,7 @@ export class SummonerSpectator {
     if (cached) return cached;
 
     const { data: currentGameInfo } = await restClient.GET(
-      "/lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}",
+      '/lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}',
       {
         params: {
           path: {
@@ -33,7 +33,7 @@ export class SummonerSpectator {
       await LuxannaStore.getInstance().set(
         `spectator:${this.summonerId}`,
         currentGameInfo,
-        { ex: 60 * 60 * 24 }
+        { ex: 86 }
       );
     }
 

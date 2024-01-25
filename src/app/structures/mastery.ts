@@ -31,7 +31,7 @@ export class SummonerMastery {
 
     if (mastery) {
       await LuxannaStore.getInstance().set(`mastery:${this.puuid}`, mastery, {
-        ex: 60 * 60 * 24,
+        ex: 86,
       });
     }
 
@@ -65,7 +65,7 @@ export class SummonerMastery {
         `mastery:${this.puuid}:top`,
         mastery,
         {
-          ex: 60 * 60 * 24,
+          ex: 86,
         }
       );
     }

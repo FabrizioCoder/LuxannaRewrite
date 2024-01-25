@@ -92,7 +92,7 @@ export class SummonerLeague {
         RANKED_TFT: this.RANKED_TFT,
       },
       {
-        ex: 60 * 60 * 24,
+        ex: 86,
       }
     );
   }

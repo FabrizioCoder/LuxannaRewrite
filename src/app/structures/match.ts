@@ -68,7 +68,7 @@ export class SummonerMatches {
 
     if (match) {
       await LuxannaStore.getInstance().set(`match:${matchId}`, match, {
-        ex: 60 * 60 * 24,
+        ex: 86,
       });
     }
 
