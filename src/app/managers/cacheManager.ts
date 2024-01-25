@@ -26,7 +26,12 @@ export class LuxannaStore {
     return kv ? JSON.parse(kv as string) : null;
   }
   async set(id: string, data: unknown, options: Options): Promise<void> {
-    await this.adapter.set(id, JSON.stringify(data), 'EX', options.ex / 1000);
+    await this.adapter.set(
+      id,
+      JSON.stringify(data),
+      'EX',
+      Math.floor(options.ex / 1000)
+    );
   }
   async exists(id: string): Promise<boolean> {
     return (await this.adapter.exists(id)) === 1;
