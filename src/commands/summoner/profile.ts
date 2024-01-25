@@ -516,7 +516,7 @@ export default class ProfileCommand extends SubCommand {
       ]);
 
     const componentsListener = new ComponentsListener({
-      timeout: 30000,
+      timeout: 60000,
       filter: (interaction) => {
         if (interaction.user.id !== ctx.author.id) {
           interaction.write({
