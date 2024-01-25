@@ -9,62 +9,63 @@ import {
   SubCommand,
   createStringOption,
   Attachment,
-} from "biscuitjs";
-import { ApplyCooldown, parseSummonerOptions } from "../../../utils/functions";
-import { makeMatchHistory } from "../../../utils/images/history";
-import { QueueChoices, searchOptions } from "../../../utils/constants";
-import { SummonersManager } from "../../../app/managers/summonersManager";
-import Cooldown from "../../../middlewares/cooldown";
+} from 'biscuitjs';
+import { ApplyCooldown, parseSummonerOptions } from '../../../utils/functions';
+import { makeMatchHistory } from '../../../utils/images/history';
+import { QueueChoices, searchOptions } from '../../../utils/constants';
+import { SummonersManager } from '../../../app/managers/summonersManager';
+import Cooldown from '../../../middlewares/cooldown';
 
 const opt = {
   queue: createStringOption({
     choices: QueueChoices,
     type: ApplicationCommandOptionType.String,
-    description: "Select a queue to filter the matches",
+    description: 'Select a queue to filter the matches',
     value: ({ value }, ok: OKFunction<string>) => {
       ok(value as string);
     },
   }),
-  "riot-id": searchOptions["riot-id"],
+  'riot-id': searchOptions['riot-id'],
   region: searchOptions.region,
   user: searchOptions.user,
 };
 
 @Declare({
-  name: "history",
-  description: "Show summoner match history",
+  name: 'history',
+  description: 'Show summoner match history',
 })
 @Middlewares([Cooldown])
 @ApplyCooldown({
   time: 5000,
-  type: "user",
+  type: 'user',
 })
-@Group("matches")
+@Group('matches')
 @Options(opt)
 export default class HistoryCommand extends SubCommand {
-  async run(ctx: CommandContext<"client", typeof opt>) {
+  async run(ctx: CommandContext<'client', typeof opt>) {
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,
-      riotId: ctx.options["riot-id"],
+      riotId: ctx.options['riot-id'],
       region: ctx.options.region,
     });
 
     if (!args) {
       return ctx.editOrReply({
-        content:
-          "You don't have a linked account. Enter your RiotId and region or you can also link your account with `/account link`.",
+        content: ctx.options.user
+          ? ctx.t.commands.errors.noLinkedAccount.user.get()
+          : ctx.t.commands.errors.noLinkedAccount.self.get(),
       });
     }
 
-    const [gameName, tagLine] = args.riotId.split("#");
+    const [gameName, tagLine] = args.riotId.split('#');
     const summoner = await SummonersManager.getInstance().get(
       `${args.region}:${gameName}:${tagLine}`
     );
 
     if (!summoner) {
       return ctx.editOrReply({
-        content: "Summoner not found.",
+        content: 'Summoner not found.',
       });
     }
 
@@ -76,7 +77,7 @@ export default class HistoryCommand extends SubCommand {
 
     if (!matchesId || !matchesId.length) {
       return ctx.editOrReply({
-        content: "No matches found.",
+        content: 'No matches found.',
       });
     }
 
@@ -91,9 +92,9 @@ export default class HistoryCommand extends SubCommand {
 
       files: [
         new Attachment()
-          .setName("match_history.png")
-          .setFile("buffer", buffer)
-          .setDescription("Match history"),
+          .setName('match_history.png')
+          .setFile('buffer', buffer)
+          .setDescription('Match history'),
       ],
     });
   }
