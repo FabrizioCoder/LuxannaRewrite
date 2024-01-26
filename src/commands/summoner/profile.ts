@@ -182,7 +182,7 @@ export default class ProfileCommand extends SubCommand {
         recentGamesValue.push(
           [
             `${
-              data!.teamEarlySurrendered ? '🔃' : data!.win ? '✅' : '❌'
+              data!.gameEndedInSurrender ? '🔃' : data!.win ? '✅' : '❌'
             } ${championEmote} **${champion!.name}**, *${
               queue!.description || queue!.name || 'Unknown queue'
             }*`,
