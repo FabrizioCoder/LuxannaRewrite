@@ -28,7 +28,6 @@ import { SummonersManager } from '../../app/managers/summonersManager';
 import { components } from '../../lib/schema';
 import { makeMasteryGraphic } from '../../utils/images/satori/mastery';
 import { Summoner } from '../../app/structures/summoner';
-import { APIEmbedField } from 'biscuitjs';
 import { default as Maps } from '../../../json/maps.json';
 
 const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER', 'UNRANKED'];
@@ -197,11 +196,6 @@ export default class ProfileCommand extends SubCommand {
     const SummonerSpectator = await summoner.getSpectator();
     const currentGame = await SummonerSpectator.fetchActiveGame();
     const row = new ActionRow();
-    let field: APIEmbedField = {
-      name: '\u200b',
-      value: '\u200b',
-      inline: false,
-    };
     if (currentGame) {
       const selfParticipant = currentGame.participants.filter(
         (p) => p.summonerId === summoner.id
@@ -447,13 +441,6 @@ export default class ProfileCommand extends SubCommand {
           },
         ]);
 
-      field = {
-        name: 'Current Game',
-        value: `Playing as <:${championEmote}> **${champion.name}** in **${
-          queue.description || queue.name || 'Unknown queue'
-        }** (${formatTime})`,
-        inline: false,
-      };
       row.addComponents([
         new Button({
           style: ButtonStyle.Primary,
@@ -512,7 +499,6 @@ export default class ProfileCommand extends SubCommand {
             : 'No recent games',
           inline: true,
         },
-        field,
       ]);
 
     const componentsListener = new ComponentsListener({
