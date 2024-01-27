@@ -18,6 +18,7 @@ async function getRunes(url: string): Promise<ResultRunes> {
     first: [],
     second: [],
     perks: [],
+    wr: '0%',
   };
 
   for (const i of runes[0]!.split('<div class="row">').slice(1)) {
@@ -56,6 +57,10 @@ async function getRunes(url: string): Promise<ResultRunes> {
     });
   }
 
+  const runesWRElement = load(text)('td.css-1amolq6.edsne5b1').first();
+  const runesWR = runesWRElement.text();
+  result.wr = runesWR;
+
   return result;
 }
 
@@ -64,9 +69,18 @@ async function getItems(url: string): Promise<ResultItems> {
   const text = await response.text();
 
   const result: ResultItems = {
-    starterItems: [],
-    coreBuild: [],
-    boots: [],
+    starterBuild: {
+      items: [],
+      wr: '0%',
+    },
+    coreBuild: {
+      items: [],
+      wr: '0%',
+    },
+    boots: {
+      name: '',
+      wr: '0%',
+    },
   };
 
   const rawItemsText = text
@@ -81,9 +95,13 @@ async function getItems(url: string): Promise<ResultItems> {
     $('img').each((_, elem) => {
       const altText = $(elem).attr('alt');
       if (altText) {
-        result.coreBuild.push(altText);
+        result.coreBuild.items.push(altText);
       }
     });
+
+    const buildWRElement = load(text)('td.css-1amolq6.edsne5b1').first();
+    const buildWR = buildWRElement.text();
+    result.coreBuild.wr = buildWR;
   }
 
   // Scrape Boots
@@ -96,9 +114,15 @@ async function getItems(url: string): Promise<ResultItems> {
     $('img').each((_, elem) => {
       const altText = $(elem).attr('alt');
       if (altText) {
-        result.boots.push(altText);
+        result.boots.name = altText;
       }
     });
+
+    const bootsWRElement = load(text)('td.css-1amolq6.edsne5b1')
+      .slice(15)
+      .first();
+    const bootsWR = bootsWRElement.text();
+    result.boots.wr = bootsWR;
   }
 
   // Scrape Starter Items
@@ -112,15 +136,24 @@ async function getItems(url: string): Promise<ResultItems> {
     $('img').each((_, elem) => {
       const altText = $(elem).attr('alt');
       if (altText) {
-        result.starterItems.push(altText);
+        result.starterBuild.items.push(altText);
       }
     });
+
+    const starterBuildWRElement = load(text)('td.css-1amolq6.edsne5b1')
+      .slice(20)
+      .first();
+    const starterBuildWR = starterBuildWRElement.text();
+    result.starterBuild.wr = starterBuildWR;
   }
 
   return result;
 }
 
-async function getSkillOrder(url: string): Promise<string[]> {
+async function getSkillOrder(url: string): Promise<{
+  keys: string[];
+  wr: string;
+}> {
   const response = await fetch(url);
   const text = await response.text();
 
@@ -131,12 +164,22 @@ async function getSkillOrder(url: string): Promise<string[]> {
   const skillOrderText = rawSkillOrderText.split('<td ')[1]!.split('</td>')[0]!;
   const skillOrder = skillOrderText.split('<div class="divider"');
 
-  const result: string[] = [];
+  const result: {
+    keys: string[];
+    wr: string;
+  } = {
+    keys: [],
+    wr: '0%',
+  };
   const $ = load(skillOrder[0]!);
   $('strong').each((_, elem) => {
     const skill = $(elem).text();
-    result.push(skill);
+    result.keys.push(skill);
   });
+
+  const skillOrderWRElement = load(text)('td.css-1amolq6.edsne5b1').first();
+  const skillOrderWR = skillOrderWRElement.text();
+  result.wr = skillOrderWR;
 
   return result;
 }
@@ -168,16 +211,29 @@ interface ResultRunes {
   first: string[];
   second: string[];
   perks: Perks[];
+  wr: string;
 }
 
 interface ResultItems {
-  starterItems: string[];
-  coreBuild: string[];
-  boots: string[];
+  starterBuild: {
+    items: string[];
+    wr: string;
+  };
+  coreBuild: {
+    items: string[];
+    wr: string;
+  };
+  boots: {
+    name: string;
+    wr: string;
+  };
 }
 
 interface Build {
   runes: ResultRunes;
   items: ResultItems;
-  skillOrder: string[];
+  skillOrder: {
+    keys: string[];
+    wr: string;
+  };
 }
