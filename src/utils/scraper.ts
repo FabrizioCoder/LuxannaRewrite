@@ -185,21 +185,14 @@ async function getSkillOrder(url: string): Promise<{
 }
 
 export async function getBuild(champion: string, role: string): Promise<Build> {
-  const runes = await getRunes(
-    `https://www.op.gg/champions/${champion}/runes/${role}`
-  );
-  const items = await getItems(
-    `https://www.op.gg/champions/${champion}/items/${role}`
-  );
-  const skillOrder = await getSkillOrder(
-    `https://www.op.gg/champions/${champion}/skills/${role}`
-  );
+  const baseUrl = `https://www.op.gg/champions/${champion}`;
+  const [runes, items, skillOrder] = await Promise.all([
+    getRunes(`${baseUrl}/runes/${role}`),
+    getItems(`${baseUrl}/items/${role}`),
+    getSkillOrder(`${baseUrl}/skills/${role}`),
+  ]);
 
-  return {
-    runes,
-    items,
-    skillOrder,
-  };
+  return { runes, items, skillOrder };
 }
 
 interface Perks {
