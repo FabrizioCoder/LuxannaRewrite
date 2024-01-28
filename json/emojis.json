@@ -5883,5 +5883,860 @@
     "available": true,
     "animated": false,
     "guild_id": "949522524335657050"
+  },
+  {
+    "id": "1201008539146145863",
+    "name": "8369",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008586965401650",
+    "name": "8446",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008640459559075",
+    "name": "8126",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008686609485884",
+    "name": "8321",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008732461604895",
+    "name": "8415",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008778804465805",
+    "name": "8410",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008825545805854",
+    "name": "8232",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008871410520214",
+    "name": "8299",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008917908561930",
+    "name": "8112",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201008963982991471",
+    "name": "8234",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009010074210314",
+    "name": "8453",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009056580632607",
+    "name": "8360",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009101325479946",
+    "name": "8004",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009147487989900",
+    "name": "8128",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009193428197387",
+    "name": "8220",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009239632662528",
+    "name": "8016",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009286273314897",
+    "name": "8473",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009333039800421",
+    "name": "8339",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009379470749707",
+    "name": "8214",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009426031706253",
+    "name": "8237",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009471841902633",
+    "name": "8139",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009517744369825",
+    "name": "8008",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009563864936508",
+    "name": "9105",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009609926770728",
+    "name": "8010",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009656152211467",
+    "name": "8106",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009702079828059",
+    "name": "8017",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009748913442868",
+    "name": "8224",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009797798055957",
+    "name": "8210",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009855075463168",
+    "name": "8005",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009900927594586",
+    "name": "8435",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009946775519293",
+    "name": "8115",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201009994070507520",
+    "name": "8359",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010040912494732",
+    "name": "8352",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010086882054216",
+    "name": "5003",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010133304623124",
+    "name": "8135",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010179509059684",
+    "name": "8120",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010225252147262",
+    "name": "8134",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010271431426048",
+    "name": "8351",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010318130819093",
+    "name": "8242",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010363492212850",
+    "name": "8401",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010409910571048",
+    "name": "9111",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010456207315045",
+    "name": "8105",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010500654350425",
+    "name": "8454",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010546133172224",
+    "name": "8275",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010590240493579",
+    "name": "8207",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010637111832617",
+    "name": "8439",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010688471072788",
+    "name": "8109",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010734398713886",
+    "name": "5002",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010779294543992",
+    "name": "8414",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201010824895025203",
+    "name": "5008",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011121797214313",
+    "name": "8320",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011167070535681",
+    "name": "8319",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011213224644688",
+    "name": "5001",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011260016312380",
+    "name": "8430",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011306132676608",
+    "name": "8014",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011352328753223",
+    "name": "5007",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011398717743114",
+    "name": "8021",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011445287100426",
+    "name": "8226",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011490912751727",
+    "name": "8451",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011582302421054",
+    "name": "9103",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011626606862437",
+    "name": "8114",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011672740007966",
+    "name": "8230",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011717388374146",
+    "name": "8318",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011763236323408",
+    "name": "8316",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011809184919602",
+    "name": "8463",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011855729098762",
+    "name": "7000",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011901711253595",
+    "name": "8304",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011947949269118",
+    "name": "8236",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201011993902071920",
+    "name": "8009",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012038852419624",
+    "name": "8006",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012085082034186",
+    "name": "9104",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012130128863262",
+    "name": "8416",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012175494467686",
+    "name": "5005",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012222806216795",
+    "name": "8306",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012268893225141",
+    "name": "8465",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012314887946360",
+    "name": "8138",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012359674740837",
+    "name": "8127",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012405933715486",
+    "name": "8143",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012452003950613",
+    "name": "8345",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012498757849238",
+    "name": "8444",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012543297163336",
+    "name": "8205",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012589661003876",
+    "name": "8437",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012635638972477",
+    "name": "9923",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012681889558578",
+    "name": "8429",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012727875911712",
+    "name": "8124",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012774579478640",
+    "name": "8233",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012819894739004",
+    "name": "8007",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012865990148168",
+    "name": "8136",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012910936293426",
+    "name": "8208",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201012956910063760",
+    "name": "8347",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201013003571695656",
+    "name": "8472",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201013049700663377",
+    "name": "8229",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201013094659403826",
+    "name": "8344",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201013141396525086",
+    "name": "9101",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
+  },
+  {
+    "id": "1201018540719874048",
+    "name": "8313",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
   }
 ]
