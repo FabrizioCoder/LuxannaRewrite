@@ -5,9 +5,11 @@ import {
   createStringOption,
   createBooleanOption,
   createUserOption,
+  AutocompleteInteraction,
 } from 'biscuitjs';
 import { Image } from 'imagescript';
 import { regionalURLs } from './functions';
+import champions from '../../json/champions.json';
 
 export enum TierOrder {
   CHALLENGER = 0,
@@ -143,6 +145,29 @@ export const searchOptions = {
     required: false,
     type: ApplicationCommandOptionType.User,
   }),
+};
+
+export const autoCompleteChampionValues = (
+  interaction: AutocompleteInteraction<boolean>
+) => {
+  const input = interaction.options.getString('champion')!;
+  return Object.values(champions)
+    .filter((c) => {
+      return c.name.toLowerCase().includes(input.toLowerCase());
+    })
+    .map((champion) => {
+      return {
+        name: champion.name,
+        value: champion.id,
+      };
+    })
+    .slice(0, 15)
+    .sort((a, b) => {
+      return (
+        a.name.toLowerCase().indexOf(input.toLowerCase()) -
+        b.name.toLowerCase().indexOf(input.toLowerCase())
+      );
+    });
 };
 
 export const HextechColors = {

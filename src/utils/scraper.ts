@@ -1,7 +1,8 @@
 import { load } from 'cheerio';
 
-async function getRunes(url: string): Promise<ResultRunes> {
+async function getRunes(url: string): Promise<ResultRunes | null> {
   const response = await fetch(url);
+  if (!response.ok) return null;
   const text = await response.text();
 
   const rawRunesText = text
@@ -45,16 +46,14 @@ async function getRunes(url: string): Promise<ResultRunes> {
   }
 
   for (const i of runes[2]!.split('<div class="row">').slice(1)) {
-    const shardIndex = i
+    const shardsSrc = i
       .split('<div style="position:relative" class')
       .slice(1)
-      .findIndex((x) => !x.includes('grayscale'));
-    const shard = i.split('alt="')[1]!.split('"')[0]!;
-
-    result.perks.push({
-      index: shardIndex,
-      alt: shard,
-    });
+      .filter((x) => !x.includes('grayscale'));
+    for (const shard of shardsSrc) {
+      const shardId = shard.split('perkShard/')[1]!.split('.png')[0]!;
+      result.perks.push(shardId);
+    }
   }
 
   const runesWRElement = load(text)('td.css-1amolq6.edsne5b1').first();
@@ -64,8 +63,9 @@ async function getRunes(url: string): Promise<ResultRunes> {
   return result;
 }
 
-async function getItems(url: string): Promise<ResultItems> {
+async function getItems(url: string): Promise<ResultItems | null> {
   const response = await fetch(url);
+  if (!response.ok) return null;
   const text = await response.text();
 
   const result: ResultItems = {
@@ -153,8 +153,9 @@ async function getItems(url: string): Promise<ResultItems> {
 async function getSkillOrder(url: string): Promise<{
   keys: string[];
   wr: string;
-}> {
+} | null> {
   const response = await fetch(url);
+  if (!response.ok) return null;
   const text = await response.text();
 
   const rawSkillOrderText = text
@@ -186,28 +187,28 @@ async function getSkillOrder(url: string): Promise<{
 
 export async function getBuild(champion: string, role: string): Promise<Build> {
   const baseUrl = `https://www.op.gg/champions/${champion}`;
-  const [runes, items, skillOrder] = await Promise.all([
-    getRunes(`${baseUrl}/runes/${role}`),
-    getItems(`${baseUrl}/items/${role}`),
-    getSkillOrder(`${baseUrl}/skills/${role}`),
-  ]);
+  const [runes, items, skillOrder] = (await Promise.all([
+    getRunes(`${baseUrl}/runes/${role}?region=kr`),
+    getItems(`${baseUrl}/items/${role}?region=kr`),
+    getSkillOrder(`${baseUrl}/skills/${role}?region=kr`),
+  ])) ?? [null, null, null];
 
-  return { runes, items, skillOrder };
+  return {
+    runes,
+    items,
+    skillOrder,
+    baseUrl: `${baseUrl}/build/${role}?region=kr`,
+  };
 }
 
-interface Perks {
-  index: number;
-  alt: string;
-}
-
-interface ResultRunes {
+export interface ResultRunes {
   first: string[];
   second: string[];
-  perks: Perks[];
+  perks: string[];
   wr: string;
 }
 
-interface ResultItems {
+export interface ResultItems {
   starterBuild: {
     items: string[];
     wr: string;
@@ -222,11 +223,12 @@ interface ResultItems {
   };
 }
 
-interface Build {
-  runes: ResultRunes;
-  items: ResultItems;
+export interface Build {
+  runes: ResultRunes | null;
+  items: ResultItems | null;
   skillOrder: {
     keys: string[];
     wr: string;
-  };
+  } | null;
+  baseUrl: string;
 }

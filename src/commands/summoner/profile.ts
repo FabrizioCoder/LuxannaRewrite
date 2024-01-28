@@ -16,7 +16,7 @@ import {
   calculateWinrate,
   capitalizeString,
   championEmoji,
-  getChampionById,
+  getChampionByKey,
   getChampionByName,
   getEmote,
   getQueueById,
@@ -128,7 +128,7 @@ export default class ProfileCommand extends SubCommand {
       }[] = [];
 
       for (const mastery of highestMastery) {
-        const champion = getChampionById({ key: String(mastery.championId) })!;
+        const champion = getChampionByKey({ key: String(mastery.championId) })!;
         const championEmote = championEmoji(champion.id);
         const formatTime = `<t:${Math.floor(mastery.lastPlayTime / 1000)}:R>`;
         highestMasteryValue.push(
@@ -202,7 +202,7 @@ export default class ProfileCommand extends SubCommand {
         (p) => p.summonerId === summoner.id
       )[0]!;
 
-      const champion = getChampionById({
+      const champion = getChampionByKey({
         key: String(selfParticipant.championId),
       })!;
       const championEmote = rawEmote(champion.id)!;
@@ -222,7 +222,7 @@ export default class ProfileCommand extends SubCommand {
         currentGame.participants
           .filter((p) => p.teamId === 100)
           .map(async (participant) => {
-            const champion = getChampionById({
+            const champion = getChampionByKey({
               key: String(participant.championId),
             })!;
             const championEmote = championEmoji(champion.id);
@@ -301,7 +301,7 @@ export default class ProfileCommand extends SubCommand {
               .map((b) => {
                 if (b.championId === -1) return getEmote('_1');
 
-                const champion = getChampionById({
+                const champion = getChampionByKey({
                   key: String(b.championId),
                 })!;
                 const championEmote = championEmoji(champion.id);
@@ -313,7 +313,7 @@ export default class ProfileCommand extends SubCommand {
         currentGame.participants
           .filter((p) => p.teamId === 200)
           .map(async (participant) => {
-            const champion = getChampionById({
+            const champion = getChampionByKey({
               key: String(participant.championId),
             })!;
             const championEmote = championEmoji(champion.id);
@@ -391,7 +391,7 @@ export default class ProfileCommand extends SubCommand {
               .map((b) => {
                 if (b.championId === -1) return getEmote('_1');
 
-                const champion = getChampionById({
+                const champion = getChampionByKey({
                   key: String(b.championId),
                 })!;
                 const championEmote = championEmoji(champion.id);

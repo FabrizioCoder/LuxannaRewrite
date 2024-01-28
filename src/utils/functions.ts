@@ -4,6 +4,7 @@ import { URL } from 'url';
 import allemotes from '../../json/emojis.json';
 import queues from '../../json/queues.json';
 import champions from '../../json/champions.json';
+import items from '../../json/items.json';
 import { userModel } from '../app/models/user';
 import { Ratelimit } from './constants';
 
@@ -117,8 +118,19 @@ function getChampionByName({
 /**
  * key: 266
  */
-function getChampionById({ key }: { key: string }) {
+function getChampionByKey({ key }: { key: string }) {
   return Object.values(champions).find((x) => x.key === key);
+}
+
+/**
+ *
+ * @param id khazix
+ * @example getChampionById('Khazix')
+ */
+function getChampionById(
+  id: number | string
+): (typeof champions)[keyof typeof champions] | null {
+  return Object.values(champions).find((x) => x.id === id) ?? null;
 }
 
 function getQueueById(
@@ -131,6 +143,10 @@ function getSpellById(
   id: number
 ): (typeof spellIdToName)[keyof typeof spellIdToName] | null {
   return spellIdToName[id as keyof typeof spellIdToName] ?? null;
+}
+
+function getItemByName(name: string) {
+  return Object.entries(items).find(([_, item]) => item.name === name);
 }
 
 const getParamFromUrl = (rawUrl: string, param: string): string | null => {
@@ -302,6 +318,12 @@ function makeIconURL(
 ): `https://ddragon.leagueoflegends.com/cdn/${string}/img/profileicon/${string}.png` {
   return `https://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${icon}.png`;
 }
+function makeChampionIconURL(
+  version: string,
+  id: string | undefined
+): `https://ddragon.leagueoflegends.com/cdn/${string}/img/champion/${string}.png` {
+  return `https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${id}.png`;
+}
 
 export {
   ApplyCooldown,
@@ -313,7 +335,9 @@ export {
   capitalizeString,
   championEmoji,
   cleanHTML,
+  getItemByName,
   getChampionById,
+  getChampionByKey,
   getChampionByName,
   getEmojiData,
   getEmote,
@@ -321,6 +345,7 @@ export {
   getQueueById,
   getSpellById,
   makeIconURL,
+  makeChampionIconURL,
   parseSummonerOptions,
   rawEmote,
   selectRegion,

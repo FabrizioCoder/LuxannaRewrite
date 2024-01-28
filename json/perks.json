@@ -167,6 +167,10 @@
     "recommendationDescriptorAttributes": {}
   },
   {
+    "id": 8000,
+    "name": "Precision"
+  },
+  {
     "id": 8004,
     "name": "The Brazen Perfect",
     "majorChangePatchVersion": "",
@@ -325,6 +329,10 @@
     "iconPath": "https://raw.communitydragon.org/latest/game/assets/perks/styles/Precision/Conqueror/Conqueror.png",
     "endOfGameStatDescs": ["Total healing: @eogvar1@"],
     "recommendationDescriptorAttributes": {}
+  },
+  {
+    "id": 8100,
+    "name": "Domination"
   },
   {
     "id": 8106,
@@ -554,6 +562,10 @@
     }
   },
   {
+    "id": 8400,
+    "name": "Resolve"
+  },
+  {
     "id": 8401,
     "name": "Shield Bash",
     "majorChangePatchVersion": "8.23",
@@ -628,6 +640,10 @@
     "recommendationDescriptorAttributes": {
       "kMoveSpeed": 10
     }
+  },
+  {
+    "id": 8200,
+    "name": "Sorcery"
   },
   {
     "id": 8207,
@@ -926,6 +942,11 @@
     "iconPath": "https://raw.communitydragon.org/latest/game/assets/perks/Template/7000.png",
     "endOfGameStatDescs": [],
     "recommendationDescriptorAttributes": {}
+  },
+
+  {
+    "id": 8300,
+    "name": "Inspiration"
   },
   {
     "id": 8304,

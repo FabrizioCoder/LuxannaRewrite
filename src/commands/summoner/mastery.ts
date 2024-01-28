@@ -9,7 +9,7 @@ import { SummonersManager } from '../../app/managers/summonersManager';
 import { EmbedColors, searchOptions } from '../../utils/constants';
 import {
   championEmoji,
-  getChampionById,
+  getChampionByKey,
   getEmote,
   makeIconURL,
   parseSummonerOptions,
@@ -74,7 +74,7 @@ export default class MasteryCommand extends SubCommand {
           name: ctx.t.commands.mastery.embed.fields.championAndPoints.get(),
           value: championMastery
             .map((mastery) => {
-              const champion = getChampionById({
+              const champion = getChampionByKey({
                 key: String(mastery.championId),
               })!;
               const championEmote = championEmoji(champion.id);
