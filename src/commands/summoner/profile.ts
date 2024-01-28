@@ -84,8 +84,9 @@ export default class ProfileCommand extends SubCommand {
 
     const SummonerLeague = await summoner.getLeague();
 
-    const soloQ = await SummonerLeague.getSoloQueue();
-    const flex = await SummonerLeague.getFlexQueue();
+    const league = await SummonerLeague.fetchSummonerLeague();
+    const soloQ = league?.filter((l) => l.queueType === 'RANKED_SOLO_5x5')[0];
+    const flex = league?.filter((l) => l.queueType === 'RANKED_FLEX_SR')[0];
 
     if (soloQ) {
       const tier = capitalizeString(soloQ.tier!.toLowerCase());
@@ -252,9 +253,15 @@ export default class ProfileCommand extends SubCommand {
               summoner.region
             ))!;
 
-            const sumLeague = await sum.getLeague();
-            const soloQ = await sumLeague.getSoloQueue();
-            const flex = await sumLeague.getFlexQueue();
+            const sumLeague = await (
+              await sum.getLeague()
+            ).fetchSummonerLeague();
+            const soloQ = sumLeague?.filter(
+              (l) => l.queueType == 'RANKED_SOLO_5x5'
+            )[0]!;
+            const flex = sumLeague?.filter(
+              (l) => l.queueType == 'RANKED_FLEX_SR'
+            )[0]!;
 
             const selectedQueue = soloQ
               ? soloQ
@@ -336,10 +343,15 @@ export default class ProfileCommand extends SubCommand {
               participant.summonerId,
               summoner.region
             ))!;
-
-            const sumLeague = await sum.getLeague();
-            const soloQ = await sumLeague.getSoloQueue();
-            const flex = await sumLeague.getFlexQueue();
+            const sumLeague = await (
+              await sum.getLeague()
+            ).fetchSummonerLeague();
+            const soloQ = sumLeague?.filter(
+              (l) => l.queueType == 'RANKED_SOLO_5x5'
+            )[0]!;
+            const flex = sumLeague?.filter(
+              (l) => l.queueType == 'RANKED_FLEX_SR'
+            )[0]!;
 
             const selectedQueue = soloQ
               ? soloQ

@@ -1,19 +1,17 @@
-import { restClient } from "../../lib/rest";
-import { components } from "../../lib/schema";
-import { regionalURLs, selectRegion } from "../../utils/functions";
-import { LuxannaStore } from "../managers/cacheManager";
+import { restClient } from '../../lib/rest';
+import { components } from '../../lib/schema';
+import { regionalURLs, selectRegion } from '../../utils/functions';
+import { LuxannaStore } from '../managers/cacheManager';
 
 export class SummonerMatches {
-  private matches: string[] = [];
-
   constructor(
     readonly puuid: string,
     readonly summonerRegion: keyof typeof regionalURLs
   ) {}
 
   async fetchHistory(queue?: number) {
-    if (!this.matches.length) await this.fetchMatchesId(queue);
-    return this.matches;
+    const matches = await this.fetchMatchesId(queue);
+    return matches;
   }
 
   fetchById(matchId: string) {
@@ -21,8 +19,13 @@ export class SummonerMatches {
   }
 
   private async fetchMatchesId(queue?: number) {
+    const cached = (await LuxannaStore.getInstance().get(
+      `matches:${this.puuid}`
+    )) as string[] | null;
+    if (cached) return cached;
+
     const { data: matches } = await restClient.GET(
-      "/lol/match/v5/matches/by-puuid/{puuid}/ids",
+      '/lol/match/v5/matches/by-puuid/{puuid}/ids',
 
       {
         params: {
@@ -39,22 +42,25 @@ export class SummonerMatches {
       }
     );
 
-    // console.log(matches)
-
     if (matches) {
-      this.matches = matches;
+      await LuxannaStore.getInstance().set(`matches:${this.puuid}`, matches, {
+        ex: 86,
+      });
+      return matches;
     }
+
+    return [];
   }
 
   private async fetchMatch(matchId: string) {
     const cached = (await LuxannaStore.getInstance().get(
       `match:${matchId}`
-    )) as components["schemas"]["match-v5.MatchDto"] | null;
+    )) as components['schemas']['match-v5.MatchDto'] | null;
 
     if (cached) return cached;
 
     const { data: match } = await restClient.GET(
-      "/lol/match/v5/matches/{matchId}",
+      '/lol/match/v5/matches/{matchId}',
       {
         params: {
           path: {

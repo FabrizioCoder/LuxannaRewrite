@@ -4,6 +4,7 @@ import { join } from 'path';
 import { SummonerLeague } from '../../app/structures/league';
 import { Summoner } from '../../app/structures/summoner';
 import { HextechColors, TierLevel, TierOrder } from '../constants';
+import { components } from '../../lib/schema';
 
 const rankedFile = {
   UNRANKED: join(process.cwd(), 'assets', 'ranked', 'unranked.png'),
@@ -21,17 +22,9 @@ const rankedFile = {
 
 const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER'];
 
-async function createRank(
-  name: string,
-  data: Awaited<
-    ReturnType<
-      | SummonerLeague['getSoloQueue']
-      | SummonerLeague['getFlexQueue']
-      | SummonerLeague['getTFTQueue']
-    >
-  >,
-  font: Buffer
-) {
+type League = components['schemas']['league-v4.LeagueEntryDTO'];
+
+async function createRank(name: string, data: League, font: Buffer) {
   const canvas = new Image(200, 256);
 
   const icon = data
@@ -96,9 +89,11 @@ export async function makeRankedProfile(
     );
   }
 
-  const flex = await data.getFlexQueue();
-  const soloQ = await data.getSoloQueue();
-  const tft = await data.getTFTQueue();
+  const league = await data.fetchSummonerLeague()!;
+
+  const flex = league?.filter((i) => i.queueType === 'RANKED_FLEX_SR')[0]!;
+  const soloQ = league?.filter((i) => i.queueType === 'RANKED_SOLO_5x5')[0]!;
+  const tft = league?.filter((i) => i.queueType === 'RANKED_TFT')[0]!;
 
   const highest = [soloQ, flex, tft].sort((a, b) => {
     const tier =
