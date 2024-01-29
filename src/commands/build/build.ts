@@ -84,7 +84,6 @@ export default class BuildCommand extends SubCommand {
         Object.values(runesJSON)
           .filter((perk) => perk.name === rune)
           .map((perk) => {
-            
             const firstRuneEmoji = getEmote(String(perk!.id))!;
             runesValue!.first.push(`${firstRuneEmoji} ${perk.name}`);
           });
