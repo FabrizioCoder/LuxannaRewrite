@@ -274,12 +274,13 @@ async function makeLabel(
 		0xaab7d1ff,
 	);
 	canvas.composite(time, 122 - time.width / 2, 26);
+	const totalCS = participant.totalMinionsKilled + participant.neutralMinionsKilled;
 
 	const csScore = await Image.renderText(
 		boldFont,
 		18,
-		`${participant.totalMinionsKilled} CS (${(
-			participant.totalMinionsKilled /
+		`${totalCS} CS (${(
+			totalCS /
 			(match.info.gameDuration / 60)
 		).toFixed(1)})`,
 		0xacbee0ff,

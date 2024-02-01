@@ -14,7 +14,7 @@ import {
   getEmote,
   getItemByName,
 } from '../../utils/functions';
-import runesJSON from '../../../json/perks.json';
+import runesJSON from '../../../json/new_perks.json';
 
 const roles = ['top', 'jungle', 'mid', 'adc', 'support'];
 
