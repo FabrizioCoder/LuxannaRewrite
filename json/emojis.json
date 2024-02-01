@@ -7089,5 +7089,14 @@
     "managed": false,
     "animated": false,
     "available": true
+  },
+  {
+    "id": "1202425758237331496",
+    "name": "Smolder",
+    "roles": [],
+    "require_colons": true,
+    "managed": false,
+    "animated": false,
+    "available": true
   }
 ]

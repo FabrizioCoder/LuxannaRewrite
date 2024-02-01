@@ -57,8 +57,8 @@ export default class BuildCommand extends SubCommand {
       });
     }
 
-    const { runes, items, skillOrder, baseUrl } = await getBuild(name, role);
-    if (!runes && !items && !skillOrder) {
+    const build = await getBuild(name, role).catch(() => null);
+    if (!build) {
       return await ctx.editOrReply({
         content: `⚠️ No build found for **${champion.name}** in **${role}**`,
       });
@@ -66,7 +66,7 @@ export default class BuildCommand extends SubCommand {
 
     const embedBuild = new MessageEmbed()
       .setTitle(`Build for **${champion.name}** in **${role}**`)
-      .setURL(baseUrl)
+      .setURL(build.baseUrl)
       .setColor(EmbedColors.BLUE)
       .setThumbnail(champion.image.full);
 
@@ -77,8 +77,8 @@ export default class BuildCommand extends SubCommand {
       wr: '0%',
     };
 
-    if (runes) {
-      const { first, second, perks, wr } = runes;
+    if (build.runes) {
+      const { first, second, perks, wr } = build.runes;
 
       first.map((rune) => {
         Object.values(runesJSON)
@@ -126,8 +126,8 @@ export default class BuildCommand extends SubCommand {
       },
     };
 
-    if (items) {
-      const { starterBuild, coreBuild, boots } = items;
+    if (build.items) {
+      const { starterBuild, coreBuild, boots } = build.items;
 
       starterBuild.items.map((item) => {
         const { '0': id, '1': itemData } = getItemByName(item)!;
@@ -186,9 +186,11 @@ export default class BuildCommand extends SubCommand {
         inline: true,
       },
       {
-        name: skillOrder ? `Skill Order (${skillOrder.wr})` : 'Skill Order',
-        value: skillOrder
-          ? `${skillOrder.keys.join(' > ')}`
+        name: build.skillOrder
+          ? `Skill Order (${build.skillOrder.wr})`
+          : 'Skill Order',
+        value: build.skillOrder
+          ? `${build.skillOrder.keys.join(' > ')}`
           : 'No skill order found',
       },
     ]);

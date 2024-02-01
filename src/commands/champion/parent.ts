@@ -28,4 +28,10 @@ export default class ChampionCommand extends Command {
       content: `⚠️ There was an error with the options:\n\`\`\`\n${errors}\n\`\`\``,
     });
   }
+
+  onRunError(ctx: CommandContext<'client'>, error: Error) {
+    return ctx.editOrReply({
+      content: `⚠️ An error occurred while trying to get the build. Please try again later.`,
+    });
+  }
 }
