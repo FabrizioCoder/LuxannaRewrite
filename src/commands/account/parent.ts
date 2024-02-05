@@ -6,14 +6,13 @@ import {
   Middlewares,
   OnOptionsReturnObject,
 } from 'biscuitjs';
-import DeferEphemeral from '../../middlewares/deferEphemeral';
 
 @Declare({
   name: 'account',
   description: 'Account management commands',
 })
 @AutoLoad()
-@Middlewares([DeferEphemeral])
+@Middlewares(['DeferEphemeral'])
 export default class AccountCommand extends Command {
   async onOptionsError(
     ctx: CommandContext<'client'>,

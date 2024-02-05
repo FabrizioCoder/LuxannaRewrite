@@ -5,7 +5,6 @@ import {
   Options,
   SubCommand,
   createStringOption,
-  MessageEmbed,
 } from 'biscuitjs';
 import { ResultItems, ResultRunes, getBuild } from '../../utils/scraper';
 import { EmbedColors, autoCompleteChampionValues } from '../../utils/constants';
@@ -15,6 +14,7 @@ import {
   getItemByName,
 } from '../../utils/functions';
 import runesJSON from '../../../json/new_perks.json';
+import { Embed } from 'biscuitjs/lib/builders';
 
 const roles = ['top', 'jungle', 'mid', 'adc', 'support'];
 
@@ -64,7 +64,7 @@ export default class BuildCommand extends SubCommand {
       });
     }
 
-    const embedBuild = new MessageEmbed()
+    const embedBuild = new Embed()
       .setTitle(`Build for **${champion.name}** in **${role}**`)
       .setURL(build.baseUrl)
       .setColor(EmbedColors.BLUE)

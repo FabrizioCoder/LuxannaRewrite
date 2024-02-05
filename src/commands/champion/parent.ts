@@ -6,13 +6,12 @@ import {
   Middlewares,
   OnOptionsReturnObject,
 } from 'biscuitjs';
-import DeferReply from '../../middlewares/deferReply';
 
 @Declare({
   name: 'champion',
   description: 'Champion things',
 })
-@Middlewares([DeferReply])
+@Middlewares(['DeferReply'])
 @AutoLoad()
 export default class ChampionCommand extends Command {
   async onOptionsError(
@@ -29,7 +28,7 @@ export default class ChampionCommand extends Command {
     });
   }
 
-  onRunError(ctx: CommandContext<'client'>, error: Error) {
+  onRunError(ctx: CommandContext<'client'>, _: Error) {
     return ctx.editOrReply({
       content: `⚠️ An error occurred while trying to get the build. Please try again later.`,
     });

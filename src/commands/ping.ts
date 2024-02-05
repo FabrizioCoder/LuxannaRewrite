@@ -1,13 +1,11 @@
 import { Command, CommandContext, Declare, Middlewares } from 'biscuitjs';
-import Cooldown from '../middlewares/cooldown';
-import DeferReply from '../middlewares/deferReply';
 import { ApplyCooldown } from '../utils/functions';
 
 @Declare({
   name: 'ping',
   description: 'Show the ping with discord',
 })
-@Middlewares([DeferReply, Cooldown])
+@Middlewares(['DeferReply', 'Cooldown'])
 @ApplyCooldown({
   time: 5000,
   type: 'user',

@@ -1,16 +1,15 @@
-import {
-  Client,
-  IClients,
-  OptionsRecord,
-  MiddlewareContext,
-  ParseLocales,
-  UserCommandInteraction,
-  MessageCommandInteraction,
-} from 'biscuitjs';
+import { Client, IClients, OptionsRecord, ParseLocales } from 'biscuitjs';
 import { Ratelimit } from '../utils/constants';
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import type defaultLang from '../locales/en-US.ts';
+import { AllMiddlewares } from '../middlewares/index';
+
+import {
+  MessageCommandInteraction,
+  UserCommandInteraction,
+} from 'biscuitjs/lib/structures/Interaction';
+import { ParseMiddlewares } from 'biscuitjs';
 
 export async function main() {
   const client = new Client();
@@ -20,6 +19,7 @@ export async function main() {
   await client.start();
   client.setServices({
     defaultLang: 'en-US',
+    middlewares: AllMiddlewares,
   });
 
   await mongoose.connect(process.env.MONGO_URI!, {
@@ -38,7 +38,7 @@ declare module 'biscuitjs' {
   interface CommandContext<
     C extends keyof IClients,
     T extends OptionsRecord = {},
-    M extends readonly MiddlewareContext[] = []
+    M extends readonly (keyof RegisteredMiddlewares)[] = []
   > {
     t: ParseLocales<typeof defaultLang>;
   }
@@ -48,7 +48,7 @@ declare module 'biscuitjs' {
     T extends
       | UserCommandInteraction<boolean>
       | MessageCommandInteraction<boolean>,
-    M extends readonly MiddlewareContext[] = []
+    M extends readonly (keyof RegisteredMiddlewares)[] = []
   > {
     t: ParseLocales<typeof defaultLang>;
   }
@@ -56,4 +56,7 @@ declare module 'biscuitjs' {
   interface Client {
     t(locale: string): ParseLocales<typeof defaultLang>;
   }
+
+  interface RegisteredMiddlewares
+    extends ParseMiddlewares<typeof AllMiddlewares> {}
 }

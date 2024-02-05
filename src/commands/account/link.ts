@@ -7,7 +7,6 @@ import {
 	StopFunction,
 	SubCommand,
 	createStringOption,
-	Attachment,
 } from "biscuitjs";
 import { SummonersManager } from "../../app/managers/summonersManager";
 import { userModel } from "../../app/models/user";
@@ -18,6 +17,7 @@ import {
 	regionalURLs,
 } from "../../utils/functions";
 import { makeLinkedProfile } from "../../utils/images/satori/link";
+import { Attachment } from 'biscuitjs/lib/builders';
 
 const options = {
 	"riot-id": createStringOption({

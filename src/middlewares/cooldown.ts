@@ -1,6 +1,7 @@
 import { Snowflake } from "@biscuitland/common";
-import { LimitedCollection, createMiddleware } from "biscuitjs";
+import { createMiddleware } from "biscuitjs";
 import { Ratelimit } from "../utils/constants";
+import { LimitedCollection } from 'biscuitjs/lib/collection';
 
 const cooldowns = new LimitedCollection<Snowflake, Ratelimit>({});
 

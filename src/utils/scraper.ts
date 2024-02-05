@@ -57,7 +57,7 @@ async function getRunes(url: string): Promise<ResultRunes | null> {
       }
     }
 
-    const runesWRElement = load(text)('td.css-1amolq6.edsne5b1').first();
+    const runesWRElement = load(text)('td.css-1amolq6.eyczova1').first();
     const runesWR = runesWRElement.text();
     result.wr = runesWR;
 
@@ -104,7 +104,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
         }
       });
 
-      const buildWRElement = load(text)('td.css-1amolq6.edsne5b1').first();
+      const buildWRElement = load(text)('td.css-1amolq6.eyczova1').first();
       const buildWR = buildWRElement.text();
       result.coreBuild.wr = buildWR;
     }
@@ -112,7 +112,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
     // Scrape Boots
     {
       const rawBootsText = text
-        .split('class="css-1kswqo e12mb7fa0"')[2]!
+        .split('class="css-1q0r7l3 e12mb7fa0"')[2]!
         .split('<tbody>')[1]!
         .split('<tr>')[1]!;
       const $ = load(rawBootsText!);
@@ -123,7 +123,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
         }
       });
 
-      const bootsWRElement = load(text)('td.css-1amolq6.edsne5b1')
+      const bootsWRElement = load(text)('td.css-1amolq6.eyczova1')
         .slice(15)
         .first();
       const bootsWR = bootsWRElement.text();
@@ -133,7 +133,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
     // Scrape Starter Items
     {
       const rawStarterItemsText = text
-        .split('class="css-1kswqo e12mb7fa0"')[3]!
+        .split('class="css-4twzwo e8p0atj0"')[3]!
         .split('<tbody>')[1]!
         .split('<tr>')[1]!;
 
@@ -145,7 +145,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
         }
       });
 
-      const starterBuildWRElement = load(text)('td.css-1amolq6.edsne5b1')
+      const starterBuildWRElement = load(text)('td.css-1amolq6.eyczova1')
         .slice(20)
         .first();
       const starterBuildWR = starterBuildWRElement.text();
@@ -154,6 +154,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
 
     return result;
   } catch (error) {
+    console.error(error);
     return null;
   }
 }
@@ -189,7 +190,7 @@ async function getSkillOrder(url: string): Promise<{
       result.keys.push(skill);
     });
 
-    const skillOrderWRElement = load(text)('td.css-1amolq6.edsne5b1').first();
+    const skillOrderWRElement = load(text)('td.css-1amolq6.eyczova1').first();
     const skillOrderWR = skillOrderWRElement.text();
     result.wr = skillOrderWR;
 

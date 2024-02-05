@@ -1,14 +1,9 @@
-import {
-  Attachment,
-  CommandContext,
-  Declare,
-  Options,
-  SubCommand,
-} from 'biscuitjs';
+import { CommandContext, Declare, Options, SubCommand } from 'biscuitjs';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { searchOptions } from '../../utils/constants';
 import { parseSummonerOptions } from '../../utils/functions';
 import { makeRankedProfile } from '../../utils/images/ranked';
+import { Attachment } from 'biscuitjs/lib/builders';
 
 @Declare({
   name: 'ranked',

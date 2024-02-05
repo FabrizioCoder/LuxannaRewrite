@@ -1,5 +1,5 @@
 import { DiscordEmoji } from '@biscuitland/api-types';
-import { InteractionGuildMember, Client, User } from 'biscuitjs';
+import { Client } from 'biscuitjs';
 import { URL } from 'url';
 import allemotes from '../../json/emojis.json';
 import queues from '../../json/queues.json';
@@ -7,6 +7,7 @@ import champions from '../../json/champions.json';
 import items from '../../json/items.json';
 import { userModel } from '../app/models/user';
 import { Ratelimit } from './constants';
+import { InteractionGuildMember, User } from 'biscuitjs/lib/structures';
 
 const spellIdToName = {
   21: 'Barrier',

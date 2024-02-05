@@ -1,7 +1,6 @@
 import {
   CommandContext,
   Declare,
-  MessageEmbed,
   Options,
   SubCommand,
 } from 'biscuitjs';
@@ -15,6 +14,7 @@ import {
   parseSummonerOptions,
 } from '../../utils/functions';
 import { EmbedPaginator } from '../../utils/paginator';
+import { Embed } from 'biscuitjs/lib/builders';
 
 @Declare({
   name: 'mastery',
@@ -63,11 +63,11 @@ export default class MasteryCommand extends SubCommand {
       0
     );
 
-    const embeds: MessageEmbed[] = [];
+    const embeds: Embed[] = [];
     const championMasteries = chunk(championMasteryData, 10);
 
     for (const championMastery of championMasteries) {
-      const embed = new MessageEmbed();
+      const embed = new Embed();
 
       embed.addFields([
         {
@@ -121,7 +121,7 @@ export default class MasteryCommand extends SubCommand {
       embeds.push(embed);
     }
 
-    const baseEmbed = new MessageEmbed({
+    const baseEmbed = new Embed({
       color: EmbedColors.BLUE,
       author: {
         name: `${args.riotId} (${args.region.toUpperCase()})`,

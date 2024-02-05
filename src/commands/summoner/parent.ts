@@ -7,7 +7,6 @@ import {
   Middlewares,
   OnOptionsReturnObject,
 } from 'biscuitjs';
-import DeferReply from '../../middlewares/deferReply';
 
 @Declare({
   name: 'summoner',
@@ -18,7 +17,7 @@ import DeferReply from '../../middlewares/deferReply';
     defaultDescription: 'Summoner matches',
   },
 })
-@Middlewares([DeferReply])
+@Middlewares(['DeferReply'])
 @AutoLoad()
 export default class SummonerCommand extends Command {
   async onOptionsError(

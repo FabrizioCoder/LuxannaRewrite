@@ -1,5 +1,4 @@
 import {
-  ApplicationCommandOptionType,
   CommandContext,
   Declare,
   Group,
@@ -8,13 +7,13 @@ import {
   Options,
   SubCommand,
   createStringOption,
-  Attachment,
 } from 'biscuitjs';
 import { ApplyCooldown, parseSummonerOptions } from '../../../utils/functions';
 import { makeMatchHistory } from '../../../utils/images/history';
 import { QueueChoices, searchOptions } from '../../../utils/constants';
 import { SummonersManager } from '../../../app/managers/summonersManager';
-import Cooldown from '../../../middlewares/cooldown';
+import { ApplicationCommandOptionType } from '@biscuitland/common';
+import { Attachment } from 'biscuitjs/lib/builders';
 
 const opt = {
   queue: createStringOption({
@@ -34,7 +33,7 @@ const opt = {
   name: 'history',
   description: 'Show summoner match history',
 })
-@Middlewares([Cooldown])
+@Middlewares(['Cooldown'])
 @ApplyCooldown({
   time: 5000,
   type: 'user',

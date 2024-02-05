@@ -1,13 +1,7 @@
 import {
-  ActionRow,
-  Attachment,
-  Button,
-  ButtonStyle,
   CommandContext,
   ComponentsListener,
   Declare,
-  MessageEmbed,
-  MessageFlags,
   Options,
   SubCommand,
 } from 'biscuitjs';
@@ -29,6 +23,8 @@ import { components } from '../../lib/schema';
 import { makeMasteryGraphic } from '../../utils/images/satori/mastery';
 import { Summoner } from '../../app/structures/summoner';
 import { default as Maps } from '../../../json/maps.json';
+import { ActionRow, Attachment, Button, Embed } from 'biscuitjs/lib/builders';
+import { ButtonStyle, MessageFlags } from '@biscuitland/common';
 
 const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER', 'UNRANKED'];
 
@@ -39,7 +35,7 @@ const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER', 'UNRANKED'];
 @Options(searchOptions)
 export default class ProfileCommand extends SubCommand {
   async run(ctx: CommandContext<'client', typeof searchOptions>) {
-    const embed = new MessageEmbed();
+    const embed = new Embed();
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,
@@ -399,7 +395,7 @@ export default class ProfileCommand extends SubCommand {
                 return championEmote;
               });
 
-      const embedCurrentGame = new MessageEmbed()
+      const embedCurrentGame = new Embed()
         .setAuthor({
           name: `${summoner.gameName}#${summoner.tagLine}`,
           iconUrl: profileIconURL,
