@@ -33,7 +33,7 @@ export class SummonerSpectator {
       await LuxannaStore.getInstance().set(
         `spectator:${this.summonerId}`,
         currentGameInfo,
-        { ex: 86 }
+        { ex: 90 }
       );
     }
 

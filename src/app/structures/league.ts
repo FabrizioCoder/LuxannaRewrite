@@ -72,7 +72,7 @@ export class SummonerLeague {
         `league:${this.summonerId}`,
         leagues,
         {
-          ex: 86,
+          ex: 300,
         }
       );
 

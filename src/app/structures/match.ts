@@ -44,7 +44,7 @@ export class SummonerMatches {
 
     if (matches) {
       await LuxannaStore.getInstance().set(`matches:${this.puuid}`, matches, {
-        ex: 86,
+        ex: 300,
       });
       return matches;
     }
@@ -74,7 +74,7 @@ export class SummonerMatches {
 
     if (match) {
       await LuxannaStore.getInstance().set(`match:${matchId}`, match, {
-        ex: 86,
+        ex: 300,
       });
     }
 

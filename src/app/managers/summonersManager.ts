@@ -1,5 +1,6 @@
-import { regionalURLs } from "../../utils/functions";
-import { Summoner } from "../structures/summoner";
+import { regionalURLs } from '../../utils/functions';
+import { Summoner } from '../structures/summoner';
+import { LuxannaStore } from './cacheManager';
 
 export class SummonersManager {
   summoners: Map<string, Summoner> = new Map();
@@ -13,19 +14,29 @@ export class SummonersManager {
     return SummonersManager.instance;
   }
 
-  public add(summoner: Summoner) {
-    this.summoners.set(
+  public async add(summoner: Summoner) {
+    await LuxannaStore.getInstance().set(
       `${summoner.region}:${summoner.gameName}:${summoner.tagLine}`,
-      summoner
+      summoner,
+      { ex: 300 }
     );
   }
 
   async get(identifier: string) {
-    let summoner = this.summoners.get(identifier);
+    let summoner = (await LuxannaStore.getInstance().get(
+      identifier
+    )) as Summoner;
 
-    if (summoner) return summoner;
+    if (summoner)
+      return new Summoner(
+        summoner.gameName,
+        summoner.tagLine,
+        summoner.puuid,
+        summoner.region,
+        summoner
+      );
 
-    const [region, gameName, tagLine] = identifier.split(":") as [
+    const [region, gameName, tagLine] = identifier.split(':') as [
       keyof typeof regionalURLs,
       string,
       string

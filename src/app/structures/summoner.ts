@@ -21,6 +21,7 @@ export class Summoner {
   public profileIconId: number;
   public name: string;
   public accountId: string;
+  public revisionDate: number;
 
   constructor(
     public readonly gameName: string,
@@ -34,6 +35,7 @@ export class Summoner {
     this.profileIconId = summonerData.profileIconId;
     this.name = summonerData.name;
     this.accountId = summonerData.accountId;
+    this.revisionDate = summonerData.revisionDate;
   }
 
   // Util Methods
@@ -123,7 +125,7 @@ export class Summoner {
 
     await Promise.all([
       LuxannaStore.getInstance().set(`summoner:${puuid}`, summoner, {
-        ex: 86,
+        ex: 300,
       }),
       LuxannaStore.getInstance().link(
         `summoner:${summoner.id}`,
@@ -157,7 +159,7 @@ export class Summoner {
 
     await Promise.all([
       LuxannaStore.getInstance().set(`account:${puuid}`, account, {
-        ex: 86,
+        ex: 300,
       }),
       // LuxannaStore.getInstance().link(
       //   `account:${summoner.id}`,
