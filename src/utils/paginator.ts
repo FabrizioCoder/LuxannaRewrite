@@ -1,14 +1,10 @@
+import { ButtonStyle, MessageFlags } from '@biscuitland/common';
+import { CommandContext, ComponentsListener } from 'biscuitjs';
+import { ActionRow, Button, Embed } from 'biscuitjs/lib/builders';
 import {
-  ActionRow,
-  Button,
   ButtonInteraction,
-  ButtonStyle,
   ChatInputCommandInteraction,
-  CommandContext,
-  ComponentsListener,
-  MessageEmbed,
-  MessageFlags,
-} from 'biscuitjs';
+} from 'biscuitjs/lib/structures';
 
 export class EmbedPaginator {
   currentPage = 0;
@@ -16,8 +12,8 @@ export class EmbedPaginator {
   interaction?: ChatInputCommandInteraction;
   constructor(
     public context: CommandContext<'client'>,
-    public pages: MessageEmbed[],
-    public baseEmbed: MessageEmbed
+    public pages: Embed[],
+    public baseEmbed: Embed
   ) {
     this.emojis = {
       first: '⏮️',
@@ -103,15 +99,15 @@ export class EmbedPaginator {
     return componentsListener;
   }
 
-  changePage(page: MessageEmbed, interaction: ButtonInteraction) {
+  changePage(page: Embed, interaction: ButtonInteraction) {
     return interaction.update({
       embeds: [this.getEmbed(page)],
       components: this.getListener().addRows(this.getComponets()),
     });
   }
 
-  getEmbed(embed: MessageEmbed) {
-    const result = new MessageEmbed({
+  getEmbed(embed: Embed) {
+    const result = new Embed({
       ...this.baseEmbed.data,
       ...embed.data,
     }).setFooter({
