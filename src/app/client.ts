@@ -10,9 +10,25 @@ import {
   UserCommandInteraction,
 } from 'biscuitjs/lib/structures/Interaction';
 import { ParseMiddlewares } from 'biscuitjs';
+import { ActivityType, PresenceUpdateStatus } from '@biscuitland/common';
 
 export async function main() {
-  const client = new Client();
+  const client = new Client({
+    presence(shardId) {
+      return {
+        activities: [
+          {
+            name: "the summoner's rift",
+            type: ActivityType.Watching,
+          },
+        ],
+        status: PresenceUpdateStatus.DoNotDisturb,
+        shardId,
+        afk: false,
+        since: Date.now(),
+      };
+    },
+  });
 
   client.events.OnFail = async (...err) => console.error('error', ...err);
 
