@@ -9,6 +9,7 @@ import {
 import { ResultItems, ResultRunes, getBuild } from '../../utils/scraper';
 import { EmbedColors, autoCompleteChampionValues } from '../../utils/constants';
 import {
+  capitalizeString,
   getChampionById,
   getEmote,
   getItemByName,
@@ -60,12 +61,14 @@ export default class BuildCommand extends SubCommand {
     const build = await getBuild(name, role).catch(() => null);
     if (!build) {
       return await ctx.editOrReply({
-        content: `⚠️ No build found for **${champion.name}** in **${role}**`,
+        content: `⚠️ No build found for **${
+          champion.name
+        }** **${capitalizeString(role)}**`,
       });
     }
 
     const embedBuild = new Embed()
-      .setTitle(`Build for **${champion.name}** in **${role}**`)
+      .setTitle(`Build for **${champion.name}** **${capitalizeString(role)}**`)
       .setURL(build.baseUrl)
       .setColor(EmbedColors.BLUE)
       .setThumbnail(champion.image.full);
@@ -190,7 +193,7 @@ export default class BuildCommand extends SubCommand {
           ? `Skill Order (${build.skillOrder.wr})`
           : 'Skill Order',
         value: build.skillOrder
-          ? `${build.skillOrder.keys.join(' > ')}`
+          ? `\`\`\`r\n${build.skillOrder.keys.join(' > ')}\n\`\`\``
           : 'No skill order found',
       },
     ]);
