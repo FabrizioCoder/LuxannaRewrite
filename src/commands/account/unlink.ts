@@ -4,7 +4,7 @@ import { ApplyCooldown } from "../../utils/functions";
 
 @Declare({
   name: "unlink",
-  description: "Unlink your account from your discord account.",
+  description: "Unlink your account from your Discord account",
 })
 @ApplyCooldown({
   time: 10000,

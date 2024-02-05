@@ -51,7 +51,7 @@ const options = {
 
 @Declare({
 	name: "link",
-	description: "Link your League of Legends account to your Discord account.",
+	description: "Link your League of Legends account to your Discord account",
 })
 @ApplyCooldown({
 	time: 10000,

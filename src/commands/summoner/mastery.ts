@@ -18,7 +18,7 @@ import { Embed } from 'biscuitjs/lib/builders';
 
 @Declare({
   name: 'mastery',
-  description: 'Get summoner mastery.',
+  description: 'Get summoner mastery stats',
 })
 @Options(searchOptions)
 export default class MasteryCommand extends SubCommand {
