@@ -5,7 +5,7 @@ require('dotenv/config');
 
 module.exports = config.bot({
   token: process.env.BT ?? '',
-  intents: 512,
+  intents: 513,
   locations: {
     base: 'src',
     output: 'dist',
