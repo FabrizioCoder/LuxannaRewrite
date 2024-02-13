@@ -8,15 +8,6 @@ dependencies:
   '@biomejs/biome':
     specifier: ^1.5.3
     version: 1.5.3
-  '@biscuitland/api-types':
-    specifier: ^2.3.0
-    version: 2.3.0
-  '@biscuitland/common':
-    specifier: ^0.0.10
-    version: 0.0.10
-  '@potoland/core':
-    specifier: github:potoland/potocuit#master
-    version: github.com/potoland/potocuit/797b00bd727a03ac007ca0c4439b7b075a90c02f
   '@swc/cli':
     specifier: ^0.1.65
     version: 0.1.65(@swc/core@1.4.0)
@@ -178,16 +169,6 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
-
-  /@biscuitland/api-types@2.3.0:
-    resolution: {integrity: sha512-+hW7V8JhYrjamyTzoVsDBWicfcsNX2coUHxS6Z9XE1cxjYVZpyExa07r4J54zq0e+s7bk8yIeFc3dHdywkfZlQ==}
-    dev: false
-
-  /@biscuitland/common@0.0.10:
-    resolution: {integrity: sha512-HQCtZjEgL11EN8DEXu6plzLU0Q+ZUIBwQc223KXQkYU70eHMyKf/mAGdDrbwkn7HE8Rw57gkr5Ks40h8BgixGw==}
-    dependencies:
-      discord-api-types: 0.37.69
-    dev: false
 
   /@cspotcode/source-map-support@0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}

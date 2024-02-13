@@ -1,4 +1,4 @@
-import { MessageFlags } from '@biscuitland/common';
+import { MessageFlags } from 'biscuitjs/lib/common';
 import { createMiddleware } from 'biscuitjs';
 
 export default createMiddleware<void>(async (middle) => {

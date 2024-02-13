@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionType } from '@biscuitland/common';
+import { ApplicationCommandOptionType } from 'biscuitjs/lib/common';
 import {
   CommandContext,
   Declare,

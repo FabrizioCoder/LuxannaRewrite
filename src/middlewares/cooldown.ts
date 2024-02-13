@@ -1,4 +1,4 @@
-import { Snowflake } from "@biscuitland/common";
+import { Snowflake } from "biscuitjs/lib/common";
 import { createMiddleware } from "biscuitjs";
 import { Ratelimit } from "../utils/constants";
 import { LimitedCollection } from 'biscuitjs/lib/collection';

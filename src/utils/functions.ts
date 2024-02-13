@@ -1,9 +1,8 @@
-import { DiscordEmoji } from '@biscuitland/api-types';
 import { Client } from 'biscuitjs';
 import { URL } from 'url';
 import { userModel } from '../app/models/user';
 import { Ratelimit } from './constants';
-import { InteractionGuildMember, User } from 'biscuitjs/lib/structures';
+import { GuildEmoji, InteractionGuildMember, User } from 'biscuitjs/lib/structures';
 import allemotes from '../../json/emojis.json';
 import queues from '../../json/queues.json';
 import champions from '../../json/champions.json';
@@ -88,7 +87,7 @@ function getEmojiData(_client: Client, name: string) {
       (match) => normalizedNames[match as keyof typeof normalizedNames] ?? match
     );
 
-  const allEmojis = <(DiscordEmoji & { guild_id: string })[]>allemotes.flat();
+  const allEmojis = <(GuildEmoji & { guild_id: string })[]><unknown>allemotes.flat();
 
   const emote = allEmojis.find((x) => x && x.name === normalized);
 

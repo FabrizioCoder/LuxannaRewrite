@@ -24,7 +24,7 @@ import { makeMasteryGraphic } from '../../utils/images/satori/mastery';
 import { Summoner } from '../../app/structures/summoner';
 import { default as Maps } from '../../../json/maps.json';
 import { ActionRow, Attachment, Button, Embed } from 'biscuitjs/lib/builders';
-import { ButtonStyle, MessageFlags } from '@biscuitland/common';
+import { ButtonStyle, MessageFlags } from 'biscuitjs/lib/common';
 
 const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER', 'UNRANKED'];
 

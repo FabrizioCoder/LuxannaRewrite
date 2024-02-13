@@ -25,9 +25,6 @@
   "license": "ISC",
   "dependencies": {
     "@biomejs/biome": "^1.5.3",
-    "@biscuitland/api-types": "^2.3.0",
-    "@biscuitland/common": "^0.0.10",
-    "@potoland/core": "github:potoland/potocuit#master",
     "@swc/cli": "^0.1.65",
     "@swc/core": "^1.4.0",
     "@upstash/redis": "^1.28.3",

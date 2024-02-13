@@ -2,7 +2,7 @@ import { Client, ParseClient, ParseLocales } from 'biscuitjs';
 import { Ratelimit } from '../utils/constants';
 import { AllMiddlewares } from '../middlewares/index';
 import { ParseMiddlewares } from 'biscuitjs';
-import { ActivityType, PresenceUpdateStatus } from '@biscuitland/common';
+import { ActivityType, PresenceUpdateStatus } from 'biscuitjs/lib/common';
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import type defaultLang from '../locales/en-US.ts';

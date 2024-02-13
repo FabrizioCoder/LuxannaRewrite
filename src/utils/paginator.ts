@@ -1,4 +1,4 @@
-import { ButtonStyle, MessageFlags } from '@biscuitland/common';
+import { ButtonStyle, MessageFlags } from 'biscuitjs/lib/common';
 import { CommandContext, ComponentsListener } from 'biscuitjs';
 import { ActionRow, Button, Embed } from 'biscuitjs/lib/builders';
 import {
