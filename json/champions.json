@@ -1,6 +1,6 @@
 {
   "Aatrox": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Aatrox",
     "key": "266",
     "name": "Aatrox",
@@ -13,7 +13,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Aatrox.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 0,
@@ -47,7 +47,7 @@
     }
   },
   "Ahri": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Ahri",
     "key": "103",
     "name": "Ahri",
@@ -60,7 +60,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ahri.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 48,
@@ -94,7 +94,7 @@
     }
   },
   "Akali": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Akali",
     "key": "84",
     "name": "Akali",
@@ -107,7 +107,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Akali.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akali.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 96,
@@ -141,7 +141,7 @@
     }
   },
   "Akshan": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Akshan",
     "key": "166",
     "name": "Akshan",
@@ -154,7 +154,7 @@
       "difficulty": 0
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Akshan.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 144,
@@ -188,7 +188,7 @@
     }
   },
   "Alistar": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Alistar",
     "key": "12",
     "name": "Alistar",
@@ -201,7 +201,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Alistar.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Alistar.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 192,
@@ -235,7 +235,7 @@
     }
   },
   "Amumu": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Amumu",
     "key": "32",
     "name": "Amumu",
@@ -248,7 +248,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Amumu.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 240,
@@ -282,7 +282,7 @@
     }
   },
   "Anivia": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Anivia",
     "key": "34",
     "name": "Anivia",
@@ -295,7 +295,7 @@
       "difficulty": 10
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Anivia.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Anivia.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 288,
@@ -329,7 +329,7 @@
     }
   },
   "Annie": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Annie",
     "key": "1",
     "name": "Annie",
@@ -342,7 +342,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Annie.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Annie.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 336,
@@ -376,7 +376,7 @@
     }
   },
   "Aphelios": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Aphelios",
     "key": "523",
     "name": "Aphelios",
@@ -389,7 +389,7 @@
       "difficulty": 10
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Aphelios.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 384,
@@ -423,7 +423,7 @@
     }
   },
   "Ashe": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Ashe",
     "key": "22",
     "name": "Ashe",
@@ -436,7 +436,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ashe.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ashe.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 432,
@@ -470,7 +470,7 @@
     }
   },
   "AurelionSol": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "AurelionSol",
     "key": "136",
     "name": "Aurelion Sol",
@@ -483,7 +483,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/AurelionSol.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/AurelionSol.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 0,
@@ -517,7 +517,7 @@
     }
   },
   "Azir": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Azir",
     "key": "268",
     "name": "Azir",
@@ -530,7 +530,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Azir.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Azir.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 48,
@@ -564,7 +564,7 @@
     }
   },
   "Bard": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Bard",
     "key": "432",
     "name": "Bard",
@@ -577,7 +577,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Bard.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Bard.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 96,
@@ -611,7 +611,7 @@
     }
   },
   "Belveth": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "BelVeth",
     "key": "200",
     "name": "Bel'Veth",
@@ -624,7 +624,7 @@
       "difficulty": 10
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Belveth.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Belveth.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 144,
@@ -658,7 +658,7 @@
     }
   },
   "Blitzcrank": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Blitzcrank",
     "key": "53",
     "name": "Blitzcrank",
@@ -671,7 +671,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Blitzcrank.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Blitzcrank.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 192,
@@ -705,7 +705,7 @@
     }
   },
   "Brand": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Brand",
     "key": "63",
     "name": "Brand",
@@ -718,7 +718,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Brand.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Brand.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 240,
@@ -752,7 +752,7 @@
     }
   },
   "Braum": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Braum",
     "key": "201",
     "name": "Braum",
@@ -765,7 +765,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Braum.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Braum.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 288,
@@ -799,7 +799,7 @@
     }
   },
   "Briar": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Briar",
     "key": "233",
     "name": "Briar",
@@ -812,7 +812,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Briar.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Briar.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 336,
@@ -846,7 +846,7 @@
     }
   },
   "Caitlyn": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Caitlyn",
     "key": "51",
     "name": "Caitlyn",
@@ -859,7 +859,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Caitlyn.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Caitlyn.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 384,
@@ -893,7 +893,7 @@
     }
   },
   "Camille": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Camille",
     "key": "164",
     "name": "Camille",
@@ -906,7 +906,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Camille.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Camille.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 432,
@@ -940,7 +940,7 @@
     }
   },
   "Cassiopeia": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Cassiopeia",
     "key": "69",
     "name": "Cassiopeia",
@@ -953,7 +953,7 @@
       "difficulty": 10
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Cassiopeia.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Cassiopeia.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 0,
@@ -987,7 +987,7 @@
     }
   },
   "Chogath": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "ChoGath",
     "key": "31",
     "name": "Cho'Gath",
@@ -1000,7 +1000,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Chogath.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Chogath.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 48,
@@ -1034,7 +1034,7 @@
     }
   },
   "Corki": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Corki",
     "key": "42",
     "name": "Corki",
@@ -1047,7 +1047,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Corki.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Corki.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 96,
@@ -1081,7 +1081,7 @@
     }
   },
   "Darius": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Darius",
     "key": "122",
     "name": "Darius",
@@ -1094,7 +1094,7 @@
       "difficulty": 2
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Darius.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Darius.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 144,
@@ -1128,7 +1128,7 @@
     }
   },
   "Diana": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Diana",
     "key": "131",
     "name": "Diana",
@@ -1141,7 +1141,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Diana.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Diana.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 192,
@@ -1175,7 +1175,7 @@
     }
   },
   "Draven": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Draven",
     "key": "119",
     "name": "Draven",
@@ -1188,7 +1188,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Draven.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Draven.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 240,
@@ -1222,7 +1222,7 @@
     }
   },
   "DrMundo": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "DrMundo",
     "key": "36",
     "name": "Dr. Mundo",
@@ -1235,7 +1235,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/DrMundo.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/DrMundo.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 288,
@@ -1269,7 +1269,7 @@
     }
   },
   "Ekko": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Ekko",
     "key": "245",
     "name": "Ekko",
@@ -1282,7 +1282,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ekko.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ekko.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 336,
@@ -1316,7 +1316,7 @@
     }
   },
   "Elise": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Elise",
     "key": "60",
     "name": "Elise",
@@ -1329,7 +1329,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Elise.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Elise.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 384,
@@ -1363,7 +1363,7 @@
     }
   },
   "Evelynn": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Evelynn",
     "key": "28",
     "name": "Evelynn",
@@ -1376,7 +1376,7 @@
       "difficulty": 10
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Evelynn.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Evelynn.png",
       "sprite": "champion0.png",
       "group": "champion",
       "x": 432,
@@ -1410,7 +1410,7 @@
     }
   },
   "Ezreal": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Ezreal",
     "key": "81",
     "name": "Ezreal",
@@ -1423,7 +1423,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ezreal.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ezreal.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 0,
@@ -1457,7 +1457,7 @@
     }
   },
   "FiddleSticks": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Fiddlesticks",
     "key": "9",
     "name": "Fiddlesticks",
@@ -1470,7 +1470,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Fiddlesticks.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Fiddlesticks.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 48,
@@ -1504,7 +1504,7 @@
     }
   },
   "Fiddlesticks": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Fiddlesticks",
     "key": "9",
     "name": "Fiddlesticks",
@@ -1517,7 +1517,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Fiddlesticks.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Fiddlesticks.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 48,
@@ -1551,7 +1551,7 @@
     }
   },
   "Fiora": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Fiora",
     "key": "114",
     "name": "Fiora",
@@ -1564,7 +1564,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Fiora.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Fiora.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 96,
@@ -1598,7 +1598,7 @@
     }
   },
   "Fizz": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Fizz",
     "key": "105",
     "name": "Fizz",
@@ -1611,7 +1611,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Fizz.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Fizz.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 144,
@@ -1645,7 +1645,7 @@
     }
   },
   "Galio": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Galio",
     "key": "3",
     "name": "Galio",
@@ -1658,7 +1658,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Galio.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Galio.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 192,
@@ -1692,7 +1692,7 @@
     }
   },
   "Gangplank": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Gangplank",
     "key": "41",
     "name": "Gangplank",
@@ -1705,7 +1705,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Gangplank.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Gangplank.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 240,
@@ -1739,7 +1739,7 @@
     }
   },
   "Garen": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Garen",
     "key": "86",
     "name": "Garen",
@@ -1752,7 +1752,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Garen.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Garen.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 288,
@@ -1786,7 +1786,7 @@
     }
   },
   "Gnar": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Gnar",
     "key": "150",
     "name": "Gnar",
@@ -1799,7 +1799,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Gnar.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Gnar.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 336,
@@ -1833,7 +1833,7 @@
     }
   },
   "Gragas": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Gragas",
     "key": "79",
     "name": "Gragas",
@@ -1846,7 +1846,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Gragas.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Gragas.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 384,
@@ -1880,7 +1880,7 @@
     }
   },
   "Graves": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Graves",
     "key": "104",
     "name": "Graves",
@@ -1893,7 +1893,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Graves.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Graves.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 432,
@@ -1927,7 +1927,7 @@
     }
   },
   "Gwen": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Gwen",
     "key": "887",
     "name": "Gwen",
@@ -1940,7 +1940,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Gwen.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Gwen.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 0,
@@ -1974,7 +1974,7 @@
     }
   },
   "Hecarim": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Hecarim",
     "key": "120",
     "name": "Hecarim",
@@ -1987,7 +1987,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Hecarim.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Hecarim.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 48,
@@ -2021,7 +2021,7 @@
     }
   },
   "Heimerdinger": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Heimerdinger",
     "key": "74",
     "name": "Heimerdinger",
@@ -2034,7 +2034,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Heimerdinger.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Heimerdinger.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 96,
@@ -2068,7 +2068,7 @@
     }
   },
   "Hwei": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Hwei",
     "key": "910",
     "name": "Hwei",
@@ -2081,7 +2081,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Hwei.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Hwei.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 144,
@@ -2115,7 +2115,7 @@
     }
   },
   "Illaoi": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Illaoi",
     "key": "420",
     "name": "Illaoi",
@@ -2128,7 +2128,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Illaoi.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Illaoi.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 192,
@@ -2162,7 +2162,7 @@
     }
   },
   "Irelia": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Irelia",
     "key": "39",
     "name": "Irelia",
@@ -2175,7 +2175,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Irelia.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Irelia.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 240,
@@ -2209,7 +2209,7 @@
     }
   },
   "Ivern": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Ivern",
     "key": "427",
     "name": "Ivern",
@@ -2222,7 +2222,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ivern.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ivern.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 288,
@@ -2256,7 +2256,7 @@
     }
   },
   "Janna": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Janna",
     "key": "40",
     "name": "Janna",
@@ -2269,7 +2269,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Janna.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Janna.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 336,
@@ -2303,7 +2303,7 @@
     }
   },
   "JarvanIV": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "JarvanIV",
     "key": "59",
     "name": "Jarvan IV",
@@ -2316,7 +2316,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/JarvanIV.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/JarvanIV.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 384,
@@ -2350,7 +2350,7 @@
     }
   },
   "Jax": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Jax",
     "key": "24",
     "name": "Jax",
@@ -2363,7 +2363,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Jax.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Jax.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 432,
@@ -2397,7 +2397,7 @@
     }
   },
   "Jayce": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Jayce",
     "key": "126",
     "name": "Jayce",
@@ -2410,7 +2410,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Jayce.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Jayce.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 0,
@@ -2444,7 +2444,7 @@
     }
   },
   "Jhin": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Jhin",
     "key": "202",
     "name": "Jhin",
@@ -2457,7 +2457,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Jhin.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Jhin.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 48,
@@ -2491,7 +2491,7 @@
     }
   },
   "Jinx": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Jinx",
     "key": "222",
     "name": "Jinx",
@@ -2504,7 +2504,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Jinx.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Jinx.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 96,
@@ -2538,7 +2538,7 @@
     }
   },
   "Kaisa": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "KaiSa",
     "key": "145",
     "name": "Kai'Sa",
@@ -2551,7 +2551,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Kaisa.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Kaisa.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 144,
@@ -2585,7 +2585,7 @@
     }
   },
   "Kalista": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Kalista",
     "key": "429",
     "name": "Kalista",
@@ -2598,7 +2598,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Kalista.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Kalista.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 192,
@@ -2632,7 +2632,7 @@
     }
   },
   "Karma": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Karma",
     "key": "43",
     "name": "Karma",
@@ -2645,7 +2645,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Karma.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Karma.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 240,
@@ -2679,7 +2679,7 @@
     }
   },
   "Karthus": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Karthus",
     "key": "30",
     "name": "Karthus",
@@ -2692,7 +2692,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Karthus.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Karthus.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 288,
@@ -2726,7 +2726,7 @@
     }
   },
   "Kassadin": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Kassadin",
     "key": "38",
     "name": "Kassadin",
@@ -2739,7 +2739,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Kassadin.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Kassadin.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 336,
@@ -2773,7 +2773,7 @@
     }
   },
   "Katarina": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Katarina",
     "key": "55",
     "name": "Katarina",
@@ -2786,7 +2786,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Katarina.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Katarina.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 384,
@@ -2820,7 +2820,7 @@
     }
   },
   "Kayle": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Kayle",
     "key": "10",
     "name": "Kayle",
@@ -2833,7 +2833,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Kayle.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Kayle.png",
       "sprite": "champion1.png",
       "group": "champion",
       "x": 432,
@@ -2867,7 +2867,7 @@
     }
   },
   "Kayn": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Kayn",
     "key": "141",
     "name": "Kayn",
@@ -2880,7 +2880,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Kayn.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Kayn.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 0,
@@ -2914,7 +2914,7 @@
     }
   },
   "Kennen": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Kennen",
     "key": "85",
     "name": "Kennen",
@@ -2927,7 +2927,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Kennen.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Kennen.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 48,
@@ -2961,7 +2961,7 @@
     }
   },
   "Khazix": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Khazix",
     "key": "121",
     "name": "Kha'Zix",
@@ -2974,7 +2974,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Khazix.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Khazix.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 96,
@@ -3008,7 +3008,7 @@
     }
   },
   "Kindred": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Kindred",
     "key": "203",
     "name": "Kindred",
@@ -3021,7 +3021,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Kindred.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Kindred.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 144,
@@ -3055,7 +3055,7 @@
     }
   },
   "Kled": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Kled",
     "key": "240",
     "name": "Kled",
@@ -3068,7 +3068,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Kled.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Kled.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 192,
@@ -3102,7 +3102,7 @@
     }
   },
   "KogMaw": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "KogMaw",
     "key": "96",
     "name": "Kog'Maw",
@@ -3115,7 +3115,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/KogMaw.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/KogMaw.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 240,
@@ -3149,7 +3149,7 @@
     }
   },
   "KSante": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "KSante",
     "key": "897",
     "name": "K'Sante",
@@ -3162,7 +3162,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/KSante.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/KSante.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 288,
@@ -3196,7 +3196,7 @@
     }
   },
   "Leblanc": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "LeBlanc",
     "key": "7",
     "name": "LeBlanc",
@@ -3209,7 +3209,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Leblanc.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Leblanc.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 336,
@@ -3243,7 +3243,7 @@
     }
   },
   "LeeSin": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "LeeSin",
     "key": "64",
     "name": "Lee Sin",
@@ -3256,7 +3256,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/LeeSin.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/LeeSin.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 384,
@@ -3290,7 +3290,7 @@
     }
   },
   "Leona": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Leona",
     "key": "89",
     "name": "Leona",
@@ -3303,7 +3303,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Leona.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Leona.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 432,
@@ -3337,7 +3337,7 @@
     }
   },
   "Lillia": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Lillia",
     "key": "876",
     "name": "Lillia",
@@ -3350,7 +3350,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Lillia.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Lillia.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 0,
@@ -3384,7 +3384,7 @@
     }
   },
   "Lissandra": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Lissandra",
     "key": "127",
     "name": "Lissandra",
@@ -3397,7 +3397,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Lissandra.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Lissandra.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 48,
@@ -3431,7 +3431,7 @@
     }
   },
   "Lucian": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Lucian",
     "key": "236",
     "name": "Lucian",
@@ -3444,7 +3444,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Lucian.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Lucian.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 96,
@@ -3478,7 +3478,7 @@
     }
   },
   "Lulu": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Lulu",
     "key": "117",
     "name": "Lulu",
@@ -3491,7 +3491,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Lulu.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Lulu.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 144,
@@ -3525,7 +3525,7 @@
     }
   },
   "Lux": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Lux",
     "key": "99",
     "name": "Lux",
@@ -3538,7 +3538,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Lux.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Lux.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 192,
@@ -3572,7 +3572,7 @@
     }
   },
   "Malphite": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Malphite",
     "key": "54",
     "name": "Malphite",
@@ -3585,7 +3585,7 @@
       "difficulty": 2
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Malphite.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Malphite.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 240,
@@ -3619,7 +3619,7 @@
     }
   },
   "Malzahar": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Malzahar",
     "key": "90",
     "name": "Malzahar",
@@ -3632,7 +3632,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Malzahar.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Malzahar.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 288,
@@ -3666,7 +3666,7 @@
     }
   },
   "Maokai": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Maokai",
     "key": "57",
     "name": "Maokai",
@@ -3679,7 +3679,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Maokai.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Maokai.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 336,
@@ -3713,7 +3713,7 @@
     }
   },
   "MasterYi": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "MasterYi",
     "key": "11",
     "name": "Master Yi",
@@ -3726,7 +3726,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/MasterYi.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/MasterYi.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 384,
@@ -3760,7 +3760,7 @@
     }
   },
   "Milio": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Milio",
     "key": "902",
     "name": "Milio",
@@ -3773,7 +3773,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Milio.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Milio.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 432,
@@ -3807,7 +3807,7 @@
     }
   },
   "MissFortune": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "MissFortune",
     "key": "21",
     "name": "Miss Fortune",
@@ -3820,7 +3820,7 @@
       "difficulty": 1
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/MissFortune.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/MissFortune.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 0,
@@ -3854,7 +3854,7 @@
     }
   },
   "MonkeyKing": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Wukong",
     "key": "62",
     "name": "Wukong",
@@ -3867,7 +3867,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/MonkeyKing.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/MonkeyKing.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 48,
@@ -3901,7 +3901,7 @@
     }
   },
   "Mordekaiser": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Mordekaiser",
     "key": "82",
     "name": "Mordekaiser",
@@ -3914,7 +3914,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Mordekaiser.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Mordekaiser.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 96,
@@ -3948,7 +3948,7 @@
     }
   },
   "Morgana": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Morgana",
     "key": "25",
     "name": "Morgana",
@@ -3961,7 +3961,7 @@
       "difficulty": 1
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Morgana.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Morgana.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 144,
@@ -3995,7 +3995,7 @@
     }
   },
   "Naafiri": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Naafiri",
     "key": "950",
     "name": "Naafiri",
@@ -4008,7 +4008,7 @@
       "difficulty": 2
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Naafiri.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Naafiri.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 192,
@@ -4042,7 +4042,7 @@
     }
   },
   "Nami": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Nami",
     "key": "267",
     "name": "Nami",
@@ -4055,7 +4055,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Nami.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Nami.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 240,
@@ -4089,7 +4089,7 @@
     }
   },
   "Nasus": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Nasus",
     "key": "75",
     "name": "Nasus",
@@ -4102,7 +4102,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Nasus.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Nasus.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 288,
@@ -4136,7 +4136,7 @@
     }
   },
   "Nautilus": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Nautilus",
     "key": "111",
     "name": "Nautilus",
@@ -4149,7 +4149,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Nautilus.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Nautilus.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 336,
@@ -4183,7 +4183,7 @@
     }
   },
   "Neeko": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Neeko",
     "key": "518",
     "name": "Neeko",
@@ -4196,7 +4196,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Neeko.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Neeko.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 384,
@@ -4230,7 +4230,7 @@
     }
   },
   "Nidalee": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Nidalee",
     "key": "76",
     "name": "Nidalee",
@@ -4243,7 +4243,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Nidalee.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Nidalee.png",
       "sprite": "champion2.png",
       "group": "champion",
       "x": 432,
@@ -4277,7 +4277,7 @@
     }
   },
   "Nilah": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Nilah",
     "key": "895",
     "name": "Nilah",
@@ -4290,7 +4290,7 @@
       "difficulty": 10
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Nilah.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Nilah.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 0,
@@ -4324,7 +4324,7 @@
     }
   },
   "Nocturne": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Nocturne",
     "key": "56",
     "name": "Nocturne",
@@ -4337,7 +4337,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Nocturne.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Nocturne.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 48,
@@ -4371,7 +4371,7 @@
     }
   },
   "Nunu": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Nunu",
     "key": "20",
     "name": "Nunu & Willump",
@@ -4384,7 +4384,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Nunu.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Nunu.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 96,
@@ -4418,7 +4418,7 @@
     }
   },
   "Olaf": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Olaf",
     "key": "2",
     "name": "Olaf",
@@ -4431,7 +4431,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Olaf.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Olaf.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 144,
@@ -4465,7 +4465,7 @@
     }
   },
   "Orianna": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Orianna",
     "key": "61",
     "name": "Orianna",
@@ -4478,7 +4478,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Orianna.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Orianna.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 192,
@@ -4512,7 +4512,7 @@
     }
   },
   "Ornn": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Ornn",
     "key": "516",
     "name": "Ornn",
@@ -4525,7 +4525,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ornn.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ornn.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 240,
@@ -4559,7 +4559,7 @@
     }
   },
   "Pantheon": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Pantheon",
     "key": "80",
     "name": "Pantheon",
@@ -4572,7 +4572,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Pantheon.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Pantheon.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 288,
@@ -4606,7 +4606,7 @@
     }
   },
   "Poppy": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Poppy",
     "key": "78",
     "name": "Poppy",
@@ -4619,7 +4619,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Poppy.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Poppy.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 336,
@@ -4653,7 +4653,7 @@
     }
   },
   "Pyke": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Pyke",
     "key": "555",
     "name": "Pyke",
@@ -4666,7 +4666,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Pyke.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Pyke.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 384,
@@ -4700,7 +4700,7 @@
     }
   },
   "Qiyana": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Qiyana",
     "key": "246",
     "name": "Qiyana",
@@ -4713,7 +4713,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Qiyana.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Qiyana.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 432,
@@ -4747,7 +4747,7 @@
     }
   },
   "Quinn": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Quinn",
     "key": "133",
     "name": "Quinn",
@@ -4760,7 +4760,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Quinn.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Quinn.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 0,
@@ -4794,7 +4794,7 @@
     }
   },
   "Rakan": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Rakan",
     "key": "497",
     "name": "Rakan",
@@ -4807,7 +4807,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Rakan.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Rakan.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 48,
@@ -4841,7 +4841,7 @@
     }
   },
   "Rammus": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Rammus",
     "key": "33",
     "name": "Rammus",
@@ -4854,7 +4854,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Rammus.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Rammus.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 96,
@@ -4888,7 +4888,7 @@
     }
   },
   "RekSai": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "RekSai",
     "key": "421",
     "name": "Rek'Sai",
@@ -4901,7 +4901,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/RekSai.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/RekSai.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 144,
@@ -4935,7 +4935,7 @@
     }
   },
   "Rell": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Rell",
     "key": "526",
     "name": "Rell",
@@ -4948,7 +4948,7 @@
       "difficulty": 0
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Rell.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Rell.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 192,
@@ -4982,7 +4982,7 @@
     }
   },
   "Renata": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "RenataGlasc",
     "key": "888",
     "name": "Renata Glasc",
@@ -4995,7 +4995,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Renata.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Renata.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 240,
@@ -5029,7 +5029,7 @@
     }
   },
   "Renekton": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Renekton",
     "key": "58",
     "name": "Renekton",
@@ -5042,7 +5042,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Renekton.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Renekton.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 288,
@@ -5076,7 +5076,7 @@
     }
   },
   "Rengar": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Rengar",
     "key": "107",
     "name": "Rengar",
@@ -5089,7 +5089,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Rengar.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Rengar.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 336,
@@ -5123,7 +5123,7 @@
     }
   },
   "Riven": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Riven",
     "key": "92",
     "name": "Riven",
@@ -5136,7 +5136,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Riven.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Riven.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 384,
@@ -5170,7 +5170,7 @@
     }
   },
   "Rumble": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Rumble",
     "key": "68",
     "name": "Rumble",
@@ -5183,7 +5183,7 @@
       "difficulty": 10
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Rumble.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Rumble.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 432,
@@ -5217,7 +5217,7 @@
     }
   },
   "Ryze": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Ryze",
     "key": "13",
     "name": "Ryze",
@@ -5230,7 +5230,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ryze.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ryze.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 0,
@@ -5264,7 +5264,7 @@
     }
   },
   "Samira": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Samira",
     "key": "360",
     "name": "Samira",
@@ -5277,7 +5277,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Samira.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Samira.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 48,
@@ -5311,7 +5311,7 @@
     }
   },
   "Sejuani": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Sejuani",
     "key": "113",
     "name": "Sejuani",
@@ -5324,7 +5324,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Sejuani.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Sejuani.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 96,
@@ -5358,7 +5358,7 @@
     }
   },
   "Senna": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Senna",
     "key": "235",
     "name": "Senna",
@@ -5371,7 +5371,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Senna.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Senna.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 144,
@@ -5405,7 +5405,7 @@
     }
   },
   "Seraphine": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Seraphine",
     "key": "147",
     "name": "Seraphine",
@@ -5418,7 +5418,7 @@
       "difficulty": 0
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Seraphine.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Seraphine.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 192,
@@ -5452,7 +5452,7 @@
     }
   },
   "Sett": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Sett",
     "key": "875",
     "name": "Sett",
@@ -5465,7 +5465,7 @@
       "difficulty": 2
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Sett.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Sett.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 240,
@@ -5499,7 +5499,7 @@
     }
   },
   "Shaco": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Shaco",
     "key": "35",
     "name": "Shaco",
@@ -5512,7 +5512,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Shaco.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Shaco.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 288,
@@ -5546,7 +5546,7 @@
     }
   },
   "Shen": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Shen",
     "key": "98",
     "name": "Shen",
@@ -5559,7 +5559,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Shen.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Shen.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 336,
@@ -5593,7 +5593,7 @@
     }
   },
   "Shyvana": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Shyvana",
     "key": "102",
     "name": "Shyvana",
@@ -5606,7 +5606,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Shyvana.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Shyvana.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 384,
@@ -5640,7 +5640,7 @@
     }
   },
   "Singed": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Singed",
     "key": "27",
     "name": "Singed",
@@ -5653,7 +5653,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Singed.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Singed.png",
       "sprite": "champion3.png",
       "group": "champion",
       "x": 432,
@@ -5687,7 +5687,7 @@
     }
   },
   "Sion": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Sion",
     "key": "14",
     "name": "Sion",
@@ -5700,7 +5700,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Sion.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Sion.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 0,
@@ -5734,7 +5734,7 @@
     }
   },
   "Sivir": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Sivir",
     "key": "15",
     "name": "Sivir",
@@ -5747,7 +5747,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Sivir.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Sivir.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 48,
@@ -5781,7 +5781,7 @@
     }
   },
   "Skarner": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Skarner",
     "key": "72",
     "name": "Skarner",
@@ -5794,7 +5794,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Skarner.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Skarner.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 96,
@@ -5828,7 +5828,7 @@
     }
   },
   "Smolder": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Smolder",
     "key": "901",
     "name": "Smolder",
@@ -5841,7 +5841,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Smolder.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Smolder.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 144,
@@ -5875,7 +5875,7 @@
     }
   },
   "Sona": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Sona",
     "key": "37",
     "name": "Sona",
@@ -5888,7 +5888,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Sona.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Sona.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 192,
@@ -5922,7 +5922,7 @@
     }
   },
   "Soraka": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Soraka",
     "key": "16",
     "name": "Soraka",
@@ -5935,7 +5935,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Soraka.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Soraka.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 240,
@@ -5969,7 +5969,7 @@
     }
   },
   "Swain": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Swain",
     "key": "50",
     "name": "Swain",
@@ -5982,7 +5982,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Swain.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Swain.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 288,
@@ -6016,7 +6016,7 @@
     }
   },
   "Sylas": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Sylas",
     "key": "517",
     "name": "Sylas",
@@ -6029,7 +6029,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Sylas.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Sylas.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 336,
@@ -6063,7 +6063,7 @@
     }
   },
   "Syndra": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Syndra",
     "key": "134",
     "name": "Syndra",
@@ -6076,7 +6076,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Syndra.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Syndra.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 384,
@@ -6110,7 +6110,7 @@
     }
   },
   "TahmKench": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "TahmKench",
     "key": "223",
     "name": "Tahm Kench",
@@ -6123,7 +6123,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/TahmKench.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/TahmKench.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 432,
@@ -6157,7 +6157,7 @@
     }
   },
   "Taliyah": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Taliyah",
     "key": "163",
     "name": "Taliyah",
@@ -6170,7 +6170,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Taliyah.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Taliyah.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 0,
@@ -6204,7 +6204,7 @@
     }
   },
   "Talon": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Talon",
     "key": "91",
     "name": "Talon",
@@ -6217,7 +6217,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Talon.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Talon.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 48,
@@ -6251,7 +6251,7 @@
     }
   },
   "Taric": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Taric",
     "key": "44",
     "name": "Taric",
@@ -6264,7 +6264,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Taric.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Taric.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 96,
@@ -6298,7 +6298,7 @@
     }
   },
   "Teemo": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Teemo",
     "key": "17",
     "name": "Teemo",
@@ -6311,7 +6311,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Teemo.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Teemo.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 144,
@@ -6345,7 +6345,7 @@
     }
   },
   "Thresh": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Thresh",
     "key": "412",
     "name": "Thresh",
@@ -6358,7 +6358,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Thresh.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Thresh.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 192,
@@ -6392,7 +6392,7 @@
     }
   },
   "Tristana": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Tristana",
     "key": "18",
     "name": "Tristana",
@@ -6405,7 +6405,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Tristana.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Tristana.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 240,
@@ -6439,7 +6439,7 @@
     }
   },
   "Trundle": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Trundle",
     "key": "48",
     "name": "Trundle",
@@ -6452,7 +6452,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Trundle.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Trundle.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 288,
@@ -6486,7 +6486,7 @@
     }
   },
   "Tryndamere": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Tryndamere",
     "key": "23",
     "name": "Tryndamere",
@@ -6499,7 +6499,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Tryndamere.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Tryndamere.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 336,
@@ -6533,7 +6533,7 @@
     }
   },
   "TwistedFate": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "TwistedFate",
     "key": "4",
     "name": "Twisted Fate",
@@ -6546,7 +6546,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/TwistedFate.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/TwistedFate.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 384,
@@ -6580,7 +6580,7 @@
     }
   },
   "Twitch": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Twitch",
     "key": "29",
     "name": "Twitch",
@@ -6593,7 +6593,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Twitch.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Twitch.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 432,
@@ -6627,7 +6627,7 @@
     }
   },
   "Udyr": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Udyr",
     "key": "77",
     "name": "Udyr",
@@ -6640,7 +6640,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Udyr.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Udyr.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 0,
@@ -6674,7 +6674,7 @@
     }
   },
   "Urgot": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Urgot",
     "key": "6",
     "name": "Urgot",
@@ -6687,7 +6687,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Urgot.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Urgot.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 48,
@@ -6721,7 +6721,7 @@
     }
   },
   "Varus": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Varus",
     "key": "110",
     "name": "Varus",
@@ -6734,7 +6734,7 @@
       "difficulty": 2
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Varus.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Varus.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 96,
@@ -6768,7 +6768,7 @@
     }
   },
   "Vayne": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Vayne",
     "key": "67",
     "name": "Vayne",
@@ -6781,7 +6781,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Vayne.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Vayne.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 144,
@@ -6815,7 +6815,7 @@
     }
   },
   "Veigar": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Veigar",
     "key": "45",
     "name": "Veigar",
@@ -6828,7 +6828,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Veigar.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Veigar.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 192,
@@ -6862,7 +6862,7 @@
     }
   },
   "Velkoz": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "VelKoz",
     "key": "161",
     "name": "Vel'Koz",
@@ -6875,7 +6875,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Velkoz.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Velkoz.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 240,
@@ -6909,7 +6909,7 @@
     }
   },
   "Vex": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Vex",
     "key": "711",
     "name": "Vex",
@@ -6922,7 +6922,7 @@
       "difficulty": 0
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Vex.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Vex.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 288,
@@ -6956,7 +6956,7 @@
     }
   },
   "Vi": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Vi",
     "key": "254",
     "name": "Vi",
@@ -6969,7 +6969,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Vi.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Vi.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 336,
@@ -7003,7 +7003,7 @@
     }
   },
   "Viego": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Viego",
     "key": "234",
     "name": "Viego",
@@ -7016,7 +7016,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Viego.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Viego.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 384,
@@ -7050,7 +7050,7 @@
     }
   },
   "Viktor": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Viktor",
     "key": "112",
     "name": "Viktor",
@@ -7063,7 +7063,7 @@
       "difficulty": 9
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Viktor.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Viktor.png",
       "sprite": "champion4.png",
       "group": "champion",
       "x": 432,
@@ -7097,7 +7097,7 @@
     }
   },
   "Vladimir": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Vladimir",
     "key": "8",
     "name": "Vladimir",
@@ -7110,7 +7110,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Vladimir.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Vladimir.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 0,
@@ -7144,7 +7144,7 @@
     }
   },
   "Volibear": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Volibear",
     "key": "106",
     "name": "Volibear",
@@ -7157,7 +7157,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Volibear.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Volibear.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 48,
@@ -7191,7 +7191,7 @@
     }
   },
   "Warwick": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Warwick",
     "key": "19",
     "name": "Warwick",
@@ -7204,7 +7204,7 @@
       "difficulty": 3
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Warwick.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Warwick.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 96,
@@ -7238,7 +7238,7 @@
     }
   },
   "Xayah": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Xayah",
     "key": "498",
     "name": "Xayah",
@@ -7251,7 +7251,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Xayah.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Xayah.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 144,
@@ -7285,7 +7285,7 @@
     }
   },
   "Xerath": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Xerath",
     "key": "101",
     "name": "Xerath",
@@ -7298,7 +7298,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Xerath.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Xerath.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 192,
@@ -7332,7 +7332,7 @@
     }
   },
   "XinZhao": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "XinZhao",
     "key": "5",
     "name": "Xin Zhao",
@@ -7345,7 +7345,7 @@
       "difficulty": 2
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/XinZhao.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/XinZhao.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 240,
@@ -7379,7 +7379,7 @@
     }
   },
   "Yasuo": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Yasuo",
     "key": "157",
     "name": "Yasuo",
@@ -7392,7 +7392,7 @@
       "difficulty": 10
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Yasuo.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Yasuo.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 288,
@@ -7426,7 +7426,7 @@
     }
   },
   "Yone": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Yone",
     "key": "777",
     "name": "Yone",
@@ -7439,7 +7439,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Yone.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Yone.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 336,
@@ -7473,7 +7473,7 @@
     }
   },
   "Yorick": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Yorick",
     "key": "83",
     "name": "Yorick",
@@ -7486,7 +7486,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Yorick.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Yorick.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 384,
@@ -7520,7 +7520,7 @@
     }
   },
   "Yuumi": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Yuumi",
     "key": "350",
     "name": "Yuumi",
@@ -7533,7 +7533,7 @@
       "difficulty": 2
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Yuumi.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Yuumi.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 432,
@@ -7567,7 +7567,7 @@
     }
   },
   "Zac": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Zac",
     "key": "154",
     "name": "Zac",
@@ -7580,7 +7580,7 @@
       "difficulty": 8
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Zac.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Zac.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 0,
@@ -7614,7 +7614,7 @@
     }
   },
   "Zed": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Zed",
     "key": "238",
     "name": "Zed",
@@ -7627,7 +7627,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Zed.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Zed.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 48,
@@ -7661,7 +7661,7 @@
     }
   },
   "Zeri": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Zeri",
     "key": "221",
     "name": "Zeri",
@@ -7674,7 +7674,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Zeri.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Zeri.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 96,
@@ -7708,7 +7708,7 @@
     }
   },
   "Ziggs": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Ziggs",
     "key": "115",
     "name": "Ziggs",
@@ -7721,7 +7721,7 @@
       "difficulty": 4
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Ziggs.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ziggs.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 144,
@@ -7755,7 +7755,7 @@
     }
   },
   "Zilean": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Zilean",
     "key": "26",
     "name": "Zilean",
@@ -7768,7 +7768,7 @@
       "difficulty": 6
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Zilean.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Zilean.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 192,
@@ -7802,7 +7802,7 @@
     }
   },
   "Zoe": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Zoe",
     "key": "142",
     "name": "Zoe",
@@ -7815,7 +7815,7 @@
       "difficulty": 5
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Zoe.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Zoe.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 240,
@@ -7849,7 +7849,7 @@
     }
   },
   "Zyra": {
-    "version": "14.2.1",
+    "version": "14.3.1",
     "id": "Zyra",
     "key": "143",
     "name": "Zyra",
@@ -7862,7 +7862,7 @@
       "difficulty": 7
     },
     "image": {
-      "full": "https://ddragon.leagueoflegends.com/cdn/14.2.1/img/champion/Zyra.png",
+      "full": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Zyra.png",
       "sprite": "champion5.png",
       "group": "champion",
       "x": 288,

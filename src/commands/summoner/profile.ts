@@ -34,7 +34,7 @@ const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER', 'UNRANKED'];
 })
 @Options(searchOptions)
 export default class ProfileCommand extends SubCommand {
-  async run(ctx: CommandContext<'client', typeof searchOptions>) {
+  async run(ctx: CommandContext<typeof searchOptions>) {
     const embed = new Embed();
     const args = await parseSummonerOptions({
       user: ctx.options.user,
@@ -61,7 +61,7 @@ export default class ProfileCommand extends SubCommand {
         content: 'Summoner not found.',
       });
     }
-    const profileIconURL = makeIconURL('14.2.1', summoner.profileIconId);
+    const profileIconURL = makeIconURL('14.3.1', summoner.profileIconId);
 
     const basicInfoValue = [
       `\`Level:\` ${summoner.summonerLevel}`,

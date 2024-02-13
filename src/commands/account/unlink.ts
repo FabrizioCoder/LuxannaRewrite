@@ -11,7 +11,7 @@ import { ApplyCooldown } from "../../utils/functions";
   type: "user",
 })
 export default class LinkCommand extends SubCommand {
-  async run(ctx: CommandContext<"client">) {
+  async run(ctx: CommandContext) {
     const check = await userModel.exists({ id: ctx.author.id });
     if (!check) {
       return ctx.editOrReply({

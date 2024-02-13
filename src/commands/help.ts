@@ -14,7 +14,7 @@ import { Attachment } from 'biscuitjs/lib/builders';
   type: 'user',
 })
 export default class HelpCommand extends Command {
-  async run(ctx: CommandContext<'client'>) {
+  async run(ctx: CommandContext) {
     const image = await readFile(
       join(__dirname, '../../assets/help/LuxannaCommands.png')
     );

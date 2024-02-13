@@ -15,7 +15,7 @@ import {
 @Middlewares(['DeferEphemeral'])
 export default class AccountCommand extends Command {
   async onOptionsError(
-    ctx: CommandContext<'client'>,
+    ctx: CommandContext,
     returns: OnOptionsReturnObject
   ) {
     const errors = Object.entries(returns)

@@ -12,13 +12,12 @@ import { ApplyCooldown, parseSummonerOptions } from '../../../utils/functions';
 import { makeMatchHistory } from '../../../utils/images/history';
 import { QueueChoices, searchOptions } from '../../../utils/constants';
 import { SummonersManager } from '../../../app/managers/summonersManager';
-import { ApplicationCommandOptionType } from '@biscuitland/common';
 import { Attachment } from 'biscuitjs/lib/builders';
 
 const opt = {
   queue: createStringOption({
     choices: QueueChoices,
-    type: ApplicationCommandOptionType.String,
+    required: false,
     description: 'Select a queue to filter the matches',
     value: ({ value }, ok: OKFunction<string>) => {
       ok(value as string);
@@ -41,7 +40,7 @@ const opt = {
 @Group('matches')
 @Options(opt)
 export default class HistoryCommand extends SubCommand {
-  async run(ctx: CommandContext<'client', typeof opt>) {
+  async run(ctx: CommandContext<typeof opt>) {
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,
@@ -71,7 +70,7 @@ export default class HistoryCommand extends SubCommand {
     const queue = ctx.options.queue;
 
     const matchesId =
-      (await (await summoner.getMatches()).fetchHistory(parseInt(queue)!)) ??
+      (await (await summoner.getMatches()).fetchHistory(parseInt(queue!)!)) ??
       [];
 
     if (!matchesId || !matchesId.length) {

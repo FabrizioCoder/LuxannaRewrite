@@ -11,7 +11,7 @@ import { Attachment } from 'biscuitjs/lib/builders';
 })
 @Options(searchOptions)
 export default class RankedCommand extends SubCommand {
-  async run(ctx: CommandContext<'client', typeof searchOptions>) {
+  async run(ctx: CommandContext<typeof searchOptions>) {
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,

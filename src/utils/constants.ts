@@ -5,11 +5,11 @@ import {
   createStringOption,
   createBooleanOption,
   createUserOption,
-  AutocompleteInteraction,
 } from 'biscuitjs';
 import { Image } from 'imagescript';
 import { regionalURLs } from './functions';
 import champions from '../../json/champions.json';
+import { AutocompleteInteraction } from 'biscuitjs/lib/structures';
 
 export enum TierOrder {
   CHALLENGER = 0,

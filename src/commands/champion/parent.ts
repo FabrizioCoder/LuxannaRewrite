@@ -15,12 +15,12 @@ import {
 @AutoLoad()
 export default class ChampionCommand extends Command {
   async onOptionsError(
-    ctx: CommandContext<'client'>,
+    ctx: CommandContext,
     returns: OnOptionsReturnObject
   ) {
     const errors = Object.entries(returns)
       .filter(([_, err]) => err.failed)
-      .map(([key, err]) => `${key}: ${err.value.message}`)
+      .map(([key, err]) => `${key}: ${(err.value as any).message}`)
       .join('\n');
 
     return ctx.editOrReply({
@@ -28,7 +28,7 @@ export default class ChampionCommand extends Command {
     });
   }
 
-  onRunError(ctx: CommandContext<'client'>, _: Error) {
+  onRunError(ctx: CommandContext, _: Error) {
     return ctx.editOrReply({
       content: `⚠️ An error occurred while trying to get the build. Please try again later.`,
     });

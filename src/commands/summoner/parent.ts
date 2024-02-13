@@ -1,4 +1,3 @@
-import { IClients } from 'biscuitjs';
 import {
   AutoLoad,
   Command,
@@ -21,20 +20,17 @@ import {
 @Middlewares(['DeferReply'])
 @AutoLoad()
 export default class SummonerCommand extends Command {
-  async onOptionsError(
-    ctx: CommandContext<'client'>,
-    returns: OnOptionsReturnObject
-  ) {
+  async onOptionsError(ctx: CommandContext, returns: OnOptionsReturnObject) {
     const errors = Object.entries(returns)
       .filter(([_, err]) => err.failed)
-      .map(([key, err]) => `${key}: ${err.value.message}`)
+      .map(([key, err]) => `${key}: ${(err.value as any).message}`)
       .join('\n');
 
     return ctx.editOrReply({
       content: `⚠️ There was an error with the options:\n\`\`\`\n${errors}\n\`\`\``,
     });
   }
-  onRunError(context: CommandContext<keyof IClients, any, []>, error: unknown) {
+  onRunError(context: CommandContext, error: unknown) {
     console.error(error);
     return context.editOrReply({
       content: `⚠️ There was an error running the command ([support server](https://discord.gg/heEhwCVekK)): \`\`\`\n${error}\n\`\`\``,

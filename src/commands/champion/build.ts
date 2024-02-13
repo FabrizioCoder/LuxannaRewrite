@@ -48,7 +48,7 @@ const searchOptions = {
 })
 @Options(searchOptions)
 export default class BuildCommand extends SubCommand {
-  async run(ctx: CommandContext<'client', typeof searchOptions>) {
+  async run(ctx: CommandContext<typeof searchOptions>) {
     const { champion: name, role } = ctx.options;
     const champion = getChampionById(name)!;
 

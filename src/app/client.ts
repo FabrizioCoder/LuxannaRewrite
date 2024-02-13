@@ -1,14 +1,13 @@
-import { Client, IClients, OptionsRecord, ParseLocales } from 'biscuitjs';
+import {
+  Client,
+  ParseClient,
+  ParseLocales,
+} from 'biscuitjs';
 import { Ratelimit } from '../utils/constants';
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import type defaultLang from '../locales/en-US.ts';
 import { AllMiddlewares } from '../middlewares/index';
-
-import {
-  MessageCommandInteraction,
-  UserCommandInteraction,
-} from 'biscuitjs/lib/structures/Interaction';
 import { ParseMiddlewares } from 'biscuitjs';
 import { ActivityType, PresenceUpdateStatus } from '@biscuitland/common';
 
@@ -44,29 +43,13 @@ export async function main() {
 }
 
 declare module 'biscuitjs' {
+  interface UsingClient extends ParseClient<Client<true>> {}
+  interface DefaultLocale extends ParseLocales<typeof defaultLang> {}
   interface Command {
     ratelimit: Ratelimit;
   }
   interface SubCommand {
     ratelimit: Ratelimit;
-  }
-
-  interface CommandContext<
-    C extends keyof IClients,
-    T extends OptionsRecord = {},
-    M extends readonly (keyof RegisteredMiddlewares)[] = []
-  > {
-    t: ParseLocales<typeof defaultLang>;
-  }
-
-  interface MenuCommandContext<
-    C extends keyof IClients,
-    T extends
-      | UserCommandInteraction<boolean>
-      | MessageCommandInteraction<boolean>,
-    M extends readonly (keyof RegisteredMiddlewares)[] = []
-  > {
-    t: ParseLocales<typeof defaultLang>;
   }
 
   interface Client {

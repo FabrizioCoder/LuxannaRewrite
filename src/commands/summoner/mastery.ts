@@ -22,7 +22,7 @@ import { Embed } from 'biscuitjs/lib/builders';
 })
 @Options(searchOptions)
 export default class MasteryCommand extends SubCommand {
-  async run(ctx: CommandContext<'client', typeof searchOptions>) {
+  async run(ctx: CommandContext<typeof searchOptions>) {
     const args = await parseSummonerOptions({
       user: ctx.options.user,
       userId: ctx.author.id,
@@ -48,7 +48,7 @@ export default class MasteryCommand extends SubCommand {
         content: 'Summoner not found.',
       });
     }
-    const profileIconURL = makeIconURL('14.2.1', summoner.profileIconId);
+    const profileIconURL = makeIconURL('14.3.1', summoner.profileIconId);
     const SummonerMastery = await summoner.getMastery();
     const championMasteryData = await SummonerMastery.fetchAll();
 

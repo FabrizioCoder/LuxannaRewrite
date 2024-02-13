@@ -11,7 +11,7 @@ export class EmbedPaginator {
   emojis: IObject;
   interaction?: ChatInputCommandInteraction;
   constructor(
-    public context: CommandContext<'client'>,
+    public context: CommandContext,
     public pages: Embed[],
     public baseEmbed: Embed
   ) {
