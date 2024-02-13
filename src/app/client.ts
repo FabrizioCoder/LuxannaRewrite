@@ -1,11 +1,11 @@
 import { Client, ParseClient, ParseLocales } from 'biscuitjs';
 import { Ratelimit } from '../utils/constants';
-import mongoose from 'mongoose';
-import 'dotenv/config';
-import type defaultLang from '../locales/en-US.ts';
 import { AllMiddlewares } from '../middlewares/index';
 import { ParseMiddlewares } from 'biscuitjs';
 import { ActivityType, PresenceUpdateStatus } from '@biscuitland/common';
+import mongoose from 'mongoose';
+import 'dotenv/config';
+import type defaultLang from '../locales/en-US.ts';
 
 export async function main() {
   const client = new Client({
