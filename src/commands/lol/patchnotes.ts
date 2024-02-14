@@ -11,7 +11,7 @@ import { EmbedColors } from '../../utils/constants';
   time: 10000,
   type: 'user',
 })
-export default class LinkCommand extends SubCommand {
+export default class PatchNotesCommand extends SubCommand {
   async run(ctx: CommandContext) {
     const patch = await getPatchNotes();
     if (!patch)
