@@ -8,12 +8,12 @@ import {
 } from 'biscuitjs';
 
 @Declare({
-  name: 'account',
-  description: 'Account management commands',
+  name: 'lol',
+  description: 'League of Legends commands',
 })
 @AutoLoad()
-@Middlewares(['DeferEphemeral'])
-export default class AccountCommand extends Command {
+@Middlewares(['DeferReply'])
+export default class LoLCommand extends Command {
   async onOptionsError(ctx: CommandContext, returns: OnOptionsReturnObject) {
     const errors = Object.entries(returns)
       .filter(([_, err]) => err.failed)

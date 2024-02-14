@@ -1,4 +1,5 @@
 import { load } from 'cheerio';
+import { cleanHTML } from './functions';
 
 async function getRunes(url: string): Promise<ResultRunes | null> {
   try {
@@ -195,6 +196,37 @@ async function getSkillOrder(url: string): Promise<{
     result.wr = skillOrderWR;
 
     return result;
+  } catch (error) {
+    return null;
+  }
+}
+
+export async function getPatchNotes(): Promise<{
+  title: string;
+  imageUrl: string;
+  url: string;
+  text: string;
+} | null> {
+  try {
+    const url =
+      'https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-3-notes/';
+    const response = await fetch(url);
+    if (!response.ok) return null;
+    const text = await response.text();
+    
+    const title = load(text)('title').text();
+    const $ = load(text);
+    const patchNotesText = $('.white-stone.accent-before')
+      .slice(2)
+      .first()
+      .text();
+    const imageUrl = $('a.skins.cboxElement').attr('href')!;
+    return {
+      title,
+      imageUrl,
+      url,
+      text: cleanHTML(patchNotesText).replaceAll('\t', '').trim(),
+    };
   } catch (error) {
     return null;
   }
