@@ -209,7 +209,7 @@ export async function getPatchNotes(): Promise<{
 } | null> {
   try {
     const url =
-      'https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-3-notes/';
+      'https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-7-notes/';
     const response = await fetch(url);
     if (!response.ok) return null;
     const text = await response.text();
