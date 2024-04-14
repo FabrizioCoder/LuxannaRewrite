@@ -1,5 +1,5 @@
 import { Client, ParseClient, ParseLocales, ParseMiddlewares } from 'seyfert';
-import { ActivityType, PresenceUpdateStatus } from 'seyfert/src/types';
+import { ActivityType, PresenceUpdateStatus } from 'seyfert/lib/types';
 import { Ratelimit } from '../utils/constants';
 import { AllMiddlewares } from '../middlewares/index';
 import mongoose from 'mongoose';
@@ -8,7 +8,7 @@ import type defaultLang from '../locales/en-US.ts';
 
 export async function main() {
   const client = new Client({
-    presence(shardId) {
+    presence(_) {
       return {
         activities: [
           {

@@ -1,7 +1,7 @@
 import { createMiddleware } from 'seyfert';
 import { Ratelimit } from '../utils/constants';
 import { LimitedCollection } from 'seyfert/lib/collection';
-import { Snowflake } from 'seyfert/src/types';
+import { Snowflake } from 'seyfert/lib/types';
 
 const cooldowns = new LimitedCollection<Snowflake, Ratelimit>({});
 

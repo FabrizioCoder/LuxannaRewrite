@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionType } from 'seyfert/src/types';
+import { ApplicationCommandOptionType } from 'seyfert/lib/types';
 import {
   OKFunction,
   StopFunction,

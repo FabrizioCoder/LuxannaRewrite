@@ -1,5 +1,5 @@
 import { createMiddleware } from 'seyfert';
-import { MessageFlags } from 'seyfert/src/types';
+import { MessageFlags } from 'seyfert/lib/types';
 
 export default createMiddleware<void>(async (middle) => {
   if (!middle.context.isChat()) return;

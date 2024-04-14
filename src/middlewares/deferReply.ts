@@ -1,4 +1,4 @@
-import { MessageFlags } from 'seyfert/src/types';
+import { MessageFlags } from 'seyfert/lib/types';
 import { createMiddleware } from 'seyfert';
 
 export default createMiddleware<void>(async (middle) => {
