@@ -1,4 +1,4 @@
-import { Client } from 'biscuitjs';
+import { Client } from 'seyfert';
 import { URL } from 'url';
 import { userModel } from '../app/models/user';
 import { Ratelimit } from './constants';

@@ -1,4 +1,9 @@
-import { Attachment, CommandContext, Declare, SubCommand } from 'biscuitjs';
+import {
+  AttachmentBuilder,
+  CommandContext,
+  Declare,
+  SubCommand,
+} from 'seyfert';
 import { ApplyCooldown } from '../../utils/functions';
 import { getPatchNotes } from '../../utils/scraper';
 import { EmbedColors } from '../../utils/constants';
@@ -21,7 +26,7 @@ export default class PatchNotesCommand extends SubCommand {
 
     return ctx.editOrReply({
       files: [
-        new Attachment()
+        new AttachmentBuilder()
           .setFile('url', patch.imageUrl)
           .setName('patchnotes.png'),
       ],

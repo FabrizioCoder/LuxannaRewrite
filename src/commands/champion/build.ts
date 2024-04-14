@@ -5,7 +5,7 @@ import {
   Options,
   SubCommand,
   createStringOption,
-} from 'biscuitjs';
+} from 'seyfert';
 import { ResultItems, ResultRunes, getBuild } from '../../utils/scraper';
 import { EmbedColors, autoCompleteChampionValues } from '../../utils/constants';
 import {
@@ -15,7 +15,7 @@ import {
   getItemByName,
 } from '../../utils/functions';
 import runesJSON from '../../../json/new_perks.json';
-import { Embed } from 'biscuitjs/lib/builders';
+import { Embed } from 'seyfert/lib/builders';
 
 const roles = ['top', 'jungle', 'mid', 'adc', 'support'];
 

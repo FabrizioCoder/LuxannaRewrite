@@ -1,4 +1,4 @@
-import { Command, CommandContext, Declare, Middlewares } from 'biscuitjs';
+import { Command, CommandContext, Declare, Middlewares } from 'seyfert';
 import { ApplyCooldown } from '../utils/functions';
 
 @Declare({

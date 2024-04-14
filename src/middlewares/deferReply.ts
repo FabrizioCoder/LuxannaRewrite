@@ -1,7 +1,8 @@
-import { MessageFlags } from 'biscuitjs/lib/common';
-import { createMiddleware } from 'biscuitjs';
+import { MessageFlags } from 'seyfert/src/types';
+import { createMiddleware } from 'seyfert';
 
 export default createMiddleware<void>(async (middle) => {
+  if (!middle.context.isChat()) return;
   await middle.context.interaction.deferReply(
     middle.context.resolver.getHoisted('hide')?.value
       ? MessageFlags.Ephemeral

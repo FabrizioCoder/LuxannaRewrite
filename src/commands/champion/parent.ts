@@ -5,7 +5,7 @@ import {
   Declare,
   Middlewares,
   OnOptionsReturnObject,
-} from 'biscuitjs';
+} from 'seyfert';
 
 @Declare({
   name: 'champion',

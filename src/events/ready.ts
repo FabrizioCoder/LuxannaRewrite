@@ -1,4 +1,4 @@
-import { createEvent } from 'biscuitjs';
+import { createEvent } from 'seyfert';
 
 export default createEvent({
   data: { once: true, name: 'ready' },

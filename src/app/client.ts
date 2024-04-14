@@ -1,8 +1,7 @@
-import { Client, ParseClient, ParseLocales } from 'biscuitjs';
+import { Client, ParseClient, ParseLocales, ParseMiddlewares } from 'seyfert';
+import { ActivityType, PresenceUpdateStatus } from 'seyfert/src/types';
 import { Ratelimit } from '../utils/constants';
 import { AllMiddlewares } from '../middlewares/index';
-import { ParseMiddlewares } from 'biscuitjs';
-import { ActivityType, PresenceUpdateStatus } from 'biscuitjs/lib/common';
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import type defaultLang from '../locales/en-US.ts';
@@ -14,22 +13,23 @@ export async function main() {
         activities: [
           {
             name: "the summoner's rift",
-            type: ActivityType.Watching,
+            type: ActivityType.Playing,
           },
         ],
-        status: PresenceUpdateStatus.DoNotDisturb,
-        shardId,
+        status: PresenceUpdateStatus.Invisible,
         afk: false,
         since: Date.now(),
       };
     },
-  });
+  })!;
 
-  client.events.OnFail = async (...err) => console.error('error', ...err);
+  client.events!.onFail = async (...err) => console.error('error', ...err);
 
   await client.start();
   client.setServices({
-    defaultLang: 'en-US',
+    langs: {
+      default: 'en-US',
+    },
     middlewares: AllMiddlewares,
   });
 
@@ -57,7 +57,7 @@ export async function main() {
   process.on('SIGQUIT', handleExit);
 }
 
-declare module 'biscuitjs' {
+declare module 'seyfert' {
   interface UsingClient extends ParseClient<Client<true>> {}
   interface DefaultLocale extends ParseLocales<typeof defaultLang> {}
   interface Command {
@@ -67,7 +67,7 @@ declare module 'biscuitjs' {
     ratelimit: Ratelimit;
   }
 
-  interface Client {
+  interface BaseClient {
     t(locale: string): ParseLocales<typeof defaultLang>;
   }
 

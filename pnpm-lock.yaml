@@ -20,9 +20,6 @@ dependencies:
   axios:
     specifier: ^1.6.7
     version: 1.6.7
-  biscuitjs:
-    specifier: github:potoland/potocuit#master
-    version: github.com/potoland/potocuit/797b00bd727a03ac007ca0c4439b7b075a90c02f
   chart.js:
     specifier: ^3.9.1
     version: 3.9.1
@@ -59,12 +56,12 @@ dependencies:
   satori-html:
     specifier: ^0.3.2
     version: 0.3.2
+  seyfert:
+    specifier: github:tiramisulabs/seyfert
+    version: github.com/tiramisulabs/seyfert/d31ec27bbbda4ad74b034867e70363e29e89a05c
   sharp:
     specifier: ^0.33.2
     version: 0.33.2
-  tiramisu-cli:
-    specifier: github:potoland/potocli
-    version: github.com/potoland/potocli/05310e6fd42342ee860a8b879389f43f410aaeb0
 
 devDependencies:
   openapi-typescript:
@@ -477,11 +474,6 @@ packages:
     transitivePeerDependencies:
       - encoding
     dev: true
-
-  /@sapphire/async-queue@1.5.2:
-    resolution: {integrity: sha512-7X7FFAA4DngXUl95+hYbUF19bp1LGiffjJtu7ygrZrbdCSsdDDBaSjB7Akw0ZbOu6k0xpXyljnJ6/RZUvLfRdg==}
-    engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
-    dev: false
 
   /@shuding/opentype.js@1.4.0-beta.0:
     resolution: {integrity: sha512-3NgmNyH3l/Hv6EvsWJbsvpcpUba6R8IREQ83nH83cyakCw7uM1arZKNfHwv1Wz6jgqrF/j4x5ELvR6PnK9nTcA==}
@@ -996,11 +988,6 @@ packages:
       delayed-stream: 1.0.0
     dev: false
 
-  /commander@11.1.0:
-    resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
-    engines: {node: '>=16'}
-    dev: false
-
   /commander@7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
@@ -1138,8 +1125,8 @@ packages:
     engines: {node: '>=0.3.1'}
     dev: true
 
-  /discord-api-types@0.37.69:
-    resolution: {integrity: sha512-c0rHc5YGNIXQkI+V7QwP8y77wxo74ITNeZmMwxtKC/l01aIF/gKBG/U2MKhUt2iaeRH9XwAt9PT3AI9JQVvKVA==}
+  /discord-api-types@0.37.79:
+    resolution: {integrity: sha512-jblKMZL5f9t/pfUyhHNey8Lb9yVCcBVIPxz/JTY0raAmfj7CuFXdl9m5o/+iiB7E0vv1Kz9V7Ao5HtLRc2gH1Q==}
     dev: false
 
   /dom-serializer@2.0.0:
@@ -1597,11 +1584,6 @@ packages:
       json-buffer: 3.0.1
     dev: false
 
-  /kleur@3.0.3:
-    resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
-    engines: {node: '>=6'}
-    dev: false
-
   /limiter@2.1.0:
     resolution: {integrity: sha512-361TYz6iay6n+9KvUUImqdLuFigK+K79qrUtBsXhJTLdH4rIt/r1y8r1iozwh8KbZNpujbFTSh74mJ7bwbAMOw==}
     dependencies:
@@ -1646,8 +1628,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /magic-bytes.js@1.8.0:
-    resolution: {integrity: sha512-lyWpfvNGVb5lu8YUAbER0+UMBTdR63w2mcSUlhhBTyVbxJvjgqwyAf3AZD6MprgK0uHuBoWXSDAMWLupX83o3Q==}
+  /magic-bytes.js@1.10.0:
+    resolution: {integrity: sha512-/k20Lg2q8LE5xiaaSkMXk4sfvI+9EGEykFS4b0CHHGWqDYU0bGUFSwchNOMA56D7TCs9GwVTkqe9als1/ns8UQ==}
     dev: false
 
   /make-dir@3.1.0:
@@ -2056,14 +2038,6 @@ packages:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: false
 
-  /prompts@2.4.2:
-    resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
-    engines: {node: '>= 6'}
-    dependencies:
-      kleur: 3.0.3
-      sisteransi: 1.0.5
-    dev: false
-
   /proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: false
@@ -2306,10 +2280,6 @@ packages:
       semver: 7.6.0
     dev: false
 
-  /sisteransi@1.0.5:
-    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
-    dev: false
-
   /slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -2460,8 +2430,8 @@ packages:
       escape-string-regexp: 5.0.0
     dev: false
 
-  /ts-mixer@6.0.3:
-    resolution: {integrity: sha512-k43M7uCG1AkTyxgnmI5MPwKoUvS/bRvLvUb7+Pgpdlmok8AoqmUaZxUUw8zKM5B1lqZrt41GjYgnvAi0fppqgQ==}
+  /ts-mixer@6.0.4:
+    resolution: {integrity: sha512-ufKpbmrugz5Aou4wcr5Wc1UUFWOLhq+Fm6qa6P0w0K5Qw2yhaUoiWszhCVuNQyNwrlGiscHOmqYoAox1PtvgjA==}
     dev: false
 
   /ts-node@10.9.2(@swc/core@1.4.0)(@types/node@20.11.17)(typescript@5.3.3):
@@ -2630,43 +2600,32 @@ packages:
     resolution: {integrity: sha512-N+d4UJSJbt/R3wqY7Coqs5pcV0aUj2j9IaQ3rNj9bVCLld8tTGKRa2USARjnvZJWVx1NDmQev8EknoczaOQDOA==}
     dev: false
 
-  github.com/potoland/potocli/05310e6fd42342ee860a8b879389f43f410aaeb0:
-    resolution: {tarball: https://codeload.github.com/potoland/potocli/tar.gz/05310e6fd42342ee860a8b879389f43f410aaeb0}
-    name: tiramisu-cli
-    version: 0.0.1
-    hasBin: true
-    dependencies:
-      commander: 11.1.0
-      prompts: 2.4.2
-    dev: false
-
-  github.com/potoland/potocuit/797b00bd727a03ac007ca0c4439b7b075a90c02f:
-    resolution: {tarball: https://codeload.github.com/potoland/potocuit/tar.gz/797b00bd727a03ac007ca0c4439b7b075a90c02f}
-    name: biscuitjs
-    version: 0.1.0
+  github.com/tiramisulabs/seyfert/d31ec27bbbda4ad74b034867e70363e29e89a05c:
+    resolution: {tarball: https://codeload.github.com/tiramisulabs/seyfert/tar.gz/d31ec27bbbda4ad74b034867e70363e29e89a05c}
+    name: seyfert
+    version: 1.2.3
+    prepare: true
     requiresBuild: true
     dependencies:
-      '@sapphire/async-queue': 1.5.2
       chokidar: 3.6.0
-      discord-api-types: 0.37.69
-      form-data: 4.0.0
-      ioredis: 5.3.2
-      magic-bytes.js: 1.8.0
-      ts-mixer: 6.0.3
+      discord-api-types: 0.37.79
+      magic-bytes.js: 1.10.0
+      ts-mixer: 6.0.4
       ws: 8.16.0
     optionalDependencies:
+      ioredis: 5.3.2
       tweetnacl: 1.0.3
-      uWebSockets.js: github.com/uNetworking/uWebSockets.js/ec37cb6444a284c4a0a8d50041a23a4bac9e5715
+      uWebSockets.js: github.com/uNetworking/uWebSockets.js/f40213ec0a97d0d8721d9d32d92d6eb6ddcd22e7
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - utf-8-validate
     dev: false
 
-  github.com/uNetworking/uWebSockets.js/ec37cb6444a284c4a0a8d50041a23a4bac9e5715:
-    resolution: {tarball: https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/ec37cb6444a284c4a0a8d50041a23a4bac9e5715}
+  github.com/uNetworking/uWebSockets.js/f40213ec0a97d0d8721d9d32d92d6eb6ddcd22e7:
+    resolution: {tarball: https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/f40213ec0a97d0d8721d9d32d92d6eb6ddcd22e7}
     name: uWebSockets.js
-    version: 20.39.0
+    version: 20.42.0
     requiresBuild: true
     dev: false
     optional: true

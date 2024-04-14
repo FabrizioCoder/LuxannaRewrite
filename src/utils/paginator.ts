@@ -1,19 +1,26 @@
-import { ButtonStyle, MessageFlags } from 'biscuitjs/lib/common';
-import { CommandContext, ComponentsListener } from 'biscuitjs';
-import { ActionRow, Button, Embed } from 'biscuitjs/lib/builders';
+import { APIMessageComponentInteraction, ButtonStyle } from 'seyfert/lib/types';
+import { CommandContext } from 'seyfert';
 import {
-  ButtonInteraction,
-  ChatInputCommandInteraction,
-} from 'biscuitjs/lib/structures';
+  ActionRow,
+  AttachmentBuilder,
+  Button,
+  Embed,
+} from 'seyfert/lib/builders';
+import {
+  ComponentInteraction,
+  Message,
+  StringSelectMenuInteraction,
+  WebhookMessage,
+} from 'seyfert/lib/structures';
 
 export class EmbedPaginator {
-  currentPage = 0;
-  emojis: IObject;
-  interaction?: ChatInputCommandInteraction;
+  private currentPage = 0;
+  private emojis: IObject;
   constructor(
-    public context: CommandContext,
-    public pages: Embed[],
-    public baseEmbed: Embed
+    private context: CommandContext,
+    private pages: Embed[],
+    private baseEmbed: Embed,
+    private files: AttachmentBuilder[]
   ) {
     this.emojis = {
       first: '⏮️',
@@ -23,70 +30,72 @@ export class EmbedPaginator {
     };
   }
 
-  start() {
-    return {
-      embeds: [this.getEmbed(this.pages[0]!)],
-      components: this.getListener().addRows(this.getComponets()),
-    };
+  async start() {
+    const response = await this.context.interaction.editOrReply(
+      {
+        embeds: [this.getEmbed(this.pages[this.currentPage]!)],
+        components: [this.getComponets()],
+        files: this.files || [],
+      },
+      true
+    );
+
+    const collector = this.getCollector(response);
+
+    for (const button of ['first', 'previous', 'next', 'last']) {
+      collector.run(button, async (interaction) => {
+        switch (button) {
+          case 'first':
+            this.currentPage = 0;
+            break;
+          case 'previous':
+            this.currentPage--;
+            break;
+          case 'next':
+            this.currentPage++;
+            break;
+          case 'last':
+            this.currentPage = this.pages.length - 1;
+            break;
+        }
+
+        await this.changePage(this.pages[this.currentPage]!, interaction);
+      });
+    }
   }
 
-  getComponets() {
+  private getComponets() {
     const row = new ActionRow();
     row.addComponents([
       new Button()
         .setCustomId('first')
         .setStyle(ButtonStyle.Primary)
         .setEmoji(this.emojis.first)
-        .setDisabled(!this.currentPage)
-        .run(async (interaction) => {
-          this.currentPage = 0;
-          await this.changePage(this.pages[0]!, interaction);
-        }),
+        .setDisabled(!this.currentPage),
       new Button()
         .setCustomId('previous')
         .setStyle(ButtonStyle.Primary)
         .setEmoji(this.emojis.previous)
-        .setDisabled(!this.currentPage)
-        .run(async (interaction) => {
-          await this.changePage(this.pages[--this.currentPage]!, interaction);
-        }),
+        .setDisabled(!this.currentPage),
       new Button()
         .setCustomId('next')
         .setStyle(ButtonStyle.Primary)
         .setEmoji(this.emojis.next)
-        .setDisabled(!(this.pages.length > this.currentPage + 1))
-        .run(async (interaction) => {
-          await this.changePage(this.pages[++this.currentPage]!, interaction);
-        }),
+        .setDisabled(!(this.pages.length > this.currentPage + 1)),
       new Button()
         .setCustomId('last')
         .setStyle(ButtonStyle.Primary)
         .setEmoji(this.emojis.last)
-        .setDisabled(this.currentPage + 1 === this.pages.length)
-        .run(async (interaction) => {
-          this.currentPage = this.pages.length - 1;
-          await this.changePage(this.pages[this.currentPage]!, interaction);
-        }),
+        .setDisabled(this.currentPage + 1 === this.pages.length),
     ]);
 
     return row;
   }
 
-  getListener() {
-    const componentsListener = new ComponentsListener({
+  private getCollector(response: WebhookMessage | Message) {
+    const collector = response.createComponentCollector({
       timeout: 60000,
-      filter: (interaction) => {
-        if (interaction.user.id !== this.context.author.id) {
-          return interaction.write({
-            content: this.context.t.commands.errors
-              .noUserButton(interaction.user.tag)
-              .get(),
-            flags: MessageFlags.Ephemeral,
-          });
-        }
-
-        return true;
-      },
+      filter: (i) => i.user.id === this.context.author.id,
       onStop: async (reason) => {
         if (reason === 'timeout') {
           await this.context.editOrReply({
@@ -96,17 +105,23 @@ export class EmbedPaginator {
       },
     });
 
-    return componentsListener;
+    return collector;
   }
 
-  changePage(page: Embed, interaction: ButtonInteraction) {
-    return interaction.update({
-      embeds: [this.getEmbed(page)],
-      components: this.getListener().addRows(this.getComponets()),
+  private async changePage(
+    page: Embed,
+    interaction:
+      | ComponentInteraction<boolean, APIMessageComponentInteraction>
+      | StringSelectMenuInteraction<string[]>
+  ) {
+    const embed = this.getEmbed(page);
+    await interaction.update({
+      embeds: [embed],
+      components: [this.getComponets()],
     });
   }
 
-  getEmbed(embed: Embed) {
+  private getEmbed(embed: Embed) {
     const result = new Embed({
       ...this.baseEmbed.data,
       ...embed.data,
@@ -117,7 +132,6 @@ export class EmbedPaginator {
           }`
         : `Page ${this.currentPage + 1}/${this.pages.length}`,
     });
-
     return result;
   }
 }

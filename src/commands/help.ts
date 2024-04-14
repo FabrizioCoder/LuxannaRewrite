@@ -1,8 +1,8 @@
-import { Command, CommandContext, Declare, Middlewares } from 'biscuitjs';
+import { Command, CommandContext, Declare, Middlewares } from 'seyfert';
 import { ApplyCooldown } from '../utils/functions';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
-import { Attachment } from 'biscuitjs/lib/builders';
+import { AttachmentBuilder } from 'seyfert/lib/builders';
 
 @Declare({
   name: 'help',
@@ -22,7 +22,7 @@ export default class HelpCommand extends Command {
     return ctx.editOrReply({
       content: 'Here are all my commands!',
       files: [
-        new Attachment()
+        new AttachmentBuilder()
           .setFile('buffer', image)
           .setName('LuxannaCommands.png')
           .setDescription('Luxanna Commands'),

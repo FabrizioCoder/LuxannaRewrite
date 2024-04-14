@@ -6,7 +6,7 @@ import {
   Groups,
   Middlewares,
   OnOptionsReturnObject,
-} from 'biscuitjs';
+} from 'seyfert';
 
 @Declare({
   name: 'summoner',

@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionType } from 'biscuitjs/lib/common';
+import { ApplicationCommandOptionType } from 'seyfert/lib/types';
 import {
   CommandContext,
   Declare,
@@ -7,7 +7,7 @@ import {
   StopFunction,
   SubCommand,
   createStringOption,
-} from 'biscuitjs';
+} from 'seyfert';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { userModel } from '../../app/models/user';
 import { RegionChoices } from '../../utils/constants';
@@ -17,7 +17,7 @@ import {
   regionalURLs,
 } from '../../utils/functions';
 import { makeLinkedProfile } from '../../utils/images/satori/link';
-import { Attachment } from 'biscuitjs/lib/builders';
+import { AttachmentBuilder } from 'seyfert/lib/builders';
 
 const options = {
   'riot-id': createStringOption({
@@ -29,7 +29,7 @@ const options = {
     type: 3,
     value({ value }, ok: OKFunction<string>, fail: StopFunction) {
       if (!value.includes('#'))
-        fail(Error('The RiotId must include the "#". (FabrizioCoder#6030)'));
+        fail('The RiotId must include the "#". (FabrizioCoder#6030)');
       ok(value);
     },
   }),
@@ -98,7 +98,7 @@ export default class LinkCommand extends SubCommand {
     return ctx.editOrReply({
       content: 'Your account has been linked successfully.',
       files: [
-        new Attachment()
+        new AttachmentBuilder()
           .setName('linked_account.png')
           .setFile('buffer', img)
           .setDescription('Your linked account'),

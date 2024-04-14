@@ -1,9 +1,9 @@
-import { CommandContext, Declare, Options, SubCommand } from 'biscuitjs';
+import { CommandContext, Declare, Options, SubCommand } from 'seyfert';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { searchOptions } from '../../utils/constants';
 import { parseSummonerOptions } from '../../utils/functions';
 import { makeRankedProfile } from '../../utils/images/ranked';
-import { Attachment } from 'biscuitjs/lib/builders';
+import { AttachmentBuilder } from 'seyfert/lib/builders';
 
 @Declare({
   name: 'ranked',
@@ -44,7 +44,7 @@ export default class RankedCommand extends SubCommand {
     return ctx.editOrReply({
       content: `Ranked stats for **${gameName}#${tagLine}** (${args.region.toUpperCase()})`,
       files: [
-        new Attachment()
+        new AttachmentBuilder()
           .setName('ranked.png')
           .setFile('buffer', img)
           .setDescription('Ranked stats'),

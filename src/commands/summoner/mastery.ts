@@ -1,9 +1,4 @@
-import {
-  CommandContext,
-  Declare,
-  Options,
-  SubCommand,
-} from 'biscuitjs';
+import { CommandContext, Declare, Options, SubCommand } from 'seyfert';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { EmbedColors, searchOptions } from '../../utils/constants';
 import {
@@ -14,7 +9,7 @@ import {
   parseSummonerOptions,
 } from '../../utils/functions';
 import { EmbedPaginator } from '../../utils/paginator';
-import { Embed } from 'biscuitjs/lib/builders';
+import { Embed } from 'seyfert/lib/builders';
 
 @Declare({
   name: 'mastery',
@@ -133,9 +128,9 @@ export default class MasteryCommand extends SubCommand {
       title: ctx.t.commands.mastery.baseEmbed.title(totalPoints).get(),
     });
 
-    const paginator = new EmbedPaginator(ctx, embeds, baseEmbed);
+    const paginator = new EmbedPaginator(ctx, embeds, baseEmbed, []);
 
-    return ctx.editOrReply(paginator.start());
+    return await paginator.start();
   }
 }
 

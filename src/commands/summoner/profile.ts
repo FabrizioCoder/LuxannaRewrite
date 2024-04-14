@@ -1,10 +1,10 @@
 import {
+  AttachmentBuilder,
   CommandContext,
-  ComponentsListener,
   Declare,
   Options,
   SubCommand,
-} from 'biscuitjs';
+} from 'seyfert';
 import { EmbedColors, searchOptions } from '../../utils/constants';
 import {
   calculateWinrate,
@@ -16,15 +16,11 @@ import {
   getQueueById,
   makeIconURL,
   parseSummonerOptions,
-  rawEmote,
 } from '../../utils/functions';
 import { SummonersManager } from '../../app/managers/summonersManager';
 import { components } from '../../lib/schema';
 import { makeMasteryGraphic } from '../../utils/images/satori/mastery';
-import { Summoner } from '../../app/structures/summoner';
-import { default as Maps } from '../../../json/maps.json';
-import { ActionRow, Attachment, Button, Embed } from 'biscuitjs/lib/builders';
-import { ButtonStyle, MessageFlags } from 'biscuitjs/lib/common';
+import { Embed } from 'seyfert/lib/builders';
 
 const noShowRank = ['CHALLENGER', 'GRANDMASTER', 'MASTER', 'UNRANKED'];
 
@@ -190,286 +186,279 @@ export default class ProfileCommand extends SubCommand {
     }
 
     // Current Game
-    const SummonerSpectator = await summoner.getSpectator();
-    const currentGame = await SummonerSpectator.fetchActiveGame();
-    const row = new ActionRow();
-    if (currentGame) {
-      const selfParticipant = currentGame.participants.filter(
-        (p) => p.summonerId === summoner.id
-      )[0]!;
+    // const SummonerSpectator = await summoner.getSpectator();
+    // const currentGame = await SummonerSpectator.fetchActiveGame();
+    // const row = new ActionRow();
+    // if (currentGame) {
+    //   const selfParticipant = currentGame.participants.filter(
+    //     (p) => p.summonerId === summoner.id
+    //   )[0]!;
 
-      const champion = getChampionByKey({
-        key: String(selfParticipant.championId),
-      })!;
-      const championEmote = rawEmote(champion.id)!;
+    //   const champion = getChampionByKey({
+    //     key: String(selfParticipant.championId),
+    //   })!;
+    //   const championEmote = rawEmote(champion.id)!;
 
-      const queue = getQueueById(currentGame.gameQueueConfigId!)!;
-      const map = Maps.find((m) => m.mapId === currentGame.mapId)!;
+    //   const queue = getQueueById(currentGame.gameQueueConfigId!)!;
+    //   const map = Maps.find((m) => m.mapId === currentGame.mapId)!;
 
-      const msToTime = (duration: number) => {
-        const seconds = Math.floor((duration / 1000) % 60);
-        const minutes = Math.floor((duration / (1000 * 60)) % 60);
+    //   const msToTime = (duration: number) => {
+    //     const seconds = Math.floor((duration / 1000) % 60);
+    //     const minutes = Math.floor((duration / (1000 * 60)) % 60);
 
-        return `${minutes}:${seconds}`;
-      };
-      const formatTime = msToTime(Date.now() - currentGame.gameStartTime!);
+    //     return `${minutes}:${seconds}`;
+    //   };
+    //   const formatTime = msToTime(Date.now() - currentGame.gameStartTime!);
 
-      const blueChampions = await Promise.all(
-        currentGame.participants
-          .filter((p) => p.teamId === 100)
-          .map(async (participant) => {
-            const champion = getChampionByKey({
-              key: String(participant.championId),
-            })!;
-            const championEmote = championEmoji(champion.id);
+    //   const blueChampions = await Promise.all(
+    //     currentGame.participants
+    //       .filter((p) => p.teamId === 100)
+    //       .map(async (participant) => {
+    //         const champion = getChampionByKey({
+    //           key: String(participant.championId),
+    //         })!;
+    //         const championEmote = championEmoji(champion.id);
 
-            return `${championEmote} ${champion.name}`;
-          })
-      );
+    //         return `${championEmote} ${champion.name}`;
+    //       })
+    //   );
 
-      const blueParticipants = await Promise.all(
-        currentGame.participants
-          .filter((p) => p.teamId === 100)
-          .map(async (participant) => {
-            const sum = (await Summoner.fetchById(
-              participant.summonerId,
-              summoner.region
-            ))!;
+    //   const blueParticipants = await Promise.all(
+    //     currentGame.participants
+    //       .filter((p) => p.teamId === 100)
+    //       .map(async (participant) => {
+    //         const sum = (await Summoner.fetchById(
+    //           participant.summonerId,
+    //           summoner.region
+    //         ))!;
 
-            return `${sum.gameName}#${sum.tagLine}`;
-          })
-      );
+    //         return `${sum.gameName}#${sum.tagLine}`;
+    //       })
+    //   );
 
-      const blueRanks = await Promise.all(
-        currentGame.participants
-          .filter((p) => p.teamId === 100)
-          .map(async (participant) => {
-            const sum = (await Summoner.fetchById(
-              participant.summonerId,
-              summoner.region
-            ))!;
+    //   const blueRanks = await Promise.all(
+    //     currentGame.participants
+    //       .filter((p) => p.teamId === 100)
+    //       .map(async (participant) => {
+    //         const sum = (await Summoner.fetchById(
+    //           participant.summonerId,
+    //           summoner.region
+    //         ))!;
 
-            const sumLeague = await (
-              await sum.getLeague()
-            ).fetchSummonerLeague();
-            const soloQ = sumLeague?.filter(
-              (l) => l.queueType == 'RANKED_SOLO_5x5'
-            )[0]!;
-            const flex = sumLeague?.filter(
-              (l) => l.queueType == 'RANKED_FLEX_SR'
-            )[0]!;
+    //         const sumLeague = await (
+    //           await sum.getLeague()
+    //         ).fetchSummonerLeague();
+    //         const soloQ = sumLeague?.filter(
+    //           (l) => l.queueType == 'RANKED_SOLO_5x5'
+    //         )[0]!;
+    //         const flex = sumLeague?.filter(
+    //           (l) => l.queueType == 'RANKED_FLEX_SR'
+    //         )[0]!;
 
-            const selectedQueue = soloQ
-              ? soloQ
-              : flex || {
-                  tier: 'UNRANKED',
-                  rank: '',
-                  wins: 0,
-                  losses: 0,
-                };
+    //         const selectedQueue = soloQ
+    //           ? soloQ
+    //           : flex || {
+    //               tier: 'UNRANKED',
+    //               rank: '',
+    //               wins: 0,
+    //               losses: 0,
+    //             };
 
-            if (!selectedQueue) {
-              return '';
-            }
+    //         if (!selectedQueue) {
+    //           return '';
+    //         }
 
-            const tier = capitalizeString(selectedQueue.tier!.toLowerCase());
-            const tierEmote = getEmote(tier);
-            const winrate = calculateWinrate(
-              selectedQueue.wins,
-              selectedQueue.losses
-            );
+    //         const tier = capitalizeString(selectedQueue.tier!.toLowerCase());
+    //         const tierEmote = getEmote(tier);
+    //         const winrate = calculateWinrate(
+    //           selectedQueue.wins,
+    //           selectedQueue.losses
+    //         );
 
-            return `${tierEmote} ${tier}${
-              noShowRank.includes(selectedQueue.tier!)
-                ? ''
-                : ` ${selectedQueue.rank}`
-            } (**${selectedQueue.wins}W** / **${
-              selectedQueue.losses
-            }L**, ${winrate}% WR)`;
-          })
-      );
+    //         return `${tierEmote} ${tier}${
+    //           noShowRank.includes(selectedQueue.tier!)
+    //             ? ''
+    //             : ` ${selectedQueue.rank}`
+    //         } (**${selectedQueue.wins}W** / **${
+    //           selectedQueue.losses
+    //         }L**, ${winrate}% WR)`;
+    //       })
+    //   );
 
-      const blueBans =
-        currentGame.bannedChampions.length === 0
-          ? null
-          : currentGame.bannedChampions
-              .filter((b) => b.teamId === 100)
-              .map((b) => {
-                if (b.championId === -1) return getEmote('_1');
+    //   const blueBans =
+    //     currentGame.bannedChampions.length === 0
+    //       ? null
+    //       : currentGame.bannedChampions
+    //           .filter((b) => b.teamId === 100)
+    //           .map((b) => {
+    //             if (b.championId === -1) return getEmote('_1');
 
-                const champion = getChampionByKey({
-                  key: String(b.championId),
-                })!;
-                const championEmote = championEmoji(champion.id);
+    //             const champion = getChampionByKey({
+    //               key: String(b.championId),
+    //             })!;
+    //             const championEmote = championEmoji(champion.id);
 
-                return championEmote;
-              });
+    //             return championEmote;
+    //           });
 
-      const redChampions = await Promise.all(
-        currentGame.participants
-          .filter((p) => p.teamId === 200)
-          .map(async (participant) => {
-            const champion = getChampionByKey({
-              key: String(participant.championId),
-            })!;
-            const championEmote = championEmoji(champion.id);
+    //   const redChampions = await Promise.all(
+    //     currentGame.participants
+    //       .filter((p) => p.teamId === 200)
+    //       .map(async (participant) => {
+    //         const champion = getChampionByKey({
+    //           key: String(participant.championId),
+    //         })!;
+    //         const championEmote = championEmoji(champion.id);
 
-            return `${championEmote} ${champion.name}`;
-          })
-      );
+    //         return `${championEmote} ${champion.name}`;
+    //       })
+    //   );
 
-      const redParticipants = await Promise.all(
-        currentGame.participants
-          .filter((p) => p.teamId === 200)
-          .map(async (participant) => {
-            const sum = (await Summoner.fetchById(
-              participant.summonerId,
-              summoner.region
-            ))!;
+    //   const redParticipants = await Promise.all(
+    //     currentGame.participants
+    //       .filter((p) => p.teamId === 200)
+    //       .map(async (participant) => {
+    //         const sum = (await Summoner.fetchById(
+    //           participant.summonerId,
+    //           summoner.region
+    //         ))!;
 
-            return `${sum.gameName}#${sum.tagLine}`;
-          })
-      );
+    //         return `${sum.gameName}#${sum.tagLine}`;
+    //       })
+    //   );
 
-      const redRanks = await Promise.all(
-        currentGame.participants
-          .filter((p) => p.teamId === 200)
-          .map(async (participant) => {
-            const sum = (await Summoner.fetchById(
-              participant.summonerId,
-              summoner.region
-            ))!;
-            const sumLeague = await (
-              await sum.getLeague()
-            ).fetchSummonerLeague();
-            const soloQ = sumLeague?.filter(
-              (l) => l.queueType == 'RANKED_SOLO_5x5'
-            )[0]!;
-            const flex = sumLeague?.filter(
-              (l) => l.queueType == 'RANKED_FLEX_SR'
-            )[0]!;
+    //   const redRanks = await Promise.all(
+    //     currentGame.participants
+    //       .filter((p) => p.teamId === 200)
+    //       .map(async (participant) => {
+    //         const sum = (await Summoner.fetchById(
+    //           participant.summonerId,
+    //           summoner.region
+    //         ))!;
+    //         const sumLeague = await (
+    //           await sum.getLeague()
+    //         ).fetchSummonerLeague();
+    //         const soloQ = sumLeague?.filter(
+    //           (l) => l.queueType == 'RANKED_SOLO_5x5'
+    //         )[0]!;
+    //         const flex = sumLeague?.filter(
+    //           (l) => l.queueType == 'RANKED_FLEX_SR'
+    //         )[0]!;
 
-            const selectedQueue = soloQ
-              ? soloQ
-              : flex || {
-                  tier: 'UNRANKED',
-                  rank: '',
-                  wins: 0,
-                  losses: 0,
-                };
+    //         const selectedQueue = soloQ
+    //           ? soloQ
+    //           : flex || {
+    //               tier: 'UNRANKED',
+    //               rank: '',
+    //               wins: 0,
+    //               losses: 0,
+    //             };
 
-            if (!selectedQueue) {
-              return '';
-            }
+    //         if (!selectedQueue) {
+    //           return '';
+    //         }
 
-            const tier = capitalizeString(selectedQueue.tier!.toLowerCase());
-            const tierEmote = getEmote(tier);
-            const winrate = calculateWinrate(
-              selectedQueue.wins,
-              selectedQueue.losses
-            );
+    //         const tier = capitalizeString(selectedQueue.tier!.toLowerCase());
+    //         const tierEmote = getEmote(tier);
+    //         const winrate = calculateWinrate(
+    //           selectedQueue.wins,
+    //           selectedQueue.losses
+    //         );
 
-            return `${tierEmote} ${tier}${
-              noShowRank.includes(selectedQueue.tier!)
-                ? ''
-                : ` ${selectedQueue.rank}`
-            } (**${selectedQueue.wins}W** / **${
-              selectedQueue.losses
-            }L**, ${winrate}% WR)`;
-          })
-      );
+    //         return `${tierEmote} ${tier}${
+    //           noShowRank.includes(selectedQueue.tier!)
+    //             ? ''
+    //             : ` ${selectedQueue.rank}`
+    //         } (**${selectedQueue.wins}W** / **${
+    //           selectedQueue.losses
+    //         }L**, ${winrate}% WR)`;
+    //       })
+    //   );
 
-      const redBans =
-        currentGame.bannedChampions.length === 0
-          ? null
-          : currentGame.bannedChampions
-              .filter((b) => b.teamId === 200)
-              .map((b) => {
-                if (b.championId === -1) return getEmote('_1');
+    //   const redBans =
+    //     currentGame.bannedChampions.length === 0
+    //       ? null
+    //       : currentGame.bannedChampions
+    //           .filter((b) => b.teamId === 200)
+    //           .map((b) => {
+    //             if (b.championId === -1) return getEmote('_1');
 
-                const champion = getChampionByKey({
-                  key: String(b.championId),
-                })!;
-                const championEmote = championEmoji(champion.id);
+    //             const champion = getChampionByKey({
+    //               key: String(b.championId),
+    //             })!;
+    //             const championEmote = championEmoji(champion.id);
 
-                return championEmote;
-              });
+    //             return championEmote;
+    //           });
 
-      const embedCurrentGame = new Embed()
-        .setAuthor({
-          name: `${summoner.gameName}#${summoner.tagLine}`,
-          iconUrl: profileIconURL,
-        })
-        .setTitle(
-          `${map.mapName} - ${
-            queue.detailedDescription || queue.description || 'Unknown queue'
-          } (${formatTime})`
-        )
-        .setColor(EmbedColors.BLUE)
-        .addFields([
-          {
-            name: 'Blue Team',
-            value: blueChampions.join('\n'),
-            inline: true,
-          },
-          {
-            name: 'Summoner',
-            value: blueParticipants.join('\n'),
-            inline: true,
-          },
-          {
-            name: 'Rank',
-            value: blueRanks.join('\n'),
-            inline: true,
-          },
-          {
-            name: 'Bans',
-            value: blueBans ? blueBans.join(' ') : 'No bans found',
-            inline: false,
-          },
-          {
-            name: 'Red Team',
-            value: redChampions.join('\n'),
-            inline: true,
-          },
-          {
-            name: 'Summoner',
-            value: redParticipants.join('\n'),
-            inline: true,
-          },
-          {
-            name: 'Rank',
-            value: redRanks.join('\n'),
-            inline: true,
-          },
-          {
-            name: 'Bans',
-            value: redBans ? redBans.join(' ') : 'No bans found',
-            inline: false,
-          },
-        ]);
+    //   // const embedCurrentGame = new Embed()
+    //   //   .setAuthor({
+    //   //     name: `${summoner.gameName}#${summoner.tagLine}`,
+    //   //     iconUrl: profileIconURL,
+    //   //   })
+    //   //   .setTitle(
+    //   //     `${map.mapName} - ${
+    //   //       queue.detailedDescription || queue.description || 'Unknown queue'
+    //   //     } (${formatTime})`
+    //   //   )
+    //   //   .setColor(EmbedColors.BLUE)
+    //   //   .addFields([
+    //   //     {
+    //   //       name: 'Blue Team',
+    //   //       value: blueChampions.join('\n'),
+    //   //       inline: true,
+    //   //     },
+    //   //     {
+    //   //       name: 'Summoner',
+    //   //       value: blueParticipants.join('\n'),
+    //   //       inline: true,
+    //   //     },
+    //   //     {
+    //   //       name: 'Rank',
+    //   //       value: blueRanks.join('\n'),
+    //   //       inline: true,
+    //   //     },
+    //   //     {
+    //   //       name: 'Bans',
+    //   //       value: blueBans ? blueBans.join(' ') : 'No bans found',
+    //   //       inline: false,
+    //   //     },
+    //   //     {
+    //   //       name: 'Red Team',
+    //   //       value: redChampions.join('\n'),
+    //   //       inline: true,
+    //   //     },
+    //   //     {
+    //   //       name: 'Summoner',
+    //   //       value: redParticipants.join('\n'),
+    //   //       inline: true,
+    //   //     },
+    //   //     {
+    //   //       name: 'Rank',
+    //   //       value: redRanks.join('\n'),
+    //   //       inline: true,
+    //   //     },
+    //   //     {
+    //   //       name: 'Bans',
+    //   //       value: redBans ? redBans.join(' ') : 'No bans found',
+    //   //       inline: false,
+    //   //     },
+    //   //   ]);
 
-      row.addComponents([
-        new Button({
-          style: ButtonStyle.Primary,
-          custom_id: 'active_game',
-          emoji: {
-            name: championEmote.split(':')[0],
-            id: championEmote.split(':')[1],
-          },
-          label: `Playing as ${champion.name} (${
-            queue.description || queue.name || 'Unknown queue'
-          })`,
-        }).run((i, stop) => {
-          i.editOrReply({
-            embeds: [embedCurrentGame],
-            components: [],
-            flags: MessageFlags.Ephemeral,
-          });
-          stop('clicked');
-        }),
-      ]);
-    }
+    //   // row.addComponents([
+    //   //   new Button({
+    //   //     style: ButtonStyle.Primary,
+    //   //     custom_id: 'active_game',
+    //   //     emoji: {
+    //   //       name: championEmote.split(':')[0],
+    //   //       id: championEmote.split(':')[1],
+    //   //     },
+    //   //     label: `Playing as ${champion.name} (${
+    //   //       queue.description || queue.name || 'Unknown queue'
+    //   //     })`,
+    //   //   }),
+    //   // ]);
+    // }
 
     embed
       .setAuthor({
@@ -509,41 +498,41 @@ export default class ProfileCommand extends SubCommand {
         },
       ]);
 
-    const componentsListener = new ComponentsListener({
-      timeout: 60000,
-      filter: (interaction) => {
-        if (interaction.user.id !== ctx.author.id) {
-          interaction.write({
-            content: ctx.t.commands.errors
-              .noUserButton(interaction.user.tag)
-              .get(),
-            flags: MessageFlags.Ephemeral,
-          });
-          return false;
-        }
+    // const componentsListener = new ComponentsListener({
+    //   timeout: 60000,
+    //   filter: (interaction) => {
+    //     if (interaction.user.id !== ctx.author.id) {
+    //       interaction.write({
+    //         content: ctx.t.commands.errors
+    //           .noUserButton(interaction.user.tag)
+    //           .get(),
+    //         flags: MessageFlags.Ephemeral,
+    //       });
+    //       return false;
+    //     }
 
-        return true;
-      },
-      onStop: async (reason) => {
-        if (reason === 'timeout' || reason === 'clicked') {
-          await ctx.editOrReply({
-            components: [],
-          });
-        }
-      },
-    });
+    //     return true;
+    //   },
+    //   onStop: async (reason) => {
+    //     if (reason === 'timeout' || reason === 'clicked') {
+    //       await ctx.editOrReply({
+    //         components: [],
+    //       });
+    //     }
+    //   },
+    // });
 
     return ctx.editOrReply({
       embeds: [embed],
       files: bufferGraphic
         ? [
-            new Attachment()
+            new AttachmentBuilder()
               .setFile('buffer', bufferGraphic)
               .setName('mastery.png')
               .setDescription('Mastery graphic'),
           ]
         : undefined,
-      components: row.components.length ? componentsListener.addRows(row) : [],
+      // components: row.components.length ? componentsListener.addRows(row) : [],
     });
   }
 }

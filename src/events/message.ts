@@ -1,4 +1,4 @@
-import { createEvent } from "biscuitjs";
+import { createEvent } from "seyfert";
 import { devs } from "../middlewares/onlyDev";
 import { inspect } from "util";
 export default createEvent({
@@ -25,7 +25,7 @@ export default createEvent({
 			} catch (err) {
 				await message.reply({ content: `\`\`\`xl\n${err}\`\`\`` });
 			}
-			return;
+			return message.react("✅");
 		}
 	},
 });

@@ -1,15 +1,15 @@
-import { ApplicationCommandOptionType } from 'biscuitjs/lib/common';
+import { ApplicationCommandOptionType } from 'seyfert/src/types';
 import {
   OKFunction,
   StopFunction,
   createStringOption,
   createBooleanOption,
   createUserOption,
-} from 'biscuitjs';
+} from 'seyfert';
 import { Image } from 'imagescript';
 import { regionalURLs } from './functions';
 import champions from '../../json/champions.json';
-import { AutocompleteInteraction } from 'biscuitjs/lib/structures';
+import { AutocompleteInteraction } from 'seyfert/lib/structures';
 
 export enum TierOrder {
   CHALLENGER = 0,
@@ -117,7 +117,7 @@ export const searchOptions = {
     type: ApplicationCommandOptionType.String,
     value({ value }, ok: OKFunction<string>, fail: StopFunction) {
       if (!value!.includes('#'))
-        fail(Error('The RiotId must include the "#". (FabrizioCoder#6030)'));
+        fail('The RiotId must include the "#". (FabrizioCoder#6030)');
       ok(value!);
     },
   }),

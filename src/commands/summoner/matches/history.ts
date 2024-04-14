@@ -7,12 +7,12 @@ import {
   Options,
   SubCommand,
   createStringOption,
-} from 'biscuitjs';
+} from 'seyfert';
 import { ApplyCooldown, parseSummonerOptions } from '../../../utils/functions';
 import { makeMatchHistory } from '../../../utils/images/history';
 import { QueueChoices, searchOptions } from '../../../utils/constants';
 import { SummonersManager } from '../../../app/managers/summonersManager';
-import { Attachment } from 'biscuitjs/lib/builders';
+import { AttachmentBuilder } from 'seyfert/lib/builders';
 
 const opt = {
   queue: createStringOption({
@@ -89,7 +89,7 @@ export default class HistoryCommand extends SubCommand {
       content: `Match history for **${gameName}#${tagLine}** (${args.region.toUpperCase()})`,
 
       files: [
-        new Attachment()
+        new AttachmentBuilder()
           .setName('match_history.png')
           .setFile('buffer', buffer)
           .setDescription('Match history'),

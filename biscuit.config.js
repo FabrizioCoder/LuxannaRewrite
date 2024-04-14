@@ -1,5 +1,5 @@
 // @ts-check is better
-const { config } = require('biscuitjs');
+const { config } = require('seyfert');
 
 require('dotenv/config');
 

@@ -1,4 +1,4 @@
-import { CommandContext, Declare, SubCommand } from "biscuitjs";
+import { CommandContext, Declare, SubCommand } from "seyfert";
 import { userModel } from "../../app/models/user";
 import { ApplyCooldown } from "../../utils/functions";
 
