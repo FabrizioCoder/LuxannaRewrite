@@ -22,7 +22,26 @@ async function getRunes(url: string): Promise<ResultRunes | null> {
       second: [],
       perks: [],
       wr: '0%',
+      champion: {
+        wr: '0%',
+        pickRate: '0%',
+        banRate: '0%',
+      },
     };
+
+    const $ = load(text);
+    $('div.css-1bzqlwn.e1y855lo1').each((_, elem) => {
+      const rateLabel = $(elem).find('div.css-brbf14.e1y855lo2').text().trim();
+      const rateValue = $(elem).find('div.css-oxevym.e1y855lo3').text().trim();
+
+      if (rateLabel === 'Win rate') {
+        result.champion.wr = rateValue;
+      } else if (rateLabel === 'Pick rate') {
+        result.champion.pickRate = rateValue;
+      } else if (rateLabel === 'Ban rate') {
+        result.champion.banRate = rateValue;
+      }
+    });
 
     for (const i of runes[0]!.split('<div class="row">').slice(1)) {
       const rune =
@@ -93,7 +112,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
       .split('<caption>Items page pick rate, win rate</caption>')[1]!
       .split('<tbody>')[1]!;
     const coreItemsText = rawItemsText.split('<tr>')[1]!;
-    const coreItems = coreItemsText.split('<div class="divider"')[0];
+    const coreItems = coreItemsText.split('<div class=""')[0];
 
     // Scrape Core Items
     {
@@ -113,7 +132,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
     // Scrape Boots
     {
       const rawBootsText = text
-        .split('class="css-1q0r7l3 e12mb7fa0"')[2]!
+        .split('class="css-1q0r7l3 e1h3twa80"')[2]!
         .split('<tbody>')[1]!
         .split('<tr>')[1]!;
       const $ = load(rawBootsText!);
@@ -134,7 +153,7 @@ async function getItems(url: string): Promise<ResultItems | null> {
     // Scrape Starter Items
     {
       const rawStarterItemsText = text
-        .split('class="css-4twzwo e8p0atj0"')[3]!
+        .split('class="css-1q0r7l3 e1h3twa80"')[3]!
         .split('<tbody>')[1]!
         .split('<tr>')[1]!;
 
@@ -209,15 +228,15 @@ export async function getPatchNotes(): Promise<{
 } | null> {
   try {
     const url =
-      'https://www.leagueoflegends.com/en-us/news/game-updates/patch-14-7-notes/';
+      'https://www.leagueoflegends.com/en-us/news/game-updates/lol-patch-14-13-notes/';
     const response = await fetch(url);
     if (!response.ok) return null;
     const text = await response.text();
-    
+
     const title = load(text)('title').text();
     const $ = load(text);
     const patchNotesText = $('.white-stone.accent-before')
-      .slice(2)
+      .slice(0)
       .first()
       .text();
     const imageUrl = $('a.skins.cboxElement').attr('href')!;
@@ -253,6 +272,11 @@ export interface ResultRunes {
   second: string[];
   perks: string[];
   wr: string;
+  champion: {
+    wr: string;
+    pickRate: string;
+    banRate: string;
+  };
 }
 
 export interface ResultItems {

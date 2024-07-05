@@ -58,7 +58,7 @@ dependencies:
     version: 0.3.2
   seyfert:
     specifier: github:tiramisulabs/seyfert
-    version: github.com/tiramisulabs/seyfert/d31ec27bbbda4ad74b034867e70363e29e89a05c
+    version: github.com/tiramisulabs/seyfert/a6dae32aaffeaa1631a6dacaec1bd43bb64ccb25
   sharp:
     specifier: ^0.33.2
     version: 0.33.2
@@ -1125,8 +1125,8 @@ packages:
     engines: {node: '>=0.3.1'}
     dev: true
 
-  /discord-api-types@0.37.79:
-    resolution: {integrity: sha512-jblKMZL5f9t/pfUyhHNey8Lb9yVCcBVIPxz/JTY0raAmfj7CuFXdl9m5o/+iiB7E0vv1Kz9V7Ao5HtLRc2gH1Q==}
+  /discord-api-types@0.37.92:
+    resolution: {integrity: sha512-7xnedbQRLRef/O+4jKPyIFwl6YqoyihOG3OSneiRmVJMBk30ph2YuZGcHjeX1Kk/a3yQWeyCKe4RZJB3iECcxg==}
     dev: false
 
   /dom-serializer@2.0.0:
@@ -1496,6 +1496,25 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
+
+  /ioredis@5.4.1:
+    resolution: {integrity: sha512-2YZsvl7jopIa1gaePkeMtd9rAcSjOOjPtpcLlOeusyO+XH2SK5ZcT+UCrElPP+WVIInh2TzeI4XW9ENaSLVVHA==}
+    engines: {node: '>=12.22.0'}
+    requiresBuild: true
+    dependencies:
+      '@ioredis/commands': 1.2.0
+      cluster-key-slot: 1.1.2
+      debug: 4.3.4(supports-color@5.5.0)
+      denque: 2.1.0
+      lodash.defaults: 4.2.0
+      lodash.isarguments: 3.1.0
+      redis-errors: 1.2.0
+      redis-parser: 3.0.0
+      standard-as-callback: 2.1.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+    optional: true
 
   /is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
@@ -2561,8 +2580,8 @@ packages:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
     dev: false
 
-  /ws@8.16.0:
-    resolution: {integrity: sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==}
+  /ws@8.18.0:
+    resolution: {integrity: sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -2600,20 +2619,20 @@ packages:
     resolution: {integrity: sha512-N+d4UJSJbt/R3wqY7Coqs5pcV0aUj2j9IaQ3rNj9bVCLld8tTGKRa2USARjnvZJWVx1NDmQev8EknoczaOQDOA==}
     dev: false
 
-  github.com/tiramisulabs/seyfert/d31ec27bbbda4ad74b034867e70363e29e89a05c:
-    resolution: {tarball: https://codeload.github.com/tiramisulabs/seyfert/tar.gz/d31ec27bbbda4ad74b034867e70363e29e89a05c}
+  github.com/tiramisulabs/seyfert/a6dae32aaffeaa1631a6dacaec1bd43bb64ccb25:
+    resolution: {tarball: https://codeload.github.com/tiramisulabs/seyfert/tar.gz/a6dae32aaffeaa1631a6dacaec1bd43bb64ccb25}
     name: seyfert
-    version: 1.2.3
+    version: 1.5.0
     prepare: true
     requiresBuild: true
     dependencies:
       chokidar: 3.6.0
-      discord-api-types: 0.37.79
+      discord-api-types: 0.37.92
       magic-bytes.js: 1.10.0
       ts-mixer: 6.0.4
-      ws: 8.16.0
+      ws: 8.18.0
     optionalDependencies:
-      ioredis: 5.3.2
+      ioredis: 5.4.1
       tweetnacl: 1.0.3
       uWebSockets.js: github.com/uNetworking/uWebSockets.js/f40213ec0a97d0d8721d9d32d92d6eb6ddcd22e7
     transitivePeerDependencies:

@@ -67,10 +67,6 @@ declare module 'seyfert' {
     ratelimit: Ratelimit;
   }
 
-  interface BaseClient {
-    t(locale: string): ParseLocales<typeof defaultLang>;
-  }
-
   interface RegisteredMiddlewares
     extends ParseMiddlewares<typeof AllMiddlewares> {}
 }

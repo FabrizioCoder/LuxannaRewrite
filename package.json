@@ -41,8 +41,8 @@
     "openapi-fetch": "^0.8.2",
     "satori": "^0.10.13",
     "satori-html": "^0.3.2",
-    "sharp": "^0.33.2",
-    "seyfert": "github:tiramisulabs/seyfert"
+    "seyfert": "github:tiramisulabs/seyfert",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "openapi-typescript": "7.0.0-next.7",

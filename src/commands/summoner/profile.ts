@@ -118,16 +118,13 @@ export default class ProfileCommand extends SubCommand {
         champion: string;
         score: number;
       }[] = [];
-
       for (const mastery of highestMastery) {
         const champion = getChampionByKey({ key: String(mastery.championId) })!;
         const championEmote = championEmoji(champion.id);
         const formatTime = `<t:${Math.floor(mastery.lastPlayTime / 1000)}:R>`;
         highestMasteryValue.push(
           [
-            `${getEmote(`${mastery.championLevel}_`)} ${championEmote} **${
-              champion.name
-            }**`,
+            `${championEmote} **${champion.name}** (\`Level ${mastery.championLevel}\`)`,
             `└ ${mastery.championPoints.toLocaleString()} pts (${formatTime})`,
           ].join('\n')
         );

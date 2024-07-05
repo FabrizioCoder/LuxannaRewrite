@@ -78,7 +78,20 @@ export default class BuildCommand extends SubCommand {
       second: [],
       perks: [],
       wr: '0%',
+      champion: {
+        wr: '0%',
+        pickRate: '0%',
+        banRate: '0%',
+      },
     };
+
+    embedBuild.setDescription(
+      [
+        `**Win Rate:** ${build.runes?.champion.wr}`,
+        `**Pick Rate:** ${build.runes?.champion.pickRate}`,
+        `**Ban Rate:** ${build.runes?.champion.banRate}`,
+      ].join('. ')
+    );
 
     if (build.runes) {
       const { first, second, perks, wr } = build.runes;
