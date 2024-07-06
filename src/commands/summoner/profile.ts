@@ -54,7 +54,7 @@ export default class ProfileCommand extends SubCommand {
 
     if (!summoner) {
       return ctx.editOrReply({
-        content: 'Summoner not found.',
+        content: "⚠️ I haven't found the summoner. Check the RiotId or the region.",
       });
     }
     const profileIconURL = makeIconURL('14.13.1', summoner.profileIconId);
