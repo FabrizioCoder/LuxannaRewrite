@@ -1,7 +1,10 @@
 import { Redis } from 'ioredis';
 
 export class LuxannaStore {
-  private adapter = new Redis("rediss://default:AdKuAAIncDFlYzA3OGU2NDljN2U0YTg5YjA1YzAzNzhmNWI2NDlmNXAxNTM5MzQ@lasting-marten-53934.upstash.io:6379");
+  private adapter = new Redis({
+    host: '127.0.0.1',
+    port: 6379,
+  });
 
   private static instance: LuxannaStore;
 

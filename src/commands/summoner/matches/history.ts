@@ -83,7 +83,7 @@ export default class HistoryCommand extends SubCommand {
       matchesId.map((x) => summoner.match?.fetchById(x))
     );
 
-    const buffer = await makeMatchHistory(matches as any, summoner);
+    const buffer = await makeMatchHistory(matches as any, summoner, ctx);
 
     ctx.editOrReply({
       content: `Match history for **${gameName}#${tagLine}** (${args.region.toUpperCase()})`,

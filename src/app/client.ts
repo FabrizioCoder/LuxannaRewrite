@@ -16,7 +16,7 @@ export async function main() {
             type: ActivityType.Playing,
           },
         ],
-        status: PresenceUpdateStatus.Invisible,
+        status: PresenceUpdateStatus.DoNotDisturb,
         afk: false,
         since: Date.now(),
       };
@@ -36,6 +36,17 @@ export async function main() {
   await mongoose.connect(process.env.MONGO_URI!, {
     dbName: 'lux',
   });
+
+  async function data() {
+    return await fetch('https://ddragon.leagueoflegends.com/api/versions.json');
+  }
+
+  let versions = await data();
+  setInterval(async () => {
+    versions = await data();
+  }, 1000 * 60 * 60);
+
+  client.version = (await versions.json())[0] as string || '14.13.1';
 
   process.on('unhandledRejection', (reason, promise) => {
     client.logger.fatal('Unhandled Rejection at:', promise, 'reason:', reason);
@@ -60,6 +71,14 @@ export async function main() {
 declare module 'seyfert' {
   interface UsingClient extends ParseClient<Client<true>> {}
   interface DefaultLocale extends ParseLocales<typeof defaultLang> {}
+
+  interface Client {
+    /**
+     * The current version of the game
+     */
+    version: string;
+  }
+
   interface Command {
     ratelimit: Ratelimit;
   }

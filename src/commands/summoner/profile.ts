@@ -57,7 +57,7 @@ export default class ProfileCommand extends SubCommand {
         content: "⚠️ I haven't found the summoner. Check the RiotId or the region.",
       });
     }
-    const profileIconURL = makeIconURL('14.13.1', summoner.profileIconId);
+    const profileIconURL = makeIconURL(ctx.client.version, summoner.profileIconId);
 
     const basicInfoValue = [
       `\`Level:\` ${summoner.summonerLevel}`,

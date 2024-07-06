@@ -9,6 +9,7 @@ import * as SummonerSpells from '../../../json/summoners.json';
 import { SummonerMatches } from '../../app/structures/match';
 import { Summoner } from '../../app/structures/summoner';
 import sharp from 'sharp';
+import { CommandContext } from 'seyfert';
 
 const paths = {
   background: join(process.cwd(), 'assets', 'history', 'background.png'),
@@ -76,7 +77,7 @@ async function getPerk(perk: number, isSecondary = false, size = 50) {
     ?.toLowerCase()}`;
   if (isSecondary) {
   }
-  
+
   const x_1 = await fetch(url);
   const x_2 = await (x_1.arrayBuffer() as Promise<Buffer>);
   return await Image.decode(await sharp(x_2).resize(size, size).toBuffer());
@@ -135,7 +136,8 @@ async function makeKDA(
 async function makeLabel(
   match: NonNullable<Awaited<ReturnType<SummonerMatches['fetchById']>>>,
   summoner: Summoner,
-  boldFont: Buffer
+  boldFont: Buffer,
+  ctx: CommandContext
 ) {
   const canvas = new Image(600, 190);
   // canvas.fill((x, y) => Gradients.DarkBlue((x + y) / (canvas.width + canvas.height)));
@@ -144,7 +146,7 @@ async function makeLabel(
     (x) => x.puuid === summoner.puuid
   )!;
   const icon = (
-    await getIcon('14.13.1', participant.championId.toString(), 91)
+    await getIcon(ctx.client.version, participant.championId.toString(), 91)
   ).roundCorners(16);
 
   // console.log(match.info.gameMode)
@@ -185,7 +187,7 @@ async function makeLabel(
       {
         const spells = await Promise.all(
           [participant.summoner1Id, participant.summoner2Id].map((x) =>
-            getSpell('14.13.1', x.toString(), 40)
+            getSpell(ctx.client.version, x.toString(), 40)
           )
         );
 
@@ -222,7 +224,7 @@ async function makeLabel(
   }
 
   const ward = participant.item6
-    ? (await getItem('14.13.1', participant.item6)).roundCorners(6)
+    ? (await getItem(ctx.client.version, participant.item6)).roundCorners(6)
     : null;
   if (ward) canvas.composite(ward, 311, 10);
 
@@ -293,7 +295,8 @@ async function makeLabel(
 
 export async function makeMatchHistory(
   matches: NonNullable<Awaited<ReturnType<SummonerMatches['fetchById']>>>[],
-  summoner: Summoner
+  summoner: Summoner,
+  ctx: CommandContext
 ) {
   const canvas = await Image.decode(await readFile(paths.background));
   const boldFont = await readFile(
@@ -304,7 +307,10 @@ export async function makeMatchHistory(
   const participant = firstMatch.info.participants.find(
     (x) => x.puuid === summoner.puuid
   )!;
-  const icon = await getIcon('14.13.1', participant.championId.toString());
+  const icon = await getIcon(
+    ctx.client.version,
+    participant.championId.toString()
+  );
 
   const gameQueue =
     Queues[firstMatch.info.queueId as unknown as keyof typeof Queues];
@@ -374,7 +380,7 @@ export async function makeMatchHistory(
       {
         const spells = await Promise.all(
           [participant.summoner1Id, participant.summoner2Id].map((x) =>
-            getSpell('14.13.1', x.toString())
+            getSpell(ctx.client.version, x.toString())
           )
         );
 
@@ -417,7 +423,7 @@ export async function makeMatchHistory(
 
   for (let i = 0; i < build.length; i++) {
     const item = build[i]!;
-    const icon = await getItem('14.13.1', item);
+    const icon = await getItem(ctx.client.version, item);
 
     const x = i % 3;
     const y = Math.floor(i / 3);
@@ -426,7 +432,7 @@ export async function makeMatchHistory(
   }
 
   const ward = participant.item6
-    ? (await getItem('14.13.1', participant.item6)).roundCorners(6)
+    ? (await getItem(ctx.client.version, participant.item6)).roundCorners(6)
     : null;
   if (ward) canvas.composite(ward, 669, 42);
 
@@ -493,7 +499,7 @@ export async function makeMatchHistory(
 
   for (let i = 1; i < matches.length; i++) {
     canvas.composite(
-      await makeLabel(matches[i]!, summoner, boldFont),
+      await makeLabel(matches[i]!, summoner, boldFont, ctx),
       i - 1 > 1 ? canvas.width / 2 - 10 : 0,
       (i - 1) % 2 ? 285 : 165
     );

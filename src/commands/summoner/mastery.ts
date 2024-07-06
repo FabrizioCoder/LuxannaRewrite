@@ -43,7 +43,7 @@ export default class MasteryCommand extends SubCommand {
         content: "⚠️ I haven't found the summoner. Check the RiotId or the region.",
       });
     }
-    const profileIconURL = makeIconURL('14.13.1', summoner.profileIconId);
+    const profileIconURL = makeIconURL(ctx.client.version, summoner.profileIconId);
     const SummonerMastery = await summoner.getMastery();
     const championMasteryData = await SummonerMastery.fetchAll();
 
