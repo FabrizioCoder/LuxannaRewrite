@@ -43,7 +43,7 @@ export default class MasteryCommand extends SubCommand {
         content: 'Summoner not found.',
       });
     }
-    const profileIconURL = makeIconURL('14.7.1', summoner.profileIconId);
+    const profileIconURL = makeIconURL('14.13.1', summoner.profileIconId);
     const SummonerMastery = await summoner.getMastery();
     const championMasteryData = await SummonerMastery.fetchAll();
 

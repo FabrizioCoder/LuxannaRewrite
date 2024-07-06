@@ -92,7 +92,7 @@ export default class LinkCommand extends SubCommand {
 
     const img = await makeLinkedProfile(
       ctx.options['riot-id'],
-      makeIconURL('14.7.1', summoner.profileIconId!)
+      makeIconURL('14.13.1', summoner.profileIconId!)
     );
 
     return ctx.editOrReply({

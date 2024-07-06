@@ -142,7 +142,7 @@ async function makeLabel(
 		(x) => x.puuid === summoner.puuid,
 	)!;
 	const icon = (
-		await getIcon("14.7.1", participant.championId.toString(), 91)
+		await getIcon("14.13.1", participant.championId.toString(), 91)
 	).roundCorners(16);
 
 	// console.log(match.info.gameMode)
@@ -183,7 +183,7 @@ async function makeLabel(
 			{
 				const spells = await Promise.all(
 					[participant.summoner1Id, participant.summoner2Id].map((x) =>
-						getSpell("14.7.1", x.toString(), 40),
+						getSpell("14.13.1", x.toString(), 40),
 					),
 				);
 
@@ -220,7 +220,7 @@ async function makeLabel(
 	}
 
 	const ward = participant.item6
-		? (await getItem("14.7.1", participant.item6)).roundCorners(6)
+		? (await getItem("14.13.1", participant.item6)).roundCorners(6)
 		: null;
 	if (ward) canvas.composite(ward, 311, 10);
 
@@ -304,7 +304,7 @@ export async function makeMatchHistory(
 	const participant = firstMatch.info.participants.find(
 		(x) => x.puuid === summoner.puuid,
 	)!;
-	const icon = await getIcon("14.7.1", participant.championId.toString());
+	const icon = await getIcon("14.13.1", participant.championId.toString());
 
 	const gameQueue =
 		Queues[firstMatch.info.queueId as unknown as keyof typeof Queues];
@@ -374,7 +374,7 @@ export async function makeMatchHistory(
 			{
 				const spells = await Promise.all(
 					[participant.summoner1Id, participant.summoner2Id].map((x) =>
-						getSpell("14.7.1", x.toString()),
+						getSpell("14.13.1", x.toString()),
 					),
 				);
 
@@ -417,7 +417,7 @@ export async function makeMatchHistory(
 
 	for (let i = 0; i < build.length; i++) {
 		const item = build[i]!;
-		const icon = await getItem("14.7.1", item);
+		const icon = await getItem("14.13.1", item);
 
 		const x = i % 3;
 		const y = Math.floor(i / 3);
@@ -426,7 +426,7 @@ export async function makeMatchHistory(
 	}
 
 	const ward = participant.item6
-		? (await getItem("14.7.1", participant.item6)).roundCorners(6)
+		? (await getItem("14.13.1", participant.item6)).roundCorners(6)
 		: null;
 	if (ward) canvas.composite(ward, 669, 42);
 
