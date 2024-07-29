@@ -546,6 +546,66 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/lol/rso-match/v1/matches/ids": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of match ids by player access token - Includes custom matches
+         * @description Get a list of match ids by player access token - Includes custom matches
+         */
+        get: operations["lol-rso-match-v1.getMatchIds"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/lol/rso-match/v1/matches/{matchId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a match by match id
+         * @description Get a match by match id
+         */
+        get: operations["lol-rso-match-v1.getMatch"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/lol/rso-match/v1/matches/{matchId}/timeline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a match timeline by match id
+         * @description Get a match timeline by match id
+         */
+        get: operations["lol-rso-match-v1.getTimeline"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/lol/status/v4/platform-data": {
         parameters: {
             query?: never;
@@ -1506,6 +1566,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/val/console/ranked/v1/leaderboards/by-act/{actId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get leaderboard for the competitive queue
+         * @description Get leaderboard for the competitive queue
+         */
+        get: operations["val-console-ranked-v1.getLeaderboard"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/val/content/v1/contents": {
         parameters: {
             query?: never;
@@ -1720,6 +1800,8 @@ export interface components {
             bonus: boolean;
             /** @description Reward configuration. */
             rewardConfig?: components["schemas"]["champion-mastery-v4.RewardConfigDto"];
+            /** Format: int32 */
+            totalGamesRequires: number;
         };
         /**
          * RewardConfigDto
@@ -2008,6 +2090,16 @@ export interface components {
             /** Format: double */
             percentile?: number;
         };
+        /**
+         * MatchDto
+         * @description UNKNOWN TYPE.
+         */
+        "lol-rso-match-v1.MatchDto": Record<string, never>;
+        /**
+         * TimelineDto
+         * @description UNKNOWN TYPE.
+         */
+        "lol-rso-match-v1.TimelineDto": Record<string, never>;
         /** PlatformDataDto */
         "lol-status-v4.PlatformDataDto": {
             id: string;
@@ -2808,6 +2900,26 @@ export interface components {
             snowballsHit?: number;
             /** Format: int32 */
             soloBaronKills?: number;
+            /** Format: int32 */
+            SWARM_DefeatAatrox?: number;
+            /** Format: int32 */
+            SWARM_DefeatBriar?: number;
+            /** Format: int32 */
+            SWARM_DefeatMiniBosses?: number;
+            /** Format: int32 */
+            SWARM_EvolveWeapon?: number;
+            /** Format: int32 */
+            SWARM_Have3Passives?: number;
+            /** Format: int32 */
+            SWARM_KillEnemy?: number;
+            /** Format: int32 */
+            SWARM_PickupGold?: number;
+            /** Format: int32 */
+            SWARM_ReachLevel50?: number;
+            /** Format: int32 */
+            SWARM_Survive15Min?: number;
+            /** Format: int32 */
+            SWARM_WinWith5EvolvedWeapons?: number;
             /** Format: int32 */
             soloKills?: number;
             /** Format: int32 */
@@ -4558,6 +4670,34 @@ export interface components {
             currentTime: number;
             /** @description A list of recent match ids. */
             matchIds: string[];
+        };
+        /** LeaderboardDto */
+        "val-console-ranked-v1.LeaderboardDto": {
+            /** @description The shard for the given leaderboard. */
+            shard: string;
+            /** @description The act id for the given leaderboard. Act ids can be found using the val-content API. */
+            actId: string;
+            /**
+             * Format: int64
+             * @description The total number of players in the leaderboard.
+             */
+            totalPlayers: number;
+            players: components["schemas"]["val-console-ranked-v1.PlayerDto"][];
+        };
+        /** PlayerDto */
+        "val-console-ranked-v1.PlayerDto": {
+            /** @description This field may be omitted if the player has been anonymized. */
+            puuid: string;
+            /** @description This field may be omitted if the player has been anonymized. */
+            gameName: string;
+            /** @description This field may be omitted if the player has been anonymized. */
+            tagLine: string;
+            /** Format: int64 */
+            leaderboardRank: number;
+            /** Format: int64 */
+            rankedRating: number;
+            /** Format: int64 */
+            numberOfWins: number;
         };
         /** ContentDto */
         "val-content-v1.ContentDto": {
@@ -7553,6 +7693,314 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["lol-challenges-v1.PlayerInfoDto"];
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Data not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Method not allowed */
+            405: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unsupported media type */
+            415: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Rate limit exceeded */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Bad gateway */
+            502: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Service unavailable */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Gateway timeout */
+            504: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "lol-rso-match-v1.getMatchIds": {
+        parameters: {
+            query?: {
+                /** @description Defaults to 20. Valid values: 0 to 100. Number of match ids to return. */
+                count?: number;
+                /** @description Defaults to 0. Start index. */
+                start?: number;
+                /** @description Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters. */
+                type?: "ranked" | "normal" | "tourney" | "tutorial";
+                /** @description Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. */
+                queue?: number;
+                /** @description Epoch timestamp in seconds. */
+                endTime?: number;
+                /** @description Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set. */
+                startTime?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": string[];
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Data not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Method not allowed */
+            405: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unsupported media type */
+            415: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Rate limit exceeded */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Bad gateway */
+            502: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Service unavailable */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Gateway timeout */
+            504: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "lol-rso-match-v1.getMatch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                matchId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["lol-rso-match-v1.MatchDto"];
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Data not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Method not allowed */
+            405: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unsupported media type */
+            415: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Rate limit exceeded */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Bad gateway */
+            502: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Service unavailable */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Gateway timeout */
+            504: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "lol-rso-match-v1.getTimeline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                matchId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["lol-rso-match-v1.TimelineDto"];
                 };
             };
             /** @description Bad request */
@@ -12463,6 +12911,112 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["val-console-match-v1.RecentMatchesDto"];
+                };
+            };
+            /** @description Bad request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Data not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Method not allowed */
+            405: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unsupported media type */
+            415: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Rate limit exceeded */
+            429: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Internal server error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Bad gateway */
+            502: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Service unavailable */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Gateway timeout */
+            504: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    "val-console-ranked-v1.getLeaderboard": {
+        parameters: {
+            query: {
+                platformType: "playstation" | "xbox";
+                /** @description Defaults to 0. */
+                startIndex?: number;
+                /** @description Defaults to 200. Valid values: 1 to 200. */
+                size?: number;
+            };
+            header?: never;
+            path: {
+                /** @description Act ids can be found using the val-content API. */
+                actId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["val-console-ranked-v1.LeaderboardDto"];
                 };
             };
             /** @description Bad request */
