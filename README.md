@@ -10,7 +10,7 @@ Luxanna is your bot of choice to consult information about the best worst game i
 
 ## Built with
 
-- [Potocuit]()
+- [Seyfert](https://github.com/tiramisulabs/seyfert)
 - [Riot API](https://developer.riotgames.com/)
 
 ## Command's examples

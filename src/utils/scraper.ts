@@ -227,10 +227,26 @@ export async function getPatchNotes(): Promise<{
   text: string;
 } | null> {
   try {
-    const url =
-      'https://www.leagueoflegends.com/en-us/news/game-updates/lol-patch-14-13-notes/';
-    const response = await fetch(url);
+    const r = await fetch(
+      'https://ddragon.leagueoflegends.com/api/versions.json'
+    );
+    if (!r.ok) return null;
+    const versions = await r.json();
+    const latestVersion = versions[0].split('.').slice(0, 2).join('-');
+
+    let url = `https://www.leagueoflegends.com/en-us/news/game-updates/patch-${latestVersion}-notes/`;
+
+    let response: Response;
+
+    try {
+      response = await fetch(url);
+    } catch {
+      url = `https://www.leagueoflegends.com/en-us/news/game-updates/lol-patch-${latestVersion}-notes/`;
+    }
+    response = await fetch(url);
+
     if (!response.ok) return null;
+    
     const text = await response.text();
 
     const title = load(text)('title').text();

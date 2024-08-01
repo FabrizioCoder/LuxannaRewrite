@@ -31,6 +31,9 @@ export async function main() {
       default: 'en-US',
     },
     middlewares: AllMiddlewares,
+    cache: {
+      disabledCache: ['channels', 'members', 'roles', 'emojis', 'messages', 'users'],
+    }
   });
 
   await mongoose.connect(process.env.MONGO_URI!, {

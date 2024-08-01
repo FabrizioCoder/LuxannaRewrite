@@ -21,35 +21,6 @@ export class SummonerLeague {
     )) as League[] | null;
   }
 
-  // async getSoloQueue() {
-  //   const cached = await this.fetchFromCache();
-  //   if (cached) {
-  //     this.RANKED_SOLO_5x5 = cached.RANKED_SOLO_5x5;
-  //   }
-
-  //   if (!this.RANKED_SOLO_5x5) await this.fetchSummonerLeague();
-  //   return this.RANKED_SOLO_5x5!;
-  // }
-
-  // async getFlexQueue() {
-  //   const cached = await this.fetchFromCache();
-  //   if (cached) {
-  //     this.RANKED_FLEX_SR = cached.RANKED_FLEX_SR;
-  //   }
-
-  //   if (!this.RANKED_FLEX_SR) await this.fetchSummonerLeague();
-  //   return this.RANKED_FLEX_SR!;
-  // }
-
-  // async getTFTQueue() {
-  //   const cached = await this.fetchFromCache();
-  //   if (cached) {
-  //     this.RANKED_TFT = cached.RANKED_TFT;
-  //   }
-
-  //   if (!this.RANKED_TFT) await this.fetchSummonerLeague();
-  //   return this.RANKED_TFT;
-  // }
 
   async fetchSummonerLeague() {
     const cached = await this.fetchFromCache();
