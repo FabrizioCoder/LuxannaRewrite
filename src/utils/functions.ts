@@ -2,7 +2,7 @@ import { Client } from 'seyfert';
 import { URL } from 'url';
 import { userModel } from '../app/models/user';
 import { Ratelimit } from './constants';
-import { GuildEmoji, InteractionGuildMember, User } from 'biscuitjs/lib/structures';
+import { GuildEmoji, InteractionGuildMember, User } from 'seyfert/lib/structures';
 import allemotes from '../../json/emojis.json';
 import queues from '../../json/queues.json';
 import champions from '../../json/champions.json';
@@ -135,8 +135,8 @@ function getChampionById(
 
 function getQueueById(
   id: number | string
-): (typeof queues)[keyof typeof queues] | null {
-  return queues[id as keyof typeof queues] ?? null;
+) {
+  return queues.find((x) => x.id === id) ?? null;
 }
 
 function getSpellById(
