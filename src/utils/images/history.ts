@@ -2,23 +2,20 @@ import { readFile } from 'fs/promises';
 import { Image } from 'imagescript';
 import { join } from 'path';
 import { default as Augments } from '../../../json/augments.json';
-import * as Champions from '../../../json/champions.json';
 import { default as Perks } from '../../../json/perks.json';
-import * as Queues from '../../../json/queues.json';
 import * as SummonerSpells from '../../../json/summoners.json';
 import { SummonerMatches } from '../../app/structures/match';
 import { Summoner } from '../../app/structures/summoner';
 import sharp from 'sharp';
 import { CommandContext } from 'seyfert';
+import { getQueueById } from '../functions';
 
 const paths = {
   background: join(process.cwd(), 'assets', 'history', 'background.png'),
 } as const;
 
-async function getIcon(version: string, champion: string, size = 120) {
-  const url = `https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${
-    Object.values(Champions).find((x) => x.key === champion)?.id
-  }.png`;
+async function getIcon(_version: string, champion: string, size = 120) {
+  const url = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${champion}.png`;
   //   `https://prod.api.assets.riotgames.com/public/v1/asset/lol/${version}/CHAMPION/${
   //     Object.values(Champions).find((x) => x.key === champion)?.key
   //   }/ICON?width=${size}&height=${size}&auto=png`;
@@ -228,8 +225,7 @@ async function makeLabel(
     : null;
   if (ward) canvas.composite(ward, 311, 10);
 
-  const gameQueue =
-    Queues[match.info.queueId as unknown as keyof typeof Queues];
+  const gameQueue = getQueueById(match.info.queueId) || null;
   const gameMode = await Image.renderText(
     boldFont,
     20,
@@ -312,8 +308,7 @@ export async function makeMatchHistory(
     participant.championId.toString()
   );
 
-  const gameQueue =
-    Queues[firstMatch.info.queueId as unknown as keyof typeof Queues];
+  const gameQueue = getQueueById(firstMatch.info.queueId) || null;
   const gameMode = await Image.renderText(
     boldFont,
     26,
